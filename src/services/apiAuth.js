@@ -12,7 +12,7 @@ export async function login(data) {
   return response;
 }
 
-export async function action(data) {
+export async function signUp(data) {
   const response = await fetch("http://localhost:4000/user/signup", {
     method: "POST",
     headers: {

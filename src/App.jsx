@@ -3,10 +3,12 @@ import LoginForm from "./features/authentication/LoginForm";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
+import SignUpForm from "./features/authentication/SignupForm";
 
 const router = createBrowserRouter([
   { path: "/" },
   { path: "/login", element: <LoginForm /> },
+  { path: "/signup", element: <SignUpForm /> },
 ]);
 
 const queryClient = new QueryClient({
@@ -38,7 +40,7 @@ function App() {
               fontSize: "16px",
               maxWidth: "500px",
               padding: "16px 24px",
-              backgroundColor: "var(--color-grey-0)",
+              backgroundColor: "white",
               color: "var(--color-grey-700)",
             },
           }}

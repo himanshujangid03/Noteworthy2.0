@@ -3,7 +3,7 @@ import GoogleAuth from "./google auth/GoogleAuth";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { login } from "../../services/apiAuth";
+import { signUp } from "../../services/apiAuth";
 import toast from "react-hot-toast";
 import Loader from "../../ui/Loader";
 
@@ -16,27 +16,34 @@ const StyledForm = styled.form`
   align-items: center;
 `;
 
-function LoginForm() {
+function SignUpForm() {
   const { register, handleSubmit, reset } = useForm();
 
   const { isLoading: isSubmitting, mutate } = useMutation({
-    mutationFn: login,
+    mutationFn: signUp,
     onSuccess: () => {
-      toast.success("Login succesfully.");
+      toast.success("Account created succesfully.");
       reset();
     },
-    onError: () => toast.error("Login failed."),
+    onError: () => toast.error("Signup failed."),
   });
 
   const onSubmit = (data) => {
     mutate(data);
-    console.log(data);
   };
   const onError = () => {};
   return (
     <div className="flex flex-col items-center">
       <GoogleAuth />
       <StyledForm onSubmit={handleSubmit(onSubmit, onError)}>
+        <div>
+          <input
+            type="name"
+            placeholder="Enter your name"
+            className="input input-bordered w-[20rem]"
+            {...register("name")}
+          />
+        </div>
         <div>
           <input
             type="email"
@@ -54,16 +61,19 @@ function LoginForm() {
           />
         </div>
         <button className="btn btn-primary w-full">
-          {isSubmitting ? <Loader /> : "Sign In"}
+          {isSubmitting ? <Loader /> : "Create my account"}
         </button>
       </StyledForm>
       <div className=" mt-2">
         <p>
-          Dont have an account. <Link to={'/signup'} className="link link-info">Sign Up</Link>
+          Already have an account.{" "}
+          <Link to={"/login"} className="link link-info">
+            Sign In
+          </Link>
         </p>
       </div>
     </div>
   );
 }
 
-export default LoginForm;
+export default SignUpForm;
