@@ -12,26 +12,16 @@ export async function login(data) {
   return response;
 }
 
-export async function action({ request, params }) {
-  const data = await request.formData();
-
-  const userData = {
-    name: data.get("name"),
-    email: data.get("email"),
-    password: data.get("password"),
-  };
-  const response = await fetch(signupApi, {
+export async function action(data) {
+  const response = await fetch("http://localhost:4000/user/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(userData),
+    body: JSON.stringify(data),
   });
-  console.log(response);
 
-  if (!response.ok) {
-    return response;
-  }
+  if (response.ok === false) throw new Error("failed");
 
-  return redirect("/login");
+  return response;
 }
