@@ -4,9 +4,31 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import SignUpForm from "./features/authentication/SignupForm";
+import AppLayout from "./ui/AppLayout";
+import Home from "./pages/Home";
+import Folder from "./pages/Folder";
+import Settings from "./pages/Settings";
+import User from "./pages/User";
+import Notes from "./features/Folder/Notes";
+import Activity from "./pages/Activity";
 
 const router = createBrowserRouter([
-  { path: "/" },
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: "folder",
+        element: <Folder />,
+        children: [{ path: "notes", element: <Notes /> }],
+      },
+      /* { path: "folder/notes", element: <User /> }, */
+      { path: "user", element: <User /> },
+      { path: "activity", element: <Activity /> },
+      { path: "settings", element: <Settings /> },
+    ],
+  },
   { path: "/login", element: <LoginForm /> },
   { path: "/signup", element: <SignUpForm /> },
 ]);

@@ -34,7 +34,8 @@ function LoginForm() {
   };
   const onError = () => {};
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center m-20">
+      <h1 className=" text-4xl mb-4 font-semibold">Log in to your account</h1>
       <GoogleAuth />
       <StyledForm onSubmit={handleSubmit(onSubmit, onError)}>
         <div>
@@ -59,7 +60,10 @@ function LoginForm() {
       </StyledForm>
       <div className=" mt-2">
         <p>
-          Dont have an account. <Link to={'/signup'} className="link link-info">Sign Up</Link>
+          Dont have an account.{" "}
+          <Link to={"/signup"} className="link link-info">
+            Sign Up
+          </Link>
         </p>
       </div>
     </div>
