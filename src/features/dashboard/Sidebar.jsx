@@ -14,30 +14,27 @@ const StyledSidebar = styled.div`
 
 function Sidebar() {
   return (
-    <StyledSidebar className=" bg-base-200 w-60 ">
-      <Logo />
-      <ul className="menu  rounded-none mt-10">
-        <ListItem to={""}>
-          <BiHomeSmile className=" h-6 w-6 " />
-          <p className=" text-md font-semibold">Dashboard</p>
-        </ListItem>
-        <ListItem to={"/folder"}>
-          <MdOutlineEventNote className=" h-6 w-6 " />
-          <p className=" text-md font-semibold">File Manager</p>
-        </ListItem>
-        <ListItem to={"/activity"}>
-          <FiActivity className=" h-6 w-6 " />
-          <p className=" text-md font-semibold">Activity</p>
-        </ListItem>
-        <ListItem to={"/user"}>
-          <MdManageAccounts className=" h-6 w-6 " />
-          <p className=" text-md font-semibold">User account</p>
-        </ListItem>
-        <ListItem to={"/settings"}>
-          <LuSettings className=" h-6 w-6 " />
-          <p className=" text-md font-semibold">Settings</p>
-        </ListItem>
-      </ul>
+    <StyledSidebar className=" bg-indigo-100 m-4 rounded-2xl ">
+      <div>
+        <Logo />
+        <ul className="menu h-[80%] rounded-none mt-10">
+          <ListItem to={""} dataTip="Dashboard">
+            <BiHomeSmile className=" h-6 w-6 " />
+          </ListItem>
+          <ListItem to={"/folder"} dataTip="File Manager">
+            <MdOutlineEventNote className=" h-6 w-6 " />
+          </ListItem>
+          <ListItem to={"/activity"} dataTip="Activity">
+            <FiActivity className=" h-6 w-6 " />
+          </ListItem>
+          <ListItem to={"/user"} dataTip="Account settings">
+            <MdManageAccounts className=" h-6 w-6 " />
+          </ListItem>
+          <ListItem to={"/settings"} dataTip="Settings">
+            <LuSettings className=" h-6 w-6 " />
+          </ListItem>
+        </ul>
+      </div>
     </StyledSidebar>
   );
 }

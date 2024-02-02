@@ -6,5 +6,20 @@ export default {
   theme: {
     extend: {},
   },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#332FD0",
+          secondary: "#000D6B",
+          accent: "#37cdbe",
+          neutral: "black",
+          "base-100": "#ffffff",
+        },
+      },
+      "dark",
+      "cupcake",
+    ],
+  },
   plugins: [daisyui],
 };

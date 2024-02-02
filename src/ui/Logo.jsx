@@ -1,8 +1,8 @@
 function Logo() {
   return (
     <div className="  h-20 flex items-center justify-center">
-      <div className=" bg-zinc-900 p-2 rounded-lg text-white text-lg font-medium">
-        NOTEWORTHY
+      <div className=" bg-black border-2 border-gray-600 px-3 py-1 rounded-lg text-white text-4xl font-black">
+        N
       </div>
     </div>
   );

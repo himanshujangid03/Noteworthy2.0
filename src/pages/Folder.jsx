@@ -14,7 +14,9 @@ function Folder() {
   return (
     <>
       <div>
-        {!isLoadingError && <h1 className=" text-5xl mb-4">My Folder</h1>}
+        {!isLoadingError && (
+          <h1 className=" text-5xl font-semibold mb-4">My Folder</h1>
+        )}
         <div className=" grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-flow-col lg:grid-cols-4">
           {isLoading && <FolderSkeleton />}
           {data?.map((item) => (
@@ -23,7 +25,7 @@ function Folder() {
         </div>
         {isLoadingError && <FailedToFetch />}
       </div>
-      <CreateNewFolder />
+      {!isLoadingError && <CreateNewFolder />}
     </>
   );
 }

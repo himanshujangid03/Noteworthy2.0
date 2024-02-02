@@ -1,7 +1,7 @@
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function FolderDropdown() {
+function FolderDropdown({ item }) {
   return (
     <>
       <details className="dropdown">
@@ -10,7 +10,7 @@ function FolderDropdown() {
         </summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-36 text-md">
           <li>
-            <Link to={"/folder/notes"}>View</Link>
+            <Link to={`/folder/${item._id}`}>View</Link>
           </li>
           <li>
             <a>Edit</a>

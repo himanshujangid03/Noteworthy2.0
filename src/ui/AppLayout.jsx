@@ -20,7 +20,7 @@ function AppLayout() {
     <StyledAppLayout>
       <Header />
       <Sidebar />
-      <StyledMain>
+      <StyledMain className=" bg-gray-100 m-4 ml-2 rounded-2xl">
         <Outlet />
       </StyledMain>
     </StyledAppLayout>

@@ -9,8 +9,9 @@ import Home from "./pages/Home";
 import Folder from "./pages/Folder";
 import Settings from "./pages/Settings";
 import User from "./pages/User";
-import Notes from "./features/Folder/Notes";
 import Activity from "./pages/Activity";
+import LogoutModal from "./ui/LogoutModal";
+import Notes from "./features/Folder/Notes";
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,8 @@ const router = createBrowserRouter([
       {
         path: "folder",
         element: <Folder />,
-        children: [{ path: "notes", element: <Notes /> }],
       },
-      /* { path: "folder/notes", element: <User /> }, */
+      { path: "folder/:folderId", element: <Notes /> },
       { path: "user", element: <User /> },
       { path: "activity", element: <Activity /> },
       { path: "settings", element: <Settings /> },
@@ -68,6 +68,7 @@ function App() {
           }}
         />
       </QueryClientProvider>
+      <LogoutModal />
     </>
   );
 }
