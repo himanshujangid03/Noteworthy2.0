@@ -1,8 +1,9 @@
 function Note({ note }) {
   return (
     <>
-      <div>
-        <h2>{note.title}</h2>;
+      <div className=" card bg-white m-2 p-4">
+        <li className=" card-title">{note.title}</li>
+        <li className=" card-body">{note.content}</li>
       </div>
     </>
   );

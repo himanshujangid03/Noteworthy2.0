@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import getFolder from "../services/apiFolder";
+import { getFolder } from "../services/apiFolder";
 import FolderItem from "../features/Folder/FolderItem";
 import FolderSkeleton from "../ui/FolderSkeleton";
 import FailedToFetch from "../ui/FailedToFetch";

@@ -25,3 +25,19 @@ export async function signUp(data) {
 
   return response;
 }
+
+export async function isLoggedIn() {
+  const response = await fetch("http://localhost:4000/user/profile", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+  const resData = await response.json();
+
+  if (response.ok === false)
+    throw new Error("You are not Logged In! Please login to get access");
+
+  return resData;
+}

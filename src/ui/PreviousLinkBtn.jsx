@@ -1,5 +1,13 @@
+import { useNavigate } from "react-router";
+
 function PreviousLinkBtn() {
-  return <div></div>;
+  const navigate = useNavigate();
+
+  return (
+    <button className="btn" onClick={() => navigate("..")}>
+      back
+    </button>
+  );
 }
 
 export default PreviousLinkBtn;

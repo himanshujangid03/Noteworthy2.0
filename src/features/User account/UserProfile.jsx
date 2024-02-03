@@ -2,10 +2,17 @@ import { Link } from "react-router-dom";
 import { HiOutlineLogout } from "react-icons/hi";
 import { FiEye } from "react-icons/fi";
 import NewDate from "../../ui/NewDate";
+import { isLoggedIn } from "../../services/apiAuth";
+import { useQuery } from "@tanstack/react-query";
 
 function UserProfile() {
+  const { data } = useQuery({
+    queryKey: ["isloggedIn"],
+    queryFn: isLoggedIn,
+  });
+
   return (
-    <div className=" w-[30rem] flex flex-row justify-evenly">
+    <div className=" invisible lg:visible w-[30rem] flex flex-row justify-evenly">
       <div>
         <div className="avatar placeholder ">
           <div className="bg-neutral text-neutral-content rounded-full w-[3rem] m-1">
@@ -14,7 +21,7 @@ function UserProfile() {
         </div>
         <div className=" self-center ml-2 text-lg font-bold dropdown dropdown-hover">
           <div tabIndex={0} role="button" className=" m-1">
-            User name
+            {data?.name}
           </div>
           <ul
             tabIndex={0}
@@ -23,7 +30,7 @@ function UserProfile() {
             <li className="">
               <div className=" flex !text-black flex-col !bg-slate-200 mb-1 ">
                 <p className=" self-start ">Signed In as</p>
-                <p className=" text-gray-500 ">himanshujangid@gmail.com</p>
+                <p className=" text-gray-500 ">{data?.email}</p>
               </div>
             </li>
             <li>

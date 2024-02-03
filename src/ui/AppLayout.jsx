@@ -2,6 +2,9 @@ import { Outlet } from "react-router";
 import Header from "../features/dashboard/Header";
 import styled from "styled-components";
 import Sidebar from "../features/dashboard/Sidebar";
+import { useQuery } from "@tanstack/react-query";
+import { isLoggedIn } from "../services/apiAuth";
+import WelcomePage from "./WelcomePage";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -16,6 +19,13 @@ const StyledMain = styled.main`
 `;
 
 function AppLayout() {
+  const { data } = useQuery({
+    queryKey: ["isloggedIn"],
+    queryFn: isLoggedIn,
+  });
+
+  if (!data) return <WelcomePage />;
+
   return (
     <StyledAppLayout>
       <Header />
