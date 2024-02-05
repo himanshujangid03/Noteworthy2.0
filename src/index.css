@@ -10,7 +10,7 @@
 }
 
 .btn {
-  @apply text-base;
+  @apply text-base rounded-lg;
 }
 
 /* very imp active elements of menu class  */

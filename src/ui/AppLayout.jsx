@@ -2,9 +2,8 @@ import { Outlet } from "react-router";
 import Header from "../features/dashboard/Header";
 import styled from "styled-components";
 import Sidebar from "../features/dashboard/Sidebar";
-import { useQuery } from "@tanstack/react-query";
-import { isLoggedIn } from "../services/apiAuth";
-import WelcomePage from "./WelcomePage";
+import WelcomePage from "../features/authentication/WelcomePage";
+import { useIsLoggedIn } from "../hooks/useIsLoggedIn";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -19,18 +18,15 @@ const StyledMain = styled.main`
 `;
 
 function AppLayout() {
-  const { data } = useQuery({
-    queryKey: ["isloggedIn"],
-    queryFn: isLoggedIn,
-  });
+  const { data, isLoading } = useIsLoggedIn();
 
-  if (!data) return <WelcomePage />;
+  if (!data || isLoading) return <WelcomePage />;
 
   return (
     <StyledAppLayout>
       <Header />
       <Sidebar />
-      <StyledMain className=" bg-gray-100 m-4 ml-2 rounded-2xl">
+      <StyledMain className=" bg-gray-100">
         <Outlet />
       </StyledMain>
     </StyledAppLayout>

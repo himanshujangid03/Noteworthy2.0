@@ -9,7 +9,7 @@ function ListItem({ to, children, datatip }) {
       <NavLink
         to={to}
         className={
-          " hover:bg-indigo-300 hover:text-gray-800 active:!bg-indigo-950  "
+          " hover:bg-indigo-300 hover:text-gray-800 active:!bg-indigo-950 rounded-xl  "
         }
       >
         {children}

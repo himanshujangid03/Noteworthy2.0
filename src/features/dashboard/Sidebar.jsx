@@ -15,7 +15,7 @@ const StyledSidebar = styled.div`
 
 function Sidebar() {
   return (
-    <StyledSidebar className=" bg-indigo-100 m-4 rounded-2xl ">
+    <StyledSidebar className=" bg-indigo-100 m-0 ">
       <div>
         <Logo />
         <ul className="menu h-[80%] rounded-none mt-10">

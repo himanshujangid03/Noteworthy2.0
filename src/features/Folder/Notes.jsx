@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getNotesFromFolderById } from "../../services/apiFolder";
-import Note from "./Note";
+import NoteList from "./NoteList";
 
 function Notes() {
   const { folderId } = useParams();
@@ -13,7 +13,7 @@ function Notes() {
   return (
     <div className="grid grid-flow-col grid-cols-4">
       {notes?.map((note) => (
-        <Note key={note._id} note={note} />
+        <NoteList key={note._id} item={note} />
       ))}
     </div>
   );

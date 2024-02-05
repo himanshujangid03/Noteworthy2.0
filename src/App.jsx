@@ -10,7 +10,6 @@ import Folder from "./pages/Folder";
 import Settings from "./pages/Settings";
 import User from "./pages/User";
 import Activity from "./pages/Activity";
-import LogoutModal from "./ui/LogoutModal";
 import Notes from "./features/Folder/Notes";
 
 const router = createBrowserRouter([
@@ -68,7 +67,6 @@ function App() {
           }}
         />
       </QueryClientProvider>
-      <LogoutModal />
     </>
   );
 }

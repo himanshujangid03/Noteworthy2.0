@@ -41,3 +41,17 @@ export async function isLoggedIn() {
 
   return resData;
 }
+
+export async function logout() {
+  const response = await fetch("http://localhost:4000/user/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  if (!response.ok) return new Error("Log out failed. Something went wrong!");
+
+  return response;
+}

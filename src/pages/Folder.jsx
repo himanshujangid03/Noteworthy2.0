@@ -1,15 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import { getFolder } from "../services/apiFolder";
 import FolderItem from "../features/Folder/FolderItem";
 import FolderSkeleton from "../ui/FolderSkeleton";
 import FailedToFetch from "../ui/FailedToFetch";
 import CreateNewFolder from "../ui/CreateNewFolder";
+import { useGetFolder } from "../hooks/useGetFolder";
 
 function Folder() {
-  const { data, isLoading, isLoadingError } = useQuery({
-    queryKey: ["folders"],
-    queryFn: getFolder,
-  });
+  const { data, isLoading, isLoadingError } = useGetFolder();
 
   return (
     <>
