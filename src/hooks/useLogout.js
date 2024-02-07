@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 export function useLogout() {
   const navigate = useNavigate();
-  const { isLoading: isLoggingOut, mutateLogout } = useMutation({
+  const { isPending: isLoggingOut, mutate: mutateLogout } = useMutation({
     mutationFn: logout,
     onSuccess: () => {
       toast.success("You are successfully logged out.");

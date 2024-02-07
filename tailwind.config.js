@@ -10,11 +10,11 @@ export default {
     themes: [
       {
         mytheme: {
-          primary: "#332FD0",
-          secondary: "#000D6B",
-          accent: "#37cdbe",
+          primary: "#583eee",
+          secondary: "#f6f5f9",
+          accent: "#ffffff",
           neutral: "black",
-          "base-100": "#ffffff",
+          "base-100": "#f6f6f6",
         },
       },
       "dark",

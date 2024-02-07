@@ -9,7 +9,7 @@ const StyledHeader = styled.div`
 
 function Header() {
   return (
-    <StyledHeader className=" bg-gray-50 rounded-b-2xl grid grid-flow-col place-content-center grid-cols-2 h-[5rem]">
+    <StyledHeader className=" rounded-b-2xl grid grid-flow-col place-content-center grid-cols-2 h-[5rem]">
       <SearchInput />
       <UserProfile />
     </StyledHeader>

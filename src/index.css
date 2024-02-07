@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: "Nunito", sans-serif;
-    font-weight: 500;
+    font-family: "Urbanist", sans-serif;
+    transition: all;
   }
 }
 
@@ -15,5 +17,9 @@
 
 /* very imp active elements of menu class  */
 .active {
-  @apply !bg-indigo-950 !text-indigo-50;
+  @apply !bg-primary !text-indigo-100 shadow-lg  transition-all shadow-indigo-300;
+}
+
+.btn-disabled {
+  @apply hover:cursor-not-allowed;
 }

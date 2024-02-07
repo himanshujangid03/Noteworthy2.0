@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 export function useSignup() {
   const { reset } = useForm();
-  const { isLoading: isSubmitting, mutate: mutateSignup } = useMutation({
+  const { isPending: isSubmitting, mutate: mutateSignup } = useMutation({
     mutationFn: signUp,
     onSuccess: () => {
       toast.success("Account created succesfully.");

@@ -1,10 +1,18 @@
 import { IoAdd } from "react-icons/io5";
+import CreateFolderModal from "../features/Folder/CreateFolderModal";
 
 function CreateNewFolder() {
   return (
-    <button className="btn btn-outline btn-primary border-dashed h-20 w-20 mx-2 mt-10 text-sm">
-      <IoAdd className=" h-10 w-10" />
-    </button>
+    <>
+      <label
+        htmlFor="create_folder_modal"
+        className="btn btn-outline btn-primary border-dashed mr-10 text-sm shadow-2xl hover:shadow-indigo-400"
+      >
+        <IoAdd className=" h-6 w-6" />
+        Add new Folder
+      </label>
+      <CreateFolderModal />
+    </>
   );
 }
 

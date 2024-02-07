@@ -45,7 +45,10 @@ function LoginForm() {
                 {...register("password")}
               />
             </div>
-            <button className="btn btn-primary w-[25rem] mt-2">
+            <button
+              className="btn btn-primary w-[25rem] mt-2"
+              disabled={isSubmitting}
+            >
               {isSubmitting ? <Loader /> : "Sign In"}
             </button>
           </form>

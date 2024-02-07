@@ -13,22 +13,16 @@ export async function getFolder() {
   return resData;
 }
 
-export async function getNotesFromFolderById(folderId) {
-  console.log(folderId);
-  const response = await fetch(
-    `http://localhost:4000/note/getnotes-folder/${folderId}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    }
-  );
-
-  const resData = await response.json();
-  console.log(resData);
+export async function createFolder(data) {
+  const response = await fetch("http://localhost:4000/note/create-folder", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+    credentials: "include",
+  });
 
   if (response.ok === false) throw new Error("Data not loaded");
-  return resData;
+  return response;
 }

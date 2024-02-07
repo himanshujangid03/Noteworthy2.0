@@ -1,4 +1,4 @@
-import { MdOutlineDateRange } from "react-icons/md";
+import { CiCalendarDate } from "react-icons/ci";
 
 const currentDate = new Date();
 const options = { day: "2-digit", month: "short", year: "numeric" };
@@ -9,7 +9,7 @@ const formattedDate = dateFormatter.format(currentDate);
 function NewDate() {
   return (
     <div className="badge font-sans self-center p-4 bg-white">
-      <MdOutlineDateRange className=" h-4 w-4 mr-2" />
+      <CiCalendarDate className=" h-5 w-5 mr-2" />
       {formattedDate}
     </div>
   );

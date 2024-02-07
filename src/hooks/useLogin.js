@@ -8,7 +8,7 @@ export function useLogin() {
   const { reset } = useForm();
   const navigate = useNavigate();
 
-  const { isLoading: isSubmitting, mutate: mutateLogin } = useMutation({
+  const { isPending: isSubmitting, mutate: mutateLogin } = useMutation({
     mutationFn: login,
     onSuccess: () => {
       toast.success("Login succesfully.");

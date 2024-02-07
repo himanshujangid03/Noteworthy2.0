@@ -1,10 +1,11 @@
 import { useLogout } from "../hooks/useLogout";
+import Loader from "./Loader";
 
 function LogoutModal() {
-  const { isLoading: isLoggingOut, mutate } = useLogout();
+  const { isLoading: isLoggingOut, mutateLogout } = useLogout();
 
   const onSubmit = () => {
-    mutate();
+    mutateLogout();
   };
 
   return (
@@ -12,8 +13,9 @@ function LogoutModal() {
       <input type="checkbox" id="my_modal_6" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
-          <p className="py-4">Are you sure you want to log out!</p>
+          <p className=" text-2xl font-semibold pb-8">
+            Are you sure you want to log out!
+          </p>
           <div className="modal-action">
             <label htmlFor="my_modal_6" className="btn btn-ghost">
               Close
@@ -23,7 +25,7 @@ function LogoutModal() {
               onClick={onSubmit}
               disabled={isLoggingOut}
             >
-              Sign out
+              {isLoggingOut && <Loader />} Sign out
             </button>
           </div>
         </div>

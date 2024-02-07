@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { HiOutlineLogout } from "react-icons/hi";
 import { FiEye } from "react-icons/fi";
 import NewDate from "../../ui/NewDate";
-import LogoutModal from "../../ui/LogoutModal";
 import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
+import { IoIosArrowDown } from "react-icons/io";
+import LogoutModal from "../../ui/LogOutModal";
+import Avatar from "../../ui/Avatar";
 
 function UserProfile() {
   const { data } = useIsLoggedIn();
@@ -11,19 +13,18 @@ function UserProfile() {
   return (
     <>
       <div className=" invisible lg:visible w-[30rem] flex flex-row justify-evenly">
-        <div>
-          <div className="avatar placeholder ">
-            <div className="bg-neutral text-neutral-content rounded-full w-[3rem] m-1">
-              <span className="text-2xl">D</span>
-            </div>
+        <div className=" flex">
+          <div className=" flex mr-1">
+            <Avatar position={"header"} />
           </div>
-          <div className=" self-center ml-2 text-lg font-bold dropdown dropdown-hover">
-            <div tabIndex={0} role="button" className=" m-1">
+          <div className=" self-center ml-2 text-lg bg-accent p-2 rounded-xl font-medium text-black dropdown dropdown-hover">
+            <div tabIndex={0} role="button" className=" m-1 flex ">
               {data?.name}
+              <IoIosArrowDown className=" text-gray-400 self-center ml-2" />
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 text-black shadow bg-base-100 rounded-box w-86 text-md"
+              className="dropdown-content z-[1] menu p-2 text-black shadow bg-accent rounded-box w-86 text-md"
             >
               <li className="">
                 <div className=" flex !text-black flex-col !bg-slate-200 mb-1 ">

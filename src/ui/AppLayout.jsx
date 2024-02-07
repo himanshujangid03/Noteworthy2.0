@@ -2,8 +2,6 @@ import { Outlet } from "react-router";
 import Header from "../features/dashboard/Header";
 import styled from "styled-components";
 import Sidebar from "../features/dashboard/Sidebar";
-import WelcomePage from "../features/authentication/WelcomePage";
-import { useIsLoggedIn } from "../hooks/useIsLoggedIn";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -18,15 +16,11 @@ const StyledMain = styled.main`
 `;
 
 function AppLayout() {
-  const { data, isLoading } = useIsLoggedIn();
-
-  if (!data || isLoading) return <WelcomePage />;
-
   return (
-    <StyledAppLayout>
+    <StyledAppLayout className=" bg-base-100 ">
       <Header />
       <Sidebar />
-      <StyledMain className=" bg-gray-100">
+      <StyledMain className=" bg-customLight ">
         <Outlet />
       </StyledMain>
     </StyledAppLayout>

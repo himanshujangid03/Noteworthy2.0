@@ -18,8 +18,6 @@ function SignUpForm() {
         back to home page
       </Link>
       <div className="flex flex-col items-center m-auto card w-max mt-20 bg-gray-50 p-10 rounded-3xl">
-        const StyledForm = styled.form` display: flex; flex-direction: column;
-        width: 25rem; margin: 0 auto; gap: 1rem; align-items: center; `;
         <h1 className=" text-4xl mb-4 font-semibold">Create new account</h1>
         <form
           onSubmit={handleSubmit(onSubmit)}

@@ -11,9 +11,12 @@ function Folder() {
     <>
       <div>
         {!isLoadingError && (
-          <h1 className=" text-5xl font-semibold mb-4">My Folder</h1>
+          <div className=" flex justify-between">
+            <h1 className=" text-5xl font-normal mb-4">My Folder</h1>
+            <CreateNewFolder />
+          </div>
         )}
-        <div className=" grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-flow-col lg:grid-cols-4">
+        <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {isLoading && <FolderSkeleton />}
           {data?.map((item) => (
             <FolderItem key={item._id} item={item} />
@@ -21,7 +24,6 @@ function Folder() {
         </div>
         {isLoadingError && <FailedToFetch />}
       </div>
-      {!isLoadingError && <CreateNewFolder />}
     </>
   );
 }
