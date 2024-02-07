@@ -18,8 +18,8 @@ function Folder() {
         )}
         <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {isLoading && <FolderSkeleton />}
-          {data?.map((item) => (
-            <FolderItem key={item._id} item={item} />
+          {data?.map((item, i) => (
+            <FolderItem key={item._id} item={item} i={i} />
           ))}
         </div>
         {isLoadingError && <FailedToFetch />}

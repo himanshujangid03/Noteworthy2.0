@@ -8,6 +8,7 @@ import { IoMdFolderOpen } from "react-icons/io";
 
 import Logo from "../../ui/Logo";
 import ListItem from "../../ui/ListItem";
+import MotionUl from "../../Animation/MotionUl";
 
 const StyledSidebar = styled.div`
   grid-row: 1/-1;
@@ -18,7 +19,7 @@ function Sidebar() {
     <StyledSidebar className=" ml-1 grid grid-flow-col ">
       <div>
         <Logo />
-        <ul className="menu h-[80%] rounded-none mt-10">
+        <MotionUl className="menu h-[80%] rounded-none mt-10">
           <ListItem to={""} datatip="Dashboard">
             <RxDashboard className=" h-6 w-6 " />
           </ListItem>
@@ -38,7 +39,7 @@ function Sidebar() {
           <ListItem to={"/tasks"} datatip="Task">
             <GoTasklist className=" h-6 w-6" />
           </ListItem>
-        </ul>
+        </MotionUl>
       </div>
       <div className=" divider divider-vertical"></div>
     </StyledSidebar>

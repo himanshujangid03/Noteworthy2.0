@@ -15,11 +15,11 @@
   @apply text-base rounded-lg;
 }
 
+.btn-sm {
+  @apply p-0;
+}
+
 /* very imp active elements of menu class  */
 .active {
   @apply !bg-primary !text-indigo-100 shadow-lg  transition-all shadow-indigo-300;
-}
-
-.btn-disabled {
-  @apply hover:cursor-not-allowed;
 }

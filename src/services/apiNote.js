@@ -1,5 +1,3 @@
-import { useParams } from "react-router";
-
 export async function createNote(data) {
   const response = await fetch("http://localhost:4000/note/create-note", {
     method: "POST",
@@ -34,9 +32,7 @@ export async function getNotesFromFolderById(folderId) {
 }
 
 export async function updateNote(data) {
-  console.log(data);
   const { noteId } = data;
-  console.log(noteId);
   const response = await fetch(
     `http://localhost:4000/note/update-note/${noteId}`,
     {
@@ -53,11 +49,12 @@ export async function updateNote(data) {
   return response;
 }
 
-export async function deleteNote() {
+export async function deleteNote(data) {
+  const { noteId } = data;
   const response = await fetch(
-    `http://localhost:4000/note/get-note/${folderId}`,
+    `http://localhost:4000/note/delete-note/${noteId}`,
     {
-      method: "GET",
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
@@ -65,4 +62,6 @@ export async function deleteNote() {
       withCredentials: true,
     }
   );
+  if (response.ok === false) throw new Error("Data not loaded");
+  return response;
 }

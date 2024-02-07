@@ -1,8 +1,21 @@
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const liVariants = {
+  hidden: {
+    y: 10,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 function ListItem({ to, children, datatip }) {
   return (
-    <li
+    <motion.li
+      variants={liVariants}
       className=" m-1 text-gray-600 tooltip tooltip-right tooltip-neutral font-sans font-semibold "
       data-tip={datatip}
     >
@@ -14,7 +27,7 @@ function ListItem({ to, children, datatip }) {
       >
         {children}
       </NavLink>
-    </li>
+    </motion.li>
   );
 }
 

@@ -13,7 +13,6 @@ import Activity from "./pages/Activity";
 import Notes from "./features/Note/Notes";
 import NoteList from "./features/Note/NoteList";
 import UserInfo from "./features/User account/UserInfo";
-import EditProfile from "./features/User account/EditProfile";
 import ChangePassword from "./features/User account/ChangePassword";
 import UserSettings from "./features/User account/UserSettings";
 
