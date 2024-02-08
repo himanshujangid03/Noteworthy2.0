@@ -17,10 +17,10 @@ const StyledMain = styled.main`
 
 function AppLayout() {
   return (
-    <StyledAppLayout className=" bg-base-100 ">
+    <StyledAppLayout className=" bg-base-100 overflow-hidden">
       <Header />
       <Sidebar />
-      <StyledMain className=" bg-customLight ">
+      <StyledMain className=" bg-customLight overflow-hidden">
         <Outlet />
       </StyledMain>
     </StyledAppLayout>

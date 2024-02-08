@@ -26,3 +26,38 @@ export async function createFolder(data) {
   if (response.ok === false) throw new Error("Data not loaded");
   return response;
 }
+
+export async function updateFolder(data) {
+  const { folderId } = data;
+  const response = await fetch(
+    `http://localhost:4000/note/update-folder/${folderId}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      credentials: "include",
+    }
+  );
+
+  if (response.ok === false) throw new Error("Data not loaded");
+  return response;
+}
+
+export async function deleteFolder(data) {
+  const { folderId } = data;
+  const response = await fetch(
+    `http://localhost:4000/note/delete-folder/${folderId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
+
+  if (response.ok === false) throw new Error("Data not loaded");
+  return response;
+}

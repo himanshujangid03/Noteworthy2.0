@@ -6,19 +6,20 @@ import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
 import { IoIosArrowDown } from "react-icons/io";
 import LogoutModal from "../../ui/LogOutModal";
 import Avatar from "../../ui/Avatar";
+import MotionDiv from "../../Animation/MotionDiv";
 
 function UserProfile() {
   const { data } = useIsLoggedIn();
 
   return (
     <>
-      <div className=" invisible lg:visible w-[30rem] flex flex-row justify-evenly">
+      <MotionDiv className=" invisible lg:visible w-[30rem] flex flex-row justify-evenly">
         <div className=" flex">
           <div className=" flex mr-1">
             <Avatar position={"header"} />
           </div>
           <div className=" self-center ml-2 text-lg bg-accent p-2 rounded-xl font-medium text-black dropdown dropdown-hover">
-            <div tabIndex={0} role="button" className=" m-1 flex ">
+            <div tabIndex={0} role="button" className=" m-1 flex min-w-32 ">
               {data?.name}
               <IoIosArrowDown className=" text-gray-400 self-center ml-2" />
             </div>
@@ -48,7 +49,7 @@ function UserProfile() {
           </div>
         </div>
         <NewDate />
-      </div>
+      </MotionDiv>
       <LogoutModal />
     </>
   );

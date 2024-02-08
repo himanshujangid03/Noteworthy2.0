@@ -13,10 +13,14 @@ function FolderItem({ item, i }) {
       initial={{ opacity: 0, translateY: 10 }}
       animate={{ opacity: 1, translateY: 0 }}
       transition={{ duration: 0.3, delay: i * 0.2 }}
-      className="card bg-slate-200 rounded-3xl rounded-br-[2.5rem] shadow-md h-48 m-4 p-4 gap-4 flex"
+      className="card bg-slate-200 border-2 border-slate-300 rounded-3xl rounded-br-[2.5rem] shadow-gray-200 shadow-xl h-48 m-4 p-4 gap-4 flex "
     >
-      <div className="flex items-center gap-10  justify-between">
-        <h3 className=" text-4xl font-medium text-wrap">{item.name}</h3>
+      <div className="flex flex-row items-center gap-10  ">
+        <div className="tooltip tooltip-top" data-tip={item.name}>
+          <h3 className=" text-4xl font-medium w-44 truncate self-start ">
+            {item.name}
+          </h3>
+        </div>
         <FolderDropdown item={item} />
       </div>
       <p className="font-sans">Created at {formatDate}</p>

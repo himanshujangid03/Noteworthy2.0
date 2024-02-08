@@ -3,6 +3,7 @@ import { useNoteFromFolder } from "../../hooks/useNoteFromFolder";
 import { useParams } from "react-router";
 import { useUpdateNote } from "../../hooks/useUpdateNote";
 import Loader from "../../ui/Loader";
+import { RxCross2 } from "react-icons/rx";
 
 function EditNoteModal() {
   const { isUpdating, mutate } = useUpdateNote();
@@ -20,8 +21,8 @@ function EditNoteModal() {
       <dialog id="edit_note" className="modal">
         <div className="modal-box">
           <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
+            <button className="btn btn-sm p-2 !btn-circle btn-ghost absolute right-2 top-2">
+              <RxCross2 className=" h-5 w-5" />
             </button>
           </form>
           <form
@@ -41,14 +42,18 @@ function EditNoteModal() {
               />
             </div>
             <div className=" flex flex-col gap-2">
+              <label className=" text-xl font-medium" htmlFor="content">
+                Content
+              </label>
               <textarea
-                className=" textarea textarea-lg text-xl bg-slate-300 flex"
+                id="content"
+                className=" textarea textarea-lg h-44 text-xl bg-slate-300 flex"
                 htmlFor="content"
                 {...register("content", { required: "This field is required" })}
                 defaultValue={currentNote?.content}
               />
             </div>
-            <button className="btn btn-primary self-end w-36">
+            <button className="btn !rounded-xl btn-primary self-end w-36">
               {isUpdating ? <Loader /> : "Save"}
             </button>
           </form>

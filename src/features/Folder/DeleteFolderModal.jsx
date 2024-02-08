@@ -1,21 +1,20 @@
 import { useForm } from "react-hook-form";
 import { RxCross2 } from "react-icons/rx";
-import { useDeleteNote } from "../../hooks/useDeleteNote";
-import { useParams } from "react-router";
 import Loader from "../../ui/Loader";
+import { useDeleteFolder } from "../../hooks/useDeleteFolder";
 
-function DeleteNoteModal() {
-  const { noteId } = useParams();
-  const { isDeleting, mutate } = useDeleteNote();
+function DeleteFolderModal({ item }) {
+  const folderId = item?._id;
+  const { isDeleting, mutate } = useDeleteFolder();
   const { handleSubmit } = useForm();
   function onSubmit(data) {
-    const updateData = { ...data, noteId };
+    const updateData = { ...data, folderId };
     mutate(updateData);
   }
 
   return (
     <div>
-      <dialog id="delete_note" className="modal">
+      <dialog id="delete_folder" className="modal">
         <div className="modal-box">
           <form method="dialog">
             <button className="btn btn-sm p-2 !btn-circle btn-ghost absolute right-2 top-2">
@@ -27,7 +26,7 @@ function DeleteNoteModal() {
             onSubmit={handleSubmit(onSubmit)}
           >
             <h1 className=" text-2xl mb-4">
-              Are you sure to delete this note.
+              Are you sure to delete this folder.
             </h1>
             <button className="btn btn-error self-end w-32">
               {isDeleting ? <Loader /> : "Delete"}
@@ -39,4 +38,4 @@ function DeleteNoteModal() {
   );
 }
 
-export default DeleteNoteModal;
+export default DeleteFolderModal;
