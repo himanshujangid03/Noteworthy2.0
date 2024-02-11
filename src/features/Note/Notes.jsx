@@ -1,5 +1,5 @@
 import NoteList from "./NoteList";
-import { useNoteFromFolder } from "../../hooks/useNoteFromFolder";
+import { useNoteFromFolder } from "../../hooks/Notes hooks/useNoteFromFolder";
 import styled from "styled-components";
 import { useParams } from "react-router";
 import NoteEdit from "./NoteEdit";

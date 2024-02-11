@@ -2,7 +2,7 @@ import FolderItem from "../features/Folder/FolderItem";
 import FolderSkeleton from "../ui/FolderSkeleton";
 import FailedToFetch from "../ui/FailedToFetch";
 import CreateNewFolder from "../ui/CreateNewFolder";
-import { useGetFolder } from "../hooks/useGetFolder";
+import { useGetFolder } from "../hooks/Folder hooks/useGetFolder";
 
 function Folder() {
   const { data, isLoading, isLoadingError } = useGetFolder();

@@ -1,4 +1,4 @@
-import { useLogout } from "../hooks/useLogout";
+import { useLogout } from "../hooks/Auth hooks/useLogout";
 import Loader from "./Loader";
 
 function LogoutModal() {

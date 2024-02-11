@@ -20,7 +20,7 @@ function Sidebar() {
       <div>
         <Logo />
         <MotionUl className="menu h-[80%] rounded-none mt-10">
-          <ListItem to={""} datatip="Dashboard">
+          <ListItem to={"/"} datatip="Dashboard">
             <RxDashboard className=" h-6 w-6 " />
           </ListItem>
           <ListItem to={"/folder"} datatip="File Manager">

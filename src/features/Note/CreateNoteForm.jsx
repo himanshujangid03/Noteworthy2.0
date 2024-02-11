@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { IoIosAdd } from "react-icons/io";
 import Loader from "../../ui/Loader";
-import { useCreateNote } from "../../hooks/useCreateNote";
+import { useCreateNote } from "../../hooks/Notes hooks/useCreateNote";
 import { useParams } from "react-router";
 
 function CreateNoteForm() {

@@ -15,6 +15,7 @@ import NoteList from "./features/Note/NoteList";
 import UserInfo from "./features/User account/UserInfo";
 import ChangePassword from "./features/User account/ChangePassword";
 import UserSettings from "./features/User account/UserSettings";
+import Task from "./pages/Task";
 
 const router = createBrowserRouter([
   {
@@ -35,13 +36,14 @@ const router = createBrowserRouter([
         path: "user",
         element: <User />,
         children: [
-          { path: "profile", element: <UserInfo /> },
+          { index: true, element: <UserInfo /> },
           { path: "change-password", element: <ChangePassword /> },
           { path: "settings", element: <UserSettings /> },
         ],
       },
       { path: "activity", element: <Activity /> },
       { path: "settings", element: <Settings /> },
+      { path: "tasks", element: <Task /> },
     ],
   },
   { path: "/login", element: <LoginForm /> },

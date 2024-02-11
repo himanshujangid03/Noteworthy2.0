@@ -1,19 +1,19 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { createFolder } from "../services/apiFolder";
 import toast from "react-hot-toast";
+import { createNote } from "../../services/apiNote";
 
-export function useCreateFolder() {
+export function useCreateNote() {
   const queryClient = useQueryClient();
   const { reset } = useForm();
   const { isPending: isCreating, mutate } = useMutation({
-    mutationFn: createFolder,
+    mutationFn: createNote,
     onSuccess: () => {
-      toast.success("Folder created Successfully.");
-      reset();
+      toast.success("Note created Successfully.");
       queryClient.invalidateQueries({
-        queryKey: ["folders"],
+        queryKey: ["notesFromFolders"],
       });
+      reset();
     },
     onError: () => toast.error("Something went wrong."),
   });

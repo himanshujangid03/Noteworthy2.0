@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Loader from "../../ui/Loader";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { useLogin } from "../../hooks/useLogin";
+import { useLogin } from "../../hooks/Auth hooks/useLogin";
 
 function LoginForm() {
   const { register, handleSubmit } = useForm();
@@ -46,7 +46,9 @@ function LoginForm() {
               />
             </div>
             <button
-              className="btn btn-primary w-[25rem] mt-2"
+              className={`btn btn-primary w-[25rem] mt-2 ${
+                isSubmitting && "btn-disabled cursor-not-allowed"
+              }`}
               disabled={isSubmitting}
             >
               {isSubmitting ? <Loader /> : "Sign In"}

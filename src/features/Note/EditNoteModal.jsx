@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { useNoteFromFolder } from "../../hooks/useNoteFromFolder";
+import { useNoteFromFolder } from "../../hooks/Notes hooks/useNoteFromFolder";
 import { useParams } from "react-router";
-import { useUpdateNote } from "../../hooks/useUpdateNote";
+import { useUpdateNote } from "../../hooks/Notes hooks/useUpdateNote";
 import Loader from "../../ui/Loader";
 import { RxCross2 } from "react-icons/rx";
 

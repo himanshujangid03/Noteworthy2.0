@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { RxCross2 } from "react-icons/rx";
-import { useDeleteNote } from "../../hooks/useDeleteNote";
+import { useDeleteNote } from "../../hooks/Notes hooks/useDeleteNote";
 import { useParams } from "react-router";
 import Loader from "../../ui/Loader";
 

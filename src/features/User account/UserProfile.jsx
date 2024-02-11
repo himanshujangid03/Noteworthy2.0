@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { HiOutlineLogout } from "react-icons/hi";
 import { FiEye } from "react-icons/fi";
 import NewDate from "../../ui/NewDate";
-import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
+import { useIsLoggedIn } from "../../hooks/Auth hooks/useIsLoggedIn";
 import { IoIosArrowDown } from "react-icons/io";
 import LogoutModal from "../../ui/LogOutModal";
 import Avatar from "../../ui/Avatar";

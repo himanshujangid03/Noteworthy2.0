@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateFolder } from "../services/apiFolder";
+import { updateFolder } from "../../services/apiFolder";
 import toast from "react-hot-toast";
 
 export function useUpdateFolder() {

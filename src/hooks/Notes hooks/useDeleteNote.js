@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteNote } from "../services/apiNote";
+import { deleteNote } from "../../services/apiNote";
 import toast from "react-hot-toast";
 
 export function useDeleteNote() {

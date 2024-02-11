@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 function UserMenu() {
   return (
     <div>
-      <ul className="menu bg-slate-200 rounded-2xl px-3 py-6 w-56">
+      <ul className="menu mt-6 px-3 py-6 w-56">
         <li className="my-1 ">
-          <NavLink to={"profile"} className={" pr-2 text-lg"}>
+          <NavLink to={""} className={" pr-2 text-lg"}>
             Profile
           </NavLink>
         </li>

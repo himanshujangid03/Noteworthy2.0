@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { RxCross2 } from "react-icons/rx";
 import Loader from "../../ui/Loader";
-import { useDeleteFolder } from "../../hooks/useDeleteFolder";
+import { useDeleteFolder } from "../../hooks/Folder hooks/useDeleteFolder";
 
 function DeleteFolderModal({ item }) {
   const folderId = item?._id;

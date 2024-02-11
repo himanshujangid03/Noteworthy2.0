@@ -2,6 +2,8 @@ import { Outlet } from "react-router";
 import Header from "../features/dashboard/Header";
 import styled from "styled-components";
 import Sidebar from "../features/dashboard/Sidebar";
+import { useIsLoggedIn } from "../hooks/Auth hooks/useIsLoggedIn";
+import Welcome from "../pages/Welcome";
 
 const StyledAppLayout = styled.div`
   display: grid;
@@ -16,11 +18,14 @@ const StyledMain = styled.main`
 `;
 
 function AppLayout() {
+  const { data } = useIsLoggedIn();
+
+  if (!data) return <Welcome />;
   return (
-    <StyledAppLayout className=" bg-base-100 overflow-hidden">
+    <StyledAppLayout className=" bg-gradient-to-br from-base-100 to-base-200   overflow-hidden">
       <Header />
       <Sidebar />
-      <StyledMain className=" bg-customLight overflow-hidden">
+      <StyledMain className="">
         <Outlet />
       </StyledMain>
     </StyledAppLayout>

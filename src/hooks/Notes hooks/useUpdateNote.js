@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateNote } from "../services/apiNote";
+import { updateNote } from "../../services/apiNote";
 import toast from "react-hot-toast";
 
 export function useUpdateNote() {

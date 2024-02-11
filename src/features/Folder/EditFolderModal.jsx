@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { IoIosAdd } from "react-icons/io";
 import Loader from "../../ui/Loader";
-import { useUpdateFolder } from "../../hooks/useUpdateFolder";
+import { useUpdateFolder } from "../../hooks/Folder hooks/useUpdateFolder";
 
 function EditFolderModal({ item }) {
   const folderId = item?._id;

@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteFolder } from "../services/apiFolder";
+import { deleteFolder } from "../../services/apiFolder";
 import toast from "react-hot-toast";
 
 export function useDeleteFolder() {

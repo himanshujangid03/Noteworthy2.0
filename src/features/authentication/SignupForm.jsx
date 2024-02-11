@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Loader from "../../ui/Loader";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { useSignup } from "../../hooks/useSignup";
+import { useSignup } from "../../hooks/Auth hooks/useSignup";
 
 function SignUpForm() {
   const { register, handleSubmit } = useForm();
@@ -43,12 +43,14 @@ function SignUpForm() {
             <input
               type="password"
               placeholder="Enter your password"
-              className="input input-bordered w-[25rem]"
+              className="input text-4xl input-bordered w-[25rem]"
               {...register("password")}
             />
           </div>
           <button
-            className="btn btn-primary w-[25rem] mt-2"
+            className={`btn btn-primary w-[25rem] mt-2 ${
+              isSubmitting && "btn-disabled cursor-not-allowed"
+            }`}
             disabled={isSubmitting}
           >
             {isSubmitting ? <Loader /> : "Create my account"}

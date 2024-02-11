@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { IoIosAdd } from "react-icons/io";
-import { useCreateFolder } from "../../hooks/useCreateFolder";
+import { useCreateFolder } from "../../hooks/Folder hooks/useCreateFolder";
 import Loader from "../../ui/Loader";
 
 function CreateFolderForm() {
