@@ -7,6 +7,14 @@
 @layer base {
   html {
     font-family: "Urbanist", sans-serif;
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #aaaaaa; /* Color of the scrollbar handle */
+      border-radius: 6px; /* Rounded corners for the scrollbar handle */
+    }
   }
 }
 

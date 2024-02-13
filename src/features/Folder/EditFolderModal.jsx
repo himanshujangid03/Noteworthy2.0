@@ -5,7 +5,6 @@ import { useUpdateFolder } from "../../hooks/Folder hooks/useUpdateFolder";
 
 function EditFolderModal({ item }) {
   const folderId = item?._id;
-  console.log(folderId);
   const { register, handleSubmit } = useForm();
   const { isUpdating, mutate } = useUpdateFolder();
 

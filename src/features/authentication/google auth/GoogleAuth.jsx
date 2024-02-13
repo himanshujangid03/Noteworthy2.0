@@ -20,7 +20,7 @@ function GoogleAuth({ setGoogleData }) {
   return (
     <div className="m-4">
       <GoogleLogin
-        className="flex w-[20rem] rounded-full items-center gap-2 btn bg-white"
+        className="flex w-[20rem] rounded-full items-center gap-2 btn bg-black"
         onSuccess={(credentialResponse) => {
           setCredential(jwtDecode(credentialResponse.credential));
           submitHandler();

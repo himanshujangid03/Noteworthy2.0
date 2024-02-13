@@ -3,7 +3,6 @@ import { useGetAvatar } from "../hooks/User hooks/useGetAvatar";
 
 function Avatar({ position }) {
   const { data } = useGetAvatar();
-  console.log(data);
 
   if (position === "header")
     return (

@@ -20,7 +20,7 @@ function LoginForm() {
           <IoIosArrowRoundBack className=" self-center h-4 w-4" />
           back to home page
         </Link>
-        <div className="flex flex-col items-center m-auto card w-max mt-20 bg-gray-50 p-10 rounded-3xl">
+        <div className="flex flex-col items-center m-auto card w-max mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-10 rounded-3xl">
           <h1 className=" text-4xl mb-4 font-semibold">
             Log in to your account
           </h1>
@@ -54,14 +54,13 @@ function LoginForm() {
               {isSubmitting ? <Loader /> : "Sign In"}
             </button>
           </form>
-          <div className=" mt-4">
-            <p>
-              Dont have an account.
-              <Link to={"/signup"} className="link link-info">
-                Sign Up
-              </Link>
-            </p>
-          </div>
+
+          <p className=" mt-4">
+            Dont have an account.
+            <Link to={"/signup"} className="link link-info">
+              Sign Up
+            </Link>
+          </p>
         </div>
       </div>
     </>

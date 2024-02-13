@@ -17,7 +17,7 @@ function MotionDiv({ children, className }) {
       variants={variants}
       initial="hidden"
       animate="fadeInY"
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.2 }}
       className={className}
     >
       {children}

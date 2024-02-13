@@ -34,7 +34,7 @@ export async function updateAvatarImage(data) {
     .select();
 
   //* Delete old image
-  const { data: deletedImage } = await supabase.storage
+  const { error: deletedError } = await supabase.storage
     .from("avatars")
     .remove(fileName);
 
@@ -43,8 +43,7 @@ export async function updateAvatarImage(data) {
     .from("avatars")
     .upload(imageName, data.image);
 
-  console.log(error);
-  console.log(storageError);
+  if (error || storageError || deletedError) return new Error("error");
 
   return response;
 }

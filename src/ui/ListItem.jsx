@@ -16,13 +16,17 @@ function ListItem({ to, children, datatip }) {
   return (
     <motion.li
       variants={liVariants}
+      whileTap={{ scale: 0.9 }}
+      transition={{
+        duration: 0.3,
+      }}
       className=" m-1 text-gray-600 tooltip tooltip-right tooltip-neutral font-sans font-semibold "
       data-tip={datatip}
     >
       <NavLink
         to={to}
         className={
-          " hover:bg-primary hover:text-gray-50 active:!bg-primary rounded-xl transition-all "
+          " hover:bg-primary bg-gray-200 hover:text-gray-50 active:!bg-primary rounded-2xl "
         }
       >
         {children}

@@ -2,7 +2,7 @@ import MotionDiv from "../../Animation/MotionDiv";
 
 function DeleteMyAccount() {
   return (
-    <MotionDiv className=" p-2 flex flex-col ">
+    <MotionDiv className="pl-4 p-6 flex flex-col ">
       <h2 className=" text-4xl text-error font-medium">Delete my account</h2>
       <div className="divider"></div>
       <p className=" text-xl text-gray-500 max-w-[60%] mb-4">

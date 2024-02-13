@@ -19,7 +19,11 @@ function UserProfile() {
             <Avatar position={"header"} />
           </div>
           <div className=" self-center ml-2 text-lg bg-accent p-2 rounded-xl font-medium text-black dropdown dropdown-hover">
-            <div tabIndex={0} role="button" className=" m-1 flex min-w-32 ">
+            <div
+              tabIndex={0}
+              role="button"
+              className=" m-1 flex min-w-32 justify-between"
+            >
               {data?.name}
               <IoIosArrowDown className=" text-gray-400 self-center ml-2" />
             </div>

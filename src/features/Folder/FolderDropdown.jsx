@@ -1,40 +1,44 @@
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { CiEdit } from "react-icons/ci";
 import { PiTrashThin } from "react-icons/pi";
-import EditFolderModal from "./EditFolderModal";
 import DeleteFolderModal from "./DeleteFolderModal";
+import EditFolderModal from "./EditFolderModal";
+import { useParams } from "react-router";
+import { useGetFolder } from "../../hooks/Folder hooks/useGetFolder";
+import MotionPrimary from "../../Animation/MotionPrimary";
 
-function FolderDropdown({ item }) {
+function FolderDropdown() {
+  const { data } = useGetFolder();
+  const { folderId } = useParams();
+  const currentFolder = data?.filter((obj) => obj._id === folderId);
+
   return (
     <>
-      <div className="dropdown dropdown-bottom absolute right-4">
-        <div tabIndex={0} role="button">
-          <BsThreeDotsVertical className=" self-center hover:bg-indigo-50 rounded-md transition-all p-2 h-8 w-8" />
-        </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box"
+      <MotionPrimary
+        delay={0.2}
+        className="dropdown grid grid-flow-col place-items-center grid-cols-[1fr,auto] dropdown-bottom bg-white h-20 rounded-3xl p-4 shadow-xl shadow-gray-200"
+      >
+        <div
+          className="tooltip tooltip-top "
+          data-tip={currentFolder?.at(0)?.name}
         >
-          <li>
-            <label htmlFor="edit_folder">
-              <CiEdit className=" h-5 w-5 " />
-              <p className=" text-lg mx-2">Edit</p>
-            </label>
-          </li>
-          <li>
-            <button
-              onClick={() =>
-                document.getElementById("delete_folder").showModal()
-              }
-            >
-              <PiTrashThin className=" h-5 w-5 " />
-              <p className=" text-lg mr-2">Delete</p>
-            </button>
-          </li>
-        </ul>
-      </div>
-      <DeleteFolderModal item={item} />
-      <EditFolderModal item={item} />
+          <h3 className=" text-3xl font-medium w-64  truncate text-start ">
+            {currentFolder?.at(0)?.name}
+          </h3>
+        </div>
+        <div className="flex flex-row gap-4">
+          <label htmlFor="edit_folder" className="cursor-pointer">
+            <CiEdit className=" h-8 w-8 hover:text-info" />
+          </label>
+          <button
+            onClick={() => document.getElementById("delete_folder").showModal()}
+            className=""
+          >
+            <PiTrashThin className=" h-8 w-8 hover:text-error " />
+          </button>
+        </div>
+      </MotionPrimary>
+      <DeleteFolderModal item={currentFolder?.at(0)} />
+      <EditFolderModal item={currentFolder?.at(0)} />
     </>
   );
 }

@@ -6,13 +6,14 @@ import { useParams } from "react-router";
 
 function CreateNoteForm() {
   const { folderId } = useParams();
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
   const { isCreating, mutate } = useCreateNote();
 
   function onSubmit(data) {
     const newData = { ...data, folderId };
     mutate(newData);
+    reset();
   }
 
   return (

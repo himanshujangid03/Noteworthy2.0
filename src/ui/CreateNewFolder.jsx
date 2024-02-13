@@ -6,7 +6,7 @@ function CreateNewFolder() {
     <>
       <label
         htmlFor="create_folder_modal"
-        className="btn btn-outline btn-primary border-dashed mr-10 text-sm hover:shadow-2xl hover:shadow-indigo-200"
+        className="btn btn-outline btn-primary border-dashed m-4 mt-6 text-sm hover:shadow-2xl hover:shadow-indigo-200"
       >
         <IoAdd className=" h-6 w-6" />
         Add new Folder
