@@ -18,26 +18,28 @@ function DeleteFolderModal({ item }) {
       <dialog id="delete_folder" className="modal">
         <div className="modal-box">
           <form method="dialog">
-            <button className="btn btn-sm p-2 !btn-circle btn-ghost absolute right-2 top-2">
+            <button className="btn btn-sm p-2 m-1 !btn-circle btn-ghost absolute right-2 top-2">
               <RxCross2 className=" h-5 w-5" />
             </button>
           </form>
           <form
-            className=" flex flex-col gap-4 "
+            className=" flex flex-col gap-2 "
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div className="flex flex-col">
-              <div className="w-min flex self-center rounded-full bg-red-200">
+            <div className="grid grid-flow-col">
+              <div className="w-min flex m-4 self-center rounded-full bg-red-200">
                 <CiCircleAlert className=" h-10 w-10 text-error self-center" />
               </div>
-              <h1 className=" text-2xl text-error text-center mt-2 font-semibold">
-                Delete Folder
-              </h1>
-              <p className=" text-xl text-gray-800 text-center mb-4">
-                You are going to delete the{" "}
-                <span className=" font-semibold">{item?.name}</span>. Are you
-                sure?
-              </p>
+              <div>
+                <h1 className=" text-2xl text-error text-start mt-4 font-semibold">
+                  Delete Folder
+                </h1>
+                <p className=" text-xl text-gray-800 text-start m-0">
+                  You are going to delete the{" "}
+                  <span className=" font-semibold">{item?.name}</span>. Are you
+                  sure?
+                </p>
+              </div>
             </div>
             <button className="btn btn-error self-end w-32">
               {isDeleting ? <Loader /> : "Yes, delete"}

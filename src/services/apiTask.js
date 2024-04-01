@@ -1,11 +1,14 @@
-export async function getFolder() {
-  const response = await fetch("http://localhost:4000/folder/get", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  });
+export async function getTask(parentTaskId) {
+  const response = await fetch(
+    `http://localhost:4000/task/get/${parentTaskId}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
 
   const resData = await response.json();
 
@@ -13,8 +16,8 @@ export async function getFolder() {
   return resData;
 }
 
-export async function createFolder(data) {
-  const response = await fetch("http://localhost:4000/folder/create", {
+export async function createTask(data) {
+  const response = await fetch("http://localhost:4000/task/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -28,10 +31,10 @@ export async function createFolder(data) {
   return response;
 }
 
-export async function updateFolder(data) {
-  const { folderId } = data;
+export async function updateParentTask(data) {
+  const { taskId } = data;
   const response = await fetch(
-    `http://localhost:4000/folder/update/${folderId}`,
+    `http://localhost:4000/parent-task/update/${taskId}`,
     {
       method: "PATCH",
       headers: {
@@ -46,10 +49,10 @@ export async function updateFolder(data) {
   return response;
 }
 
-export async function deleteFolder(data) {
-  const { folderId } = data;
+export async function deleteParentTask(data) {
+  const { taskId } = data;
   const response = await fetch(
-    `http://localhost:4000/folder/delete/${folderId}`,
+    `http://localhost:4000/parent-task/delete/${taskId}`,
     {
       method: "DELETE",
       headers: {

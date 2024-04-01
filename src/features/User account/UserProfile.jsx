@@ -13,7 +13,7 @@ function UserProfile() {
 
   return (
     <>
-      <MotionDiv className=" invisible lg:visible w-[30rem] flex flex-row justify-evenly">
+      <MotionDiv className=" invisible h-min lg:visible w-[30rem] place-self-end flex flex-row justify-evenly">
         <div className=" flex">
           <div className=" flex mr-1">
             <Avatar position={"header"} />

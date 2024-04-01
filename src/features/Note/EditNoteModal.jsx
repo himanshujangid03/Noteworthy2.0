@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useNoteFromFolder } from "../../hooks/Notes hooks/useNoteFromFolder";
+import { useNote } from "../../hooks/Notes hooks/useNote";
 import { useParams } from "react-router";
 import { useUpdateNote } from "../../hooks/Notes hooks/useUpdateNote";
 import Loader from "../../ui/Loader";
@@ -9,7 +9,7 @@ function EditNoteModal() {
   const { isUpdating, mutate } = useUpdateNote();
   const { noteId } = useParams();
   const { register, handleSubmit } = useForm();
-  const { notes } = useNoteFromFolder();
+  const { notes } = useNote();
   const currentNote = notes?.find((note) => note._id === noteId);
 
   function onSubmit(data) {
@@ -21,7 +21,7 @@ function EditNoteModal() {
       <dialog id="edit_note" className="modal">
         <div className="modal-box">
           <form method="dialog">
-            <button className="btn btn-sm p-2 !btn-circle btn-ghost absolute right-2 top-2">
+            <button className="btn btn-sm p-2 m-1 !btn-circle btn-ghost absolute right-2 top-2">
               <RxCross2 className=" h-5 w-5" />
             </button>
           </form>

@@ -2,6 +2,7 @@ import { CiEdit } from "react-icons/ci";
 import { PiTrashThin } from "react-icons/pi";
 import DeleteFolderModal from "./DeleteFolderModal";
 import EditFolderModal from "./EditFolderModal";
+import { motion as m } from "framer-motion";
 import { useParams } from "react-router";
 import { useGetFolder } from "../../hooks/Folder hooks/useGetFolder";
 import MotionPrimary from "../../Animation/MotionPrimary";
@@ -14,7 +15,7 @@ function FolderDropdown() {
   return (
     <>
       <MotionPrimary
-        delay={0.2}
+        delay={0.1}
         className="dropdown grid grid-flow-col place-items-center grid-cols-[1fr,auto] dropdown-bottom bg-white h-20 rounded-3xl p-4 shadow-xl shadow-gray-200"
       >
         <div
@@ -25,16 +26,19 @@ function FolderDropdown() {
             {currentFolder?.at(0)?.name}
           </h3>
         </div>
-        <div className="flex flex-row gap-4">
-          <label htmlFor="edit_folder" className="cursor-pointer">
-            <CiEdit className=" h-8 w-8 hover:text-info" />
-          </label>
-          <button
-            onClick={() => document.getElementById("delete_folder").showModal()}
-            className=""
+        <div className="flex flex-row gap-2">
+          <m.label
+            htmlFor="edit_folder"
+            className="cursor-pointer btn px-2 btn-ghost text-gray-600 hover:text-black"
           >
-            <PiTrashThin className=" h-8 w-8 hover:text-error " />
-          </button>
+            <CiEdit className=" h-7 w-7  " />
+          </m.label>
+          <m.button
+            onClick={() => document.getElementById("delete_folder").showModal()}
+            className="btn px-2 btn-ghost text-gray-600 hover:text-black"
+          >
+            <PiTrashThin className=" h-7 w-7 " />
+          </m.button>
         </div>
       </MotionPrimary>
       <DeleteFolderModal item={currentFolder?.at(0)} />

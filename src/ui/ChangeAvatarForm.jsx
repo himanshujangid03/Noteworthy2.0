@@ -6,9 +6,10 @@ import Loader from "./Loader";
 
 function ChangeAvatarForm() {
   const { register, handleSubmit } = useForm();
-  const { email } = useIsLoggedIn();
+  const { email, mode } = useIsLoggedIn();
   const { isUploading, mutate } = useUpdateAvatar();
   const onSubmit = (data) => {
+    if (mode === "google") return;
     const image = typeof data.image === "string" ? data.image : data.image[0];
     const updatedData = { ...data, email, image: image };
     mutate(updatedData);

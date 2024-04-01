@@ -1,9 +1,9 @@
-import TaskTable from "../features/Todo task/TaskTable";
+import ParentTask from "../features/Todo task/ParentTask";
 
 function Task() {
   return (
     <div>
-      <TaskTable />
+      <ParentTask />
     </div>
   );
 }

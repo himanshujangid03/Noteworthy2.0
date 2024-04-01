@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 
-function MotionPrimary({ children, className, delay }) {
+function MotionPrimary({ children, className, delay, layout }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
+      layout="position"
+      initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
-        duration: 0.8,
+        duration: 0.5,
         delay: delay,
         ease: [0, 0.71, 0.2, 1.01],
       }}

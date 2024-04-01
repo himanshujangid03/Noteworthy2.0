@@ -1,5 +1,5 @@
 export async function createNote(data) {
-  const response = await fetch("http://localhost:4000/note/create-note", {
+  const response = await fetch("http://localhost:4000/note/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,18 +12,31 @@ export async function createNote(data) {
   return response;
 }
 
-export async function getNotesFromFolderById(folderId) {
-  const response = await fetch(
-    `http://localhost:4000/note/get-note/${folderId}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      withCredentials: true,
-    }
-  );
+export async function getAllNotes() {
+  const response = await fetch(`http://localhost:4000/note/getAll`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    withCredentials: true,
+  });
+
+  const resData = await response.json();
+
+  if (response.ok === false) throw new Error("Data not loaded");
+  return resData;
+}
+
+export async function getNote(folderId) {
+  const response = await fetch(`http://localhost:4000/note/get/${folderId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    withCredentials: true,
+  });
 
   const resData = await response.json();
 
@@ -33,17 +46,14 @@ export async function getNotesFromFolderById(folderId) {
 
 export async function updateNote(data) {
   const { noteId } = data;
-  const response = await fetch(
-    `http://localhost:4000/note/update-note/${noteId}`,
-    {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(data),
-    }
-  );
+  const response = await fetch(`http://localhost:4000/note/update/${noteId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(data),
+  });
 
   if (response.ok === false) throw new Error("Data not loaded");
   return response;
@@ -51,17 +61,14 @@ export async function updateNote(data) {
 
 export async function deleteNote(data) {
   const { noteId } = data;
-  const response = await fetch(
-    `http://localhost:4000/note/delete-note/${noteId}`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      withCredentials: true,
-    }
-  );
+  const response = await fetch(`http://localhost:4000/note/delete/${noteId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    withCredentials: true,
+  });
   if (response.ok === false) throw new Error("Data not loaded");
   return response;
 }

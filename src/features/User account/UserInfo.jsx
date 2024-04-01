@@ -4,7 +4,7 @@ import MotionDiv from "../../Animation/MotionDiv";
 
 function UserInfo() {
   const { register, handleSubmit } = useForm();
-  const { data } = useIsLoggedIn();
+  const { data, mode } = useIsLoggedIn();
 
   function onSubmit() {}
   return (
@@ -19,15 +19,25 @@ function UserInfo() {
               <label className=" text-xl font-medium" htmlFor="name">
                 Name
               </label>
-              <input
-                type="text"
-                id="name"
-                className="input input-md rounded-xl text-xl w-72 bg-transparent input-bordered "
-                {...register("name", { required: "This field is required" })}
-                defaultValue={data?.name}
-              />
+              {mode === "google" ? (
+                <div className="input input-md text-xl w-72 bg-slate-300 flex ">
+                  <p className=" self-center text-gray-600">{data?.name}</p>
+                </div>
+              ) : (
+                <input
+                  type="text"
+                  id="name"
+                  className="input input-md rounded-xl text-xl w-72 bg-transparent input-bordered "
+                  {...register("name", { required: "This field is required" })}
+                  defaultValue={data?.name}
+                />
+              )}
             </div>
-            <button className="btn btn-outline btn-neutral text-gray-900 hover:text-gray-300 self-end">
+            <button
+              className={`btn btn-outline btn-neutral text-gray-900 hover:text-gray-300 self-end ${
+                mode === "google" && " invisible "
+              }`}
+            >
               Update name
             </button>
           </form>

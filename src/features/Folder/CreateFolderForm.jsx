@@ -17,7 +17,9 @@ function CreateFolderForm() {
       <h1 className=" text-3xl font-bold text-center m-2">Create new folder</h1>
       <form className="" onSubmit={handleSubmit(onSubmit)}>
         <div className=" flex flex-col gap-2">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name" className="text-xl">
+            Name
+          </label>
           <input
             type="text"
             id="name"

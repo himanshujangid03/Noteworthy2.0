@@ -12,6 +12,7 @@ const ulVariants = {
 function MotionUl({ children, className }) {
   return (
     <motion.ul
+      layout="position"
       variants={ulVariants}
       initial="hidden"
       animate="visible"

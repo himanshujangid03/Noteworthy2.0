@@ -1,11 +1,20 @@
+import { useGoogleLogout } from "../hooks/Auth hooks/useGoogleLogout";
+import { useIsLoggedIn } from "../hooks/Auth hooks/useIsLoggedIn";
 import { useLogout } from "../hooks/Auth hooks/useLogout";
 import Loader from "./Loader";
 
 function LogoutModal() {
   const { isLoading: isLoggingOut, mutateLogout } = useLogout();
+  const { isPending, mutateGoogleLogout } = useGoogleLogout();
+  const { mode } = useIsLoggedIn();
 
   const onSubmit = () => {
-    mutateLogout();
+    if (mode === "google") {
+      mutateGoogleLogout();
+    }
+    if (mode === "local") {
+      mutateLogout();
+    }
   };
 
   return (
@@ -25,7 +34,14 @@ function LogoutModal() {
               onClick={onSubmit}
               disabled={isLoggingOut}
             >
-              {isLoggingOut && <Loader />} Sign out
+              {isLoggingOut || isPending ? (
+                <>
+                  <Loader />
+                  Logging out...
+                </>
+              ) : (
+                "Sign out"
+              )}
             </button>
           </div>
         </div>

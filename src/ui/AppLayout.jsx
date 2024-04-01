@@ -22,7 +22,7 @@ function AppLayout() {
 
   if (!data) return <Welcome />;
   return (
-    <StyledAppLayout className=" bg-gradient-to-br from-base-100 to-base-200 ">
+    <StyledAppLayout className=" bg-base-100 ">
       <Header />
       <Sidebar />
       <StyledMain className=" overflow-y-scroll overflow-x-hidden">

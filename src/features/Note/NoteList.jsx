@@ -10,7 +10,10 @@ function NoteList({ notes }) {
 
   return (
     <>
-      <MotionPrimary delay={0.3} className=" card rounded-3xl bg-white flex p-4 h-[70%] shadow-xl shadow-gray-200  ">
+      <MotionPrimary
+        delay={0.2}
+        className=" card rounded-3xl bg-white flex p-4 h-[70%] shadow-xl shadow-gray-200  "
+      >
         <h1 className=" text-2xl text-center p-3 ">All notes</h1>
         <div className="overflow-y-scroll h-[30rem]">
           {notes?.map((note, i) => (

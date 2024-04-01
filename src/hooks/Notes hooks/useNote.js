@@ -1,12 +1,12 @@
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
-import { getNotesFromFolderById } from "../../services/apiNote";
+import { getNote } from "../../services/apiNote";
 
-export function useNoteFromFolder() {
+export function useNote() {
   const { folderId } = useParams();
   const { data: notes } = useQuery({
     queryKey: ["notesFromFolders"],
-    queryFn: () => getNotesFromFolderById(folderId),
+    queryFn: () => getNote(folderId),
   });
 
   return { notes };

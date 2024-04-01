@@ -14,10 +14,10 @@ const StyledSidebar = styled.div`
 
 function Sidebar() {
   return (
-    <StyledSidebar className=" ml-1 grid grid-flow-col ">
+    <StyledSidebar className=" grid grid-flow-col">
       <div>
         <Logo />
-        <MotionUl className="menu h-[80%] rounded-none mt-10">
+        <MotionUl className="menu rounded-none mt-10 gap-2">
           <ListItem to={"/"} datatip="Dashboard">
             <CiGrid41 className=" h-7 w-7 " />
           </ListItem>
@@ -35,7 +35,6 @@ function Sidebar() {
           </ListItem>
         </MotionUl>
       </div>
-      <div className=" divider divider-vertical"></div>
     </StyledSidebar>
   );
 }

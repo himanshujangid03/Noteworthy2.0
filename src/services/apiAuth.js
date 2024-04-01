@@ -55,3 +55,18 @@ export async function logout() {
 
   return response;
 }
+
+export async function googleLogout() {
+  const response = await fetch("http://localhost:4000/user/google/logout", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  if (!response.ok) return new Error("Log out failed. Something went wrong!");
+
+  console.log(response);
+  return response;
+}

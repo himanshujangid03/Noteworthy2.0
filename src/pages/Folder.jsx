@@ -5,7 +5,6 @@ import CreateNewFolder from "../ui/CreateNewFolder";
 import { useGetFolder } from "../hooks/Folder hooks/useGetFolder";
 import MotionDiv from "../Animation/MotionDiv";
 import { motion as m } from "framer-motion";
-import { Outlet } from "react-router";
 
 function Folder() {
   const { data, isLoading, isLoadingError } = useGetFolder();
@@ -19,10 +18,10 @@ function Folder() {
               initial={{ y: "100px" }}
               animate={{ y: 0 }}
               transition={{
-                duration: 0.5,
+                duration: 0.6,
                 ease: "circOut",
               }}
-              className=" text-6xl self-center"
+              className=" text-6xl font-extrabold text-gray-400/90 self-center"
             >
               My Folder
             </m.h1>

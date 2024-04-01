@@ -1,18 +1,25 @@
 import MotionDiv from "../Animation/MotionDiv";
 import { CiSearch } from "react-icons/ci";
+import SearchDocumentModal from "./SearchDocumentModal";
+import { motion as m } from "framer-motion";
 
 function SearchInput() {
   return (
-    <MotionDiv className="ml-10">
-      <div className="input bg-accent  w-96 rounded-xl input-bordered flex">
-        <CiSearch className=" h-6 w-6 self-center text-gray-600" />
-        <input
-          className="input bg-transparent outline-none border-none text-xl  w-72"
-          placeholder="Search for your documents..."
-          type="text"
-        />
-      </div>
-    </MotionDiv>
+    <>
+      <MotionDiv className="ml-10">
+        <m.div
+          whileHover={{ y: -2 }}
+          className="p-2 bg-gray-100 grid grid-flow-col w-96 shadow-lg rounded-xl input-bordered cursor-pointer select-none "
+          onClick={() => {
+            document.getElementById("search_docs").showModal();
+          }}
+        >
+          <CiSearch className=" h-6 w-6 self-center text-gray-600" />
+          <p className="text-xl text-gray-600">Search for your documents...</p>
+        </m.div>
+      </MotionDiv>
+      <SearchDocumentModal />
+    </>
   );
 }
 
