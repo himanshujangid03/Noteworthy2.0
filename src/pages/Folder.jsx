@@ -18,8 +18,8 @@ function Folder() {
               initial={{ y: "100px" }}
               animate={{ y: 0 }}
               transition={{
-                duration: 0.6,
-                ease: "circOut",
+                duration: 0.5,
+                ease: "easeInOut",
               }}
               className=" text-6xl font-extrabold text-gray-400/90 self-center"
             >

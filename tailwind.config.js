@@ -4,6 +4,10 @@ import daisyui from "daisyui";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      oswald: ["Oswald", "sans-serif"],
+      playfair: ["Playfair Display", "sans-serif"],
+    },
     extend: {},
   },
   daisyui: {

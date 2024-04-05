@@ -14,7 +14,7 @@ function AvatarComponent() {
             initial={{ y: "100px" }}
             animate={{ y: 0 }}
             transition={{
-              duration: 0.6,
+              duration: 0.5,
               ease: "easeOut",
             }}
             className="text-6xl font-extrabold  text-gray-400/90 text-center pl-4"

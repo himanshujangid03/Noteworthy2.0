@@ -1,4 +1,5 @@
 import MotionDiv from "../../Animation/MotionDiv";
+import { PiTrashSimple } from "react-icons/pi";
 
 function DeleteMyAccount() {
   return (
@@ -11,6 +12,7 @@ function DeleteMyAccount() {
         with caution.
       </p>
       <button className="btn btn-error btn-outline btn-wide btn-md !rounded-xl self-end mr-4">
+        <PiTrashSimple className="size-5" />
         Delete my account
       </button>
     </MotionDiv>
