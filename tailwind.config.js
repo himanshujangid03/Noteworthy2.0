@@ -7,6 +7,7 @@ export default {
     fontFamily: {
       oswald: ["Oswald", "sans-serif"],
       playfair: ["Playfair Display", "sans-serif"],
+      montserrat: ["Montserrat", "sans-serif"],
     },
     extend: {},
   },

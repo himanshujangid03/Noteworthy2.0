@@ -22,13 +22,15 @@ function AppLayout() {
 
   if (!data) return <Welcome />;
   return (
-    <StyledAppLayout className=" bg-base-100 ">
-      <Header />
-      <Sidebar />
-      <StyledMain className=" overflow-y-scroll overflow-x-hidden">
-        <Outlet />
-      </StyledMain>
-    </StyledAppLayout>
+    <>
+      <StyledAppLayout className=" bg-base-100 ">
+        <Header />
+        <Sidebar />
+        <StyledMain className=" overflow-y-scroll overflow-x-hidden">
+          <Outlet />
+        </StyledMain>
+      </StyledAppLayout>
+    </>
   );
 }
 
