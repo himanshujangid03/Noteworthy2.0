@@ -6,7 +6,8 @@
 
 @layer base {
   html {
-    font-family: "Inter", sans-serif;
+    font-family: "Urbanist", sans-serif;
+
     ::-webkit-scrollbar {
       width: 6px;
     }

@@ -53,7 +53,12 @@ function Welcome() {
           </m.div>
         </div>
         <div className=" grid grid-flow-col grid-cols-[auto,1fr]">
-          <div className=" w-96"></div>
+          <div className=" w-96 grid grid-flow-row place-content-center ">
+            <p className="text-center text-5xl mb-4">Get Started</p>
+            <button className="btn btn-primary">Login to your account</button>
+            <p className="text-center">OR</p>
+            <button className="btn btn-primary">Signup for new account</button>
+          </div>
           <m.div
             layout
             initital={{}}
