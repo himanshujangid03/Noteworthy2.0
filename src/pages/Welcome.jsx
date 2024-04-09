@@ -1,12 +1,13 @@
 import { motion as m } from "framer-motion";
-import video from "../assets/welcome-video.webm";
+import video from "../assets/welcome2.webm";
+import noteImage from "../assets/slide1.jpg";
 
-const heading = ["N", "O", "T", "E", "W", "O", "T", "H", "Y"];
+const heading = ["n", "o", "t", "e", "w", "o", "r", "t", "h", "y"];
 
 const ulVariants = {
   visible: {
     transition: {
-      delayChildren: 0.5,
+      delayChildren: 3.1,
       staggerChildren: 0.06,
     },
   },
@@ -24,8 +25,8 @@ const liVariants = {
 function Welcome() {
   return (
     <>
-      <div className="overflow-hidden z-30 w-full h-0 pb-9/16">
-        <video autoPlay muted className="absolute w-full h-auto ">
+      <div className="absolute h-dvh w-full">
+        <video autoPlay muted className="w-full h-full object-cover ">
           <source src={video} type="video/mp4" />
         </video>
       </div>
@@ -36,15 +37,15 @@ function Welcome() {
             variants={ulVariants}
             initial="hidden"
             animate="visible"
-            className="flex flex-row overflow-hidden relative top-[-8%] p-6"
+            className="flex h-[17rem] flex-row overflow-hidden relative top-[-8%] p-6"
           >
             {heading.map((el, i) => (
               <m.div
                 layout="position"
                 variants={liVariants}
-                transition={{ type: "spring", duration: 1.5 }}
+                transition={{ duration: 1.5, ease: [0.6, 0.01, -0.05, 0.95] }}
                 key={i}
-                className="text-[13rem] h-[15.4rem] font-montserrat lowercase font-black "
+                className="text-[13rem] h-[15.4rem] font-sora font-bold "
               >
                 {el}
               </m.div>
@@ -52,8 +53,24 @@ function Welcome() {
           </m.div>
         </div>
         <div className=" grid grid-flow-col grid-cols-[auto,1fr]">
-          <div className=" w-44"></div>
-          <div className=" "></div>
+          <div className=" w-96"></div>
+          <m.div
+            layout
+            initital={{}}
+            className=" overflow-hidden  p-1 grid place-content-center"
+          >
+            <m.img
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: 4,
+              }}
+              src={noteImage}
+              alt={noteImage}
+              className=" object-cover rounded-3xl ring-2 ring-gray-300 shadow-xl"
+            />
+          </m.div>
         </div>
       </div>
     </>
