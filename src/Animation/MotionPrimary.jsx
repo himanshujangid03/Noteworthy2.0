@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function MotionPrimary({ children, className, delay, layout }) {
+function MotionPrimary({ children, className, delay }) {
   return (
     <motion.div
       layout="position"

@@ -13,8 +13,10 @@ import Activity from "./pages/Activity";
 import Notes from "./features/Note/Notes";
 import NoteList from "./features/Note/NoteList";
 import Task from "./pages/Task";
+import Welcome from "./pages/Welcome";
 
 const router = createBrowserRouter([
+  { path: "/welcome", element: <Welcome /> },
   {
     path: "/",
     element: <AppLayout />,

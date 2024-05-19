@@ -16,7 +16,7 @@ function LoginForm() {
   return (
     <>
       <div className=" m-4">
-        <Link className=" btn-link flex ">
+        <Link to={"/"} className=" btn-link flex ">
           <IoIosArrowRoundBack className=" self-center h-4 w-4" />
           back to home page
         </Link>

@@ -7,12 +7,13 @@ import MotionPrimary from "../../Animation/MotionPrimary";
 
 function NoteList({ notes }) {
   const { noteId } = useParams();
+  console.log(notes);
 
   return (
     <>
       <MotionPrimary
         delay={0.2}
-        className=" card rounded-3xl bg-white flex p-4 h-[70%] shadow-xl shadow-gray-200  "
+        className=" card h-[78%] bg-white flex p-4 rounded-xl shadow-lg shadow-gray-400/40"
       >
         <h1 className=" text-2xl text-center p-3 ">All notes</h1>
         <div className="overflow-y-scroll h-[30rem]">
@@ -22,15 +23,21 @@ function NoteList({ notes }) {
               initial={{ opacity: 0, translateY: 10 }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{ duration: 0.2, delay: i * 0.2 }}
-              className={` m-0 hover:bg-gray-50  border-b-2 rounded-md flex justify-between transition-all ${
+              className={` m-0 hover:bg-gray-50 border-b-2 flex justify-between transition-all ${
                 note._id === noteId ? "bg-accent" : ""
               }`}
             >
-              <Link to={`${note._id}`} className="p-4">
-                <div className="flex">
-                  <CiFileOn className=" text-primary self-center m-1 mr-3 h-8 w-8" />
+              <Link to={`${note._id}`} className="p-4 w-full">
+                <div className="flex w-full gap-3">
+                  {note.emoji ? (
+                    <span className=" self-center text-4xl">{note.emoji}</span>
+                  ) : (
+                    <CiFileOn className=" text-primary self-center m-1 mr-3 h-8 w-8" />
+                  )}
                   <div>
-                    <p className=" self-center text-lg">{note.title}</p>
+                    <p className=" self-center text-xl font-medium">
+                      {note.title}
+                    </p>
                     <p className=" self-center text-sm text-gray-600">
                       {note.createdAt}
                     </p>

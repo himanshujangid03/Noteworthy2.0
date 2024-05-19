@@ -16,7 +16,7 @@ function FolderDropdown() {
     <>
       <MotionPrimary
         delay={0.1}
-        className="dropdown grid grid-flow-col place-items-center grid-cols-[1fr,auto] dropdown-bottom bg-white h-20 rounded-3xl p-4 shadow-xl shadow-gray-200"
+        className="rounded-xl dropdown grid grid-flow-col place-items-center grid-cols-[1fr,auto] dropdown-bottom bg-white h-20 p-4 shadow-lg shadow-gray-400/40"
       >
         <div
           className="tooltip tooltip-top "

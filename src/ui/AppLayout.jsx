@@ -13,10 +13,6 @@ const StyledAppLayout = styled.div`
   margin: 0;
 `;
 
-const StyledMain = styled.main`
-  padding: 1.5rem 2rem;
-`;
-
 function AppLayout() {
   const { data } = useIsLoggedIn();
 
@@ -26,9 +22,9 @@ function AppLayout() {
       <StyledAppLayout className=" bg-base-100 ">
         <Header />
         <Sidebar />
-        <StyledMain className=" overflow-y-scroll overflow-x-hidden">
+        <main className=" overflow-hidden p-4">
           <Outlet />
-        </StyledMain>
+        </main>
       </StyledAppLayout>
     </>
   );

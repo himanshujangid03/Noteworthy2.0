@@ -10,7 +10,7 @@ function Avatar({ position }) {
   if (position === "header")
     return (
       <div className="avatar self-end online">
-        <div className=" rounded-full w-12">
+        <div className=" rounded-full ring-1 ring-primary w-12">
           <img
             src={
               supabaseData || mongodbData
@@ -26,7 +26,7 @@ function Avatar({ position }) {
     return (
       <>
         <div className="avatar self-center grid grid-flow-col gap-8 h-52">
-          <div className=" rounded-full ring ring-indigo-500 ring-offset-base-100 ring-offset-2 w-44">
+          <div className=" rounded-full ring ring-primary  ring-offset-4 w-44">
             <m.img
               layout="position"
               initial={{ scale: 1 }}

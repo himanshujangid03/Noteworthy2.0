@@ -12,14 +12,14 @@ function Notes() {
 
   return (
     <>
-      <div className="p-2 gap-2 h-full overflow-hidden grid grid-flow-col grid-cols-[1fr,2fr]">
-        <div className="grid grid-flow-row grid-rows-[auto,1fr] gap-1">
+      <div className=" overflow-hidden grid grid-flow-col grid-cols-[1fr,2fr] gap-4">
+        <div className="grid grid-flow-row grid-rows-[auto,1fr] gap-2 ">
           <FolderDropdown />
           <NoteList notes={notes} />
         </div>
         <MotionPrimary
           delay={0.3}
-          className=" p-6 gap-4 card rounded-3xl bg-white h-[75%] shadow-xl shadow-gray-200"
+          className=" p-6 gap-4 rounded-xl h-[80.5%] card bg-white shadow-lg shadow-gray-400/40"
         >
           <div className="grid grid-flow-col grid-cols-[1fr,auto] place-items-center">
             <h2 className=" text-center text-3xl grid m-0 capitalize w-max">

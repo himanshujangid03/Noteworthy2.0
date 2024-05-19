@@ -13,7 +13,7 @@ function Folder() {
     <>
       <div>
         {!isLoadingError && (
-          <div className=" flex flex-col overflow-hidden mb-6">
+          <div className=" flex sr flex-col overflow-hidden mb-6">
             <m.h1
               initial={{ y: "100px" }}
               animate={{ y: 0 }}

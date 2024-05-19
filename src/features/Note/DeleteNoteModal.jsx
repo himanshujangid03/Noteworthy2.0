@@ -25,6 +25,7 @@ function DeleteNoteModal() {
           <form
             className=" flex flex-col gap-4"
             onSubmit={handleSubmit(onSubmit)}
+            method="dialog"
           >
             <h1 className=" text-2xl mb-4">
               Are you sure to delete this note.

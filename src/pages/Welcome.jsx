@@ -1,14 +1,14 @@
 import { motion as m } from "framer-motion";
-import video from "../assets/welcome2.webm";
-import noteImage from "../assets/slide1.jpg";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const heading = ["n", "o", "t", "e", "w", "o", "r", "t", "h", "y"];
 
 const ulVariants = {
   visible: {
     transition: {
-      delayChildren: 3.1,
-      staggerChildren: 0.06,
+      delayChildren: 0.2,
+      staggerChildren: 0.08,
     },
   },
 };
@@ -25,36 +25,57 @@ const liVariants = {
 function Welcome() {
   return (
     <>
-      <m.div
-        animate={{ display: "none" }}
-        transition={{ delay: 4.3, duration: 200 }}
-        className="absolute h-dvh w-full"
-      >
-        <video autoPlay muted className="w-full h-full object-cover ">
-          <source src={video} type="video/mp4" />
-        </video>
-      </m.div>
+      <div className="overflow-hidden h-dvh place-content-center ">
+        <m.div
+          variants={ulVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-row h-min overflow-hidden justify-center mb-6"
+        >
+          {heading.map((el, i) => (
+            <m.div
+              layout="position"
+              variants={liVariants}
+              transition={{
+                duration: 1.2,
+                ease: [0, 0.71, 0.2, 1.05],
+              }}
+              key={i}
+              className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden font-sora uppercase tracking-tight font-semibold "
+            >
+              {el}
+            </m.div>
+          ))}
+        </m.div>
 
-      <div className="overflow-hidden h-dvh grid grid-flow-row">
-        <div>
-          <m.div
-            variants={ulVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-row justify-center h-48 overflow-hidden pt-8 "
+        <div className=" p-4 flex flex-col items-start gap-6 lg:w-[60rem] text-wrap m-auto">
+          <m.p
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3, ease: "linear" }}
+            className=" text-xl lg:text-3xl text-center"
           >
-            {heading.map((el, i) => (
-              <m.div
-                layout="position"
-                variants={liVariants}
-                transition={{ duration: 1.5, ease: [0.6, 0.01, -0.05, 0.95] }}
-                key={i}
-                className="text-[11rem] h-[12.5rem] overflow-hidden font-sora uppercase tracking-tight font-medium "
-              >
-                {el}
-              </m.div>
-            ))}
-          </m.div>
+            Welcome to Noteworthy Notes, the ultimate application for all your
+            note-taking needs. Whether you are jotting down quick reminders,
+            organizing your thoughts, or drafting important documents,
+            Noteworthy Notes has you covered.
+          </m.p>
+          <m.button
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.4,
+              ease: "linear",
+              velocity: 20,
+            }}
+            className="btn !text-3xl font-medium font-sora h-16 !rounded-full btn-neutral px-6 self-center "
+          >
+            <Link to={"/login"} className="flex gap-4 items-center">
+              login
+              <FaArrowRight className="size-6" />
+            </Link>
+          </m.button>
         </div>
       </div>
     </>
@@ -62,3 +83,13 @@ function Welcome() {
 }
 
 export default Welcome;
+
+/*<m.div
+  animate={{ display: "none" }}
+  transition={{ delay: 4.3, duration: 200 }}
+  className="absolute h-dvh w-full"
+>
+  <video autoPlay muted className="w-full h-full object-cover ">
+    <source src={video} type="video/mp4" />
+  </video>
+</m.div>;*/

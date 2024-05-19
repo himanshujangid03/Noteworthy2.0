@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -15,7 +15,7 @@
     "@supabase/supabase-js": "^2.39.3",
     "@tanstack/react-query": "^5.17.19",
     "@tanstack/react-query-devtools": "^5.17.21",
-    "emoji-picker-react": "^4.7.17",
+    "emoji-picker-react": "^4.9.2",
     "framer-motion": "^11.0.5",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",

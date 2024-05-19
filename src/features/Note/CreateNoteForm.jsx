@@ -3,12 +3,21 @@ import { IoIosAdd } from "react-icons/io";
 import Loader from "../../ui/Loader";
 import { useCreateNote } from "../../hooks/Notes hooks/useCreateNote";
 import { useParams } from "react-router";
+import { useState } from "react";
+import EmojiPicker from "emoji-picker-react";
 
 function CreateNoteForm() {
   const { folderId } = useParams();
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
   const { isCreating, mutate } = useCreateNote();
+  const [chooseEmoji, setChooseEmoji] = useState(false);
+  const [selectEmoji, setSelectEmoji] = useState();
+
+  const emojiHandler = (e) => {
+    setSelectEmoji(e.emoji);
+    reset();
+  };
 
   function onSubmit(data) {
     const newData = { ...data, folderId };
@@ -17,10 +26,33 @@ function CreateNoteForm() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-y-scroll">
       <h1 className=" text-3xl font-bold text-center m-2">New note entry</h1>
       <form className="" onSubmit={handleSubmit(onSubmit)}>
         <div className=" flex flex-col gap-2">
+          <div className="flex flex-col">
+            <label htmlFor="emoji" className="text-xl font-medium">
+              Add Icon
+            </label>
+            <div className="flex gap-3">
+              <input
+                type="text"
+                id="emoji"
+                {...register("emoji")}
+                value={selectEmoji}
+                className="input bg-slate-300 rounded-xl w-20 text-2xl"
+              />
+              <span
+                onClick={() => setChooseEmoji((el) => !el)}
+                className="btn btn-md w-16 transition-all"
+              >
+                {chooseEmoji ? "X" : "Add"}
+              </span>
+            </div>
+            <div className="absolute top-40">
+              <EmojiPicker onEmojiClick={emojiHandler} open={chooseEmoji} />
+            </div>
+          </div>
           <label htmlFor="title" className="text-xl font-medium">
             Name
           </label>
@@ -43,7 +75,7 @@ function CreateNoteForm() {
             type="text"
             id="content"
             placeholder="write something here..."
-            className={`textarea bg-slate-300 textarea-lg h-24 rounded-xl w-full text-lg ${
+            className={`textarea bg-slate-300 textarea-lg h-44 rounded-xl w-full text-lg ${
               errors?.content?.message && "textarea-error"
             }`}
             {...register("content", { required: "This field is required" })}

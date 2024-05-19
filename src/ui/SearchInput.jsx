@@ -8,8 +8,8 @@ function SearchInput() {
     <>
       <MotionDiv className="ml-10">
         <m.div
-          whileHover={{ y: -2 }}
-          className="p-2 bg-gray-100 grid grid-flow-col w-96 shadow-lg rounded-xl input-bordered cursor-pointer select-none "
+          whileHover={{ y: -2, transition: { ease: "backIn" } }}
+          className="p-2 bg-white grid grid-flow-col w-96 rounded-xl input-bordered cursor-pointer select-none "
           onClick={() => {
             document.getElementById("search_docs").showModal();
           }}

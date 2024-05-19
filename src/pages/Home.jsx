@@ -1,13 +1,9 @@
-import { motion as m } from "framer-motion";
-import video from "../assets/loading-bar.gif";
+//import { motion as m } from "framer-motion";
 
 function Home() {
   return (
     <div>
-      <h1 className=" text-5xl font-medium">
-        {" "}
-        <m.video src={video} muted autoPlay loop />
-      </h1>
+      <h1 className=" text-5xl font-medium">Home</h1>
     </div>
   );
 }

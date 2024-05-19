@@ -47,7 +47,7 @@ function EditNoteModal() {
               </label>
               <textarea
                 id="content"
-                className=" textarea textarea-lg h-44 text-xl bg-slate-300 flex"
+                className=" textarea textarea-xl h-44 text-xl bg-slate-300 flex"
                 htmlFor="content"
                 {...register("content", { required: "This field is required" })}
                 defaultValue={currentNote?.content}
