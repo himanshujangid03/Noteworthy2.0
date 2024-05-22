@@ -1,9 +1,11 @@
 //import { motion as m } from "framer-motion";
 
+import PageHeading from "../ui/PageHeading";
+
 function Home() {
   return (
     <div>
-      <h1 className=" text-5xl font-medium">Home</h1>
+      <PageHeading heading={"Home"} />
     </div>
   );
 }

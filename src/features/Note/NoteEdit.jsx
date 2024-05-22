@@ -7,21 +7,21 @@ import { motion as m } from "framer-motion";
 function NoteEdit() {
   return (
     <>
-      <div className="flex gap-3 justify-end">
+      <div className="flex gap-3 justify-end h-full">
         <m.button
           initial={{ scale: 1 }}
           animate={{ scale: 1 }}
           whileTap={{ scale: 0.95 }}
-          className="btn btn-sm btn-square btn-ghost"
+          className="btn btn-sm btn-square btn-ghost px-2"
           onClick={() => document.getElementById("edit_note").showModal()}
         >
-          <CiEdit className=" h-6 w-6" />
+          <CiEdit className=" size-7" />
         </m.button>
         <button
           className="btn btn-sm btn-square btn-ghost"
           onClick={() => document.getElementById("delete_note").showModal()}
         >
-          <PiTrashSimpleLight className=" h-6 w-6" />
+          <PiTrashSimpleLight className="size-full" />
         </button>
       </div>
       <EditNoteModal />

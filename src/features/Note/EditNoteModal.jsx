@@ -4,17 +4,27 @@ import { useParams } from "react-router";
 import { useUpdateNote } from "../../hooks/Notes hooks/useUpdateNote";
 import Loader from "../../ui/Loader";
 import { RxCross2 } from "react-icons/rx";
+import { useCreateActivityLog } from "../../hooks/Activity hooks/useCreateActivityLog";
 
 function EditNoteModal() {
   const { isUpdating, mutate } = useUpdateNote();
   const { noteId } = useParams();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { notes } = useNote();
+  const { mutate: mutateActivityFn } = useCreateActivityLog();
   const currentNote = notes?.find((note) => note._id === noteId);
 
   function onSubmit(data) {
     const updatedData = { ...data, noteId };
     mutate(updatedData);
+    const activityData = {
+      name: data.title,
+      emoji: currentNote.emoji,
+      updatedAt: Date.now(),
+      action: "Update",
+    };
+    mutateActivityFn(activityData);
+    reset();
   }
   return (
     <>

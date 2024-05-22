@@ -3,25 +3,14 @@ import { motion as m } from "framer-motion";
 import { useIsLoggedIn } from "../../hooks/Auth hooks/useIsLoggedIn";
 import Avatar from "../../ui/Avatar";
 import ChangeAvatarForm from "../../ui/ChangeAvatarForm";
+import PageHeading from "../../ui/PageHeading";
 
 function AvatarComponent() {
   const { data, mode } = useIsLoggedIn();
   return (
     <>
       <MotionDiv className="p-4 pt-6 flex flex-col gap-4 rounded-2xl">
-        <div className=" overflow-hidden">
-          <m.h1
-            initial={{ y: "100px" }}
-            animate={{ y: 0 }}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut",
-            }}
-            className="text-6xl font-extrabold  text-gray-400/90 text-center pl-4"
-          >
-            User Profile
-          </m.h1>
-        </div>
+        <PageHeading heading={"User Profile"} />
         <div className="flex gap-8">
           <Avatar position="profile" />
           <div className=" self-center flex flex-col gap-2">

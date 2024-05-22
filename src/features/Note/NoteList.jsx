@@ -20,9 +20,9 @@ function NoteList({ notes }) {
           {notes?.map((note, i) => (
             <motion.div
               key={note._id}
-              initial={{ opacity: 0, translateY: 10 }}
-              animate={{ opacity: 1, translateY: 0 }}
-              transition={{ duration: 0.2, delay: i * 0.2 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: "linear" }}
               className={` m-0 hover:bg-gray-50 border-b-2 flex justify-between transition-all ${
                 note._id === noteId ? "bg-accent" : ""
               }`}

@@ -22,7 +22,7 @@ function Notes() {
           className=" p-6 gap-4 rounded-xl h-[80.5%] card bg-white shadow-lg shadow-gray-400/40"
         >
           <div className="grid grid-flow-col grid-cols-[1fr,auto] place-items-center">
-            <h2 className=" text-center text-3xl grid m-0 capitalize w-max">
+            <h2 className=" text-center text-3xl grid my-2 capitalize w-max">
               {currentNote?.title}
             </h2>
             <NoteEdit />

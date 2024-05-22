@@ -2,7 +2,7 @@ import { useGetParentTask } from "../../hooks/Task hooks/useGetPrarentTask";
 
 function ParentTask() {
   const { parentTaskData } = useGetParentTask();
-  console.log(parentTaskData);
+
   return (
     <div>
       {parentTaskData?.map((el) => (

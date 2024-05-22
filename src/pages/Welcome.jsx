@@ -1,6 +1,7 @@
 import { motion as m } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const heading = ["n", "o", "t", "e", "w", "o", "r", "t", "h", "y"];
 
@@ -23,6 +24,7 @@ const liVariants = {
 };
 
 function Welcome() {
+  const [startAnimate, setAnimate] = useState(false);
   return (
     <>
       <div className="overflow-hidden h-dvh place-content-center ">
@@ -41,7 +43,7 @@ function Welcome() {
                 ease: [0, 0.71, 0.2, 1.05],
               }}
               key={i}
-              className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden font-sora uppercase tracking-tight font-semibold "
+              className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden uppercase tracking-tight font-bold "
             >
               {el}
             </m.div>
@@ -52,7 +54,11 @@ function Welcome() {
           <m.p
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3, ease: "linear" }}
+            transition={{
+              duration: 0.8,
+              delay: 0.3,
+              ease: [0, 0.71, 0.2, 1.05],
+            }}
             className=" text-xl lg:text-3xl text-center"
           >
             Welcome to Noteworthy Notes, the ultimate application for all your
@@ -61,19 +67,22 @@ function Welcome() {
             Noteworthy Notes has you covered.
           </m.p>
           <m.button
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            onMouseEnter={() => setAnimate(true)}
+            onMouseLeave={() => setAnimate(false)}
             transition={{
               duration: 0.5,
-              delay: 0.4,
-              ease: "linear",
-              velocity: 20,
+              delay: 0.8,
+              ease: [0, 0.71, 0.2, 1.05],
             }}
-            className="btn !text-3xl font-medium font-sora h-16 !rounded-full btn-neutral px-6 self-center "
+            className="btn !text-xl font-medium font-sora h-16 !rounded-full btn-neutral px-6 self-center "
           >
             <Link to={"/login"} className="flex gap-4 items-center">
-              login
-              <FaArrowRight className="size-6" />
+              Get Started
+              <m.span animate={{ x: startAnimate ? 3 : 0 }}>
+                <FaArrowRight className="size-5" />
+              </m.span>
             </Link>
           </m.button>
         </div>

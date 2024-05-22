@@ -5,6 +5,7 @@ import { useCreateNote } from "../../hooks/Notes hooks/useCreateNote";
 import { useParams } from "react-router";
 import { useState } from "react";
 import EmojiPicker from "emoji-picker-react";
+import { useCreateActivityLog } from "../../hooks/Activity hooks/useCreateActivityLog";
 
 function CreateNoteForm() {
   const { folderId } = useParams();
@@ -13,6 +14,7 @@ function CreateNoteForm() {
   const { isCreating, mutate } = useCreateNote();
   const [chooseEmoji, setChooseEmoji] = useState(false);
   const [selectEmoji, setSelectEmoji] = useState();
+  const { mutate: mutateActivityFn } = useCreateActivityLog();
 
   const emojiHandler = (e) => {
     setSelectEmoji(e.emoji);
@@ -22,6 +24,13 @@ function CreateNoteForm() {
   function onSubmit(data) {
     const newData = { ...data, folderId };
     mutate(newData);
+    const activityData = {
+      name: data.title,
+      emoji: data.emoji,
+      updatedAt: Date.now(),
+      action: "Create",
+    };
+    mutateActivityFn(activityData);
     reset();
   }
 

@@ -6,10 +6,10 @@ import { motion as m } from "framer-motion";
 function SearchInput() {
   return (
     <>
-      <MotionDiv className="ml-10">
+      <MotionDiv className="ml-10 ">
         <m.div
           whileHover={{ y: -2, transition: { ease: "backIn" } }}
-          className="p-2 bg-white grid grid-flow-col w-96 rounded-xl input-bordered cursor-pointer select-none "
+          className="p-2 bg-white grid grid-flow-col w-96 rounded-xl input-bordered cursor-pointer select-none shadow-xl shadow-gray-200"
           onClick={() => {
             document.getElementById("search_docs").showModal();
           }}

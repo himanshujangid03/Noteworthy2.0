@@ -1,4 +1,5 @@
 import { motion as m } from "framer-motion";
+import { useState } from "react";
 
 const parentVariants = {
   visible: {
@@ -19,11 +20,14 @@ const childVariants = {
 };
 
 function AnimatedText({ text, parentClass, childClass }) {
+  const [startAnimate, setAnimate] = useState(false);
   return (
     <>
       <m.div
+        onMouseEnter={() => setAnimate(true)}
+        onMouseLeave={() => startAnimate(false)}
         variants={parentVariants}
-        animate="visible"
+        animate={"visible"}
         className={parentClass}
       >
         {text.split("").map((char, i) => (
@@ -31,6 +35,7 @@ function AnimatedText({ text, parentClass, childClass }) {
             key={i}
             className={childClass}
             variants={childVariants}
+            animate={startAnimate ? "visible" : "hidden"}
             transition={{ duration: 1.5, ease: [0.6, 0.01, -0.05, 0.95] }}
           >
             {char}

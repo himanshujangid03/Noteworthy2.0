@@ -3,14 +3,24 @@ import { RxCross2 } from "react-icons/rx";
 import Loader from "../../ui/Loader";
 import { CiCircleAlert } from "react-icons/ci";
 import { useDeleteFolder } from "../../hooks/Folder hooks/useDeleteFolder";
+import { useCreateActivityLog } from "../../hooks/Activity hooks/useCreateActivityLog";
 
 function DeleteFolderModal({ item }) {
   const folderId = item?._id;
   const { isDeleting, mutate } = useDeleteFolder();
   const { handleSubmit } = useForm();
+  const { mutate: mutateActivityFn } = useCreateActivityLog();
+
   function onSubmit(data) {
     const updateData = { ...data, folderId };
     mutate(updateData);
+
+    const activityData = {
+      name: item.name,
+      updatedAt: Date.now(),
+      action: "Delete",
+    };
+    mutateActivityFn(activityData);
   }
 
   return (

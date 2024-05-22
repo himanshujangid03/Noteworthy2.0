@@ -4,7 +4,7 @@ import FailedToFetch from "../ui/FailedToFetch";
 import CreateNewFolder from "../ui/CreateNewFolder";
 import { useGetFolder } from "../hooks/Folder hooks/useGetFolder";
 import MotionDiv from "../Animation/MotionDiv";
-import { motion as m } from "framer-motion";
+import PageHeading from "../ui/PageHeading";
 
 function Folder() {
   const { data, isLoading, isLoadingError } = useGetFolder();
@@ -12,21 +12,7 @@ function Folder() {
   return (
     <>
       <div>
-        {!isLoadingError && (
-          <div className=" flex sr flex-col overflow-hidden mb-6">
-            <m.h1
-              initial={{ y: "100px" }}
-              animate={{ y: 0 }}
-              transition={{
-                duration: 0.5,
-                ease: "easeInOut",
-              }}
-              className=" text-6xl font-extrabold text-gray-400/90 self-center"
-            >
-              My Folder
-            </m.h1>
-          </div>
-        )}
+        {!isLoadingError && <PageHeading heading={"My Folder"} />}
         <MotionDiv className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {isLoading && <FolderSkeleton />}
           {data?.map((item, i) => (

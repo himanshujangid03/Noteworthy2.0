@@ -14,7 +14,7 @@ function FolderItem({ item, i }) {
       >
         <div className="tooltip tooltip-top" data-tip={item.name}>
           <h3 className=" text-4xl font-medium text-start truncate self-start ">
-            {item.name}
+            📂 {item.name}
           </h3>
         </div>
         <p className="font-sans">Created at {formatDate}</p>

@@ -1,16 +1,23 @@
 import { useForm } from "react-hook-form";
-import { IoIosAdd } from "react-icons/io";
 import Loader from "../../ui/Loader";
 import { useUpdateFolder } from "../../hooks/Folder hooks/useUpdateFolder";
+import { useCreateActivityLog } from "../../hooks/Activity hooks/useCreateActivityLog";
 
 function EditFolderModal({ item }) {
   const folderId = item?._id;
   const { register, handleSubmit } = useForm();
   const { isUpdating, mutate } = useUpdateFolder();
+  const { mutate: mutateActivityFn } = useCreateActivityLog();
 
   function onSubmit(data) {
     const updatedData = { ...data, folderId };
     mutate(updatedData);
+    const activityData = {
+      name: data.name,
+      updatedAt: Date.now(),
+      action: "Update",
+    };
+    mutateActivityFn(activityData);
   }
 
   return (
@@ -34,7 +41,7 @@ function EditFolderModal({ item }) {
                 {...register("name")}
               />
 
-              <button className="btn self-end w-36 !rounded-2xl btn-neutral hover:bg-gray-800	">
+              <button className="btn transition-all  self-end w-36 !rounded-2xl btn-neutral hover:bg-gray-800	">
                 {isUpdating ? (
                   <>
                     <Loader />
@@ -42,7 +49,6 @@ function EditFolderModal({ item }) {
                   </>
                 ) : (
                   <>
-                    <IoIosAdd className=" h-8 w-8" />
                     <p className=" text-center p-0">Save</p>
                   </>
                 )}

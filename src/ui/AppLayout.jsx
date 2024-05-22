@@ -22,7 +22,7 @@ function AppLayout() {
       <StyledAppLayout className=" bg-base-100 ">
         <Header />
         <Sidebar />
-        <main className=" overflow-hidden p-4">
+        <main className=" overflow-x-hidden p-4">
           <Outlet />
         </main>
       </StyledAppLayout>

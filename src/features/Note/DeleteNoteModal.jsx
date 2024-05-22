@@ -3,14 +3,23 @@ import { RxCross2 } from "react-icons/rx";
 import { useDeleteNote } from "../../hooks/Notes hooks/useDeleteNote";
 import { useParams } from "react-router";
 import Loader from "../../ui/Loader";
+import { useCreateActivityLog } from "../../hooks/Activity hooks/useCreateActivityLog";
 
 function DeleteNoteModal() {
   const { noteId } = useParams();
   const { isDeleting, mutate } = useDeleteNote();
+  const { mutate: mutateActivityFn } = useCreateActivityLog();
   const { handleSubmit } = useForm();
   function onSubmit(data) {
     const updateData = { ...data, noteId };
     mutate(updateData);
+    const activityData = {
+      name: data.title,
+      emoji: data.emoji,
+      updatedAt: Date.now(),
+      action: "Delete",
+    };
+    mutateActivityFn(activityData);
   }
 
   return (

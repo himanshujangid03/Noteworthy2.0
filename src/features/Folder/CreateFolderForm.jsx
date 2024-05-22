@@ -2,14 +2,22 @@ import { useForm } from "react-hook-form";
 import { IoIosAdd } from "react-icons/io";
 import { useCreateFolder } from "../../hooks/Folder hooks/useCreateFolder";
 import Loader from "../../ui/Loader";
+import { useCreateActivityLog } from "../../hooks/Activity hooks/useCreateActivityLog";
 
 function CreateFolderForm() {
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
   const { isCreating, mutate } = useCreateFolder();
+  const { mutate: mutateActivityFn } = useCreateActivityLog();
 
   function onSubmit(data) {
     mutate(data);
+    const activityData = {
+      name: data.name,
+      updatedAt: Date.now(),
+      action: "Create",
+    };
+    mutateActivityFn(activityData);
   }
 
   return (
