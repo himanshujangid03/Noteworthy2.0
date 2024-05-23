@@ -5,8 +5,9 @@ function StaggerMotion({ children, i, className }) {
     <m.div
       layout
       drag
-      initial={{ opacity: 0, translateY: 10 }}
-      animate={{ opacity: 1, translateY: 0 }}
+      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: i * 0.2 }}
       className={className}
     >

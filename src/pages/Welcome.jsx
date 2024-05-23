@@ -36,7 +36,7 @@ function Welcome() {
         >
           {heading.map((el, i) => (
             <m.div
-              layout="position"
+              layout
               variants={liVariants}
               transition={{
                 duration: 1.2,

@@ -14,7 +14,7 @@ const StyledSidebar = styled.div`
 
 function Sidebar() {
   return (
-    <StyledSidebar className=" grid z-10 grid-flow-col bg-gray-100 border-r-2 border-gray-300">
+    <StyledSidebar className="h-full grid z-10 grid-flow-col bg-gray-100 border-r-2 border-gray-300">
       <div>
         <Logo />
         <MotionUl className="menu mt-10 gap-2">

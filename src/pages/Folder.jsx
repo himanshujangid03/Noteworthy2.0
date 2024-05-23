@@ -11,7 +11,7 @@ function Folder() {
 
   return (
     <>
-      <div>
+      <div className="h-full">
         {!isLoadingError && <PageHeading heading={"My Folder"} />}
         <MotionDiv className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {isLoading && <FolderSkeleton />}
