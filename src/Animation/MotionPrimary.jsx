@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 function MotionPrimary({ children, className, delay }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
+      initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         duration: 0.5,

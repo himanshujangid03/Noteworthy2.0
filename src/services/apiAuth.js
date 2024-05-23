@@ -67,6 +67,5 @@ export async function googleLogout() {
 
   if (!response.ok) return new Error("Log out failed. Something went wrong!");
 
-  console.log(response);
   return response;
 }

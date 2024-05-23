@@ -5,16 +5,18 @@ import { CiFileOn } from "react-icons/ci";
 const variant = {
   hidden: {
     opacity: 0,
+    y:30
   },
   visible: {
     opacity: 1,
+    y: 0
   },
 };
 
 function NoteItem({ noteId, notes }) {
   return (
     <>
-      <div className="overflow-y-scroll">
+      <div className="overflow-y-scroll flex-1">
         {notes?.map((note, i) => (
           <motion.div
             key={note._id}
@@ -26,7 +28,7 @@ function NoteItem({ noteId, notes }) {
               delay: i * 0.08,
               ease: [0, 0.71, 0.2, 1.05],
             }}
-            className={` m-0 hover:bg-gray-50 border-b-2 flex justify-between transition-all ${
+            className={` m-0 hover:bg-gray-50 border-b-2 border-gray-100 flex justify-between transition-all ${
               note._id === noteId ? "bg-accent" : ""
             }`}
           >

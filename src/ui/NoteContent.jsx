@@ -9,7 +9,6 @@ const apiKey = "j4zqqn7p5njzj5f8kpqlgvu8cnk0viw2ljux112abwriyh3t";
 function NoteContent() {
   const { notes } = useNote();
   const { noteId } = useParams();
-  console.log(noteId);
   const currentNote = notes?.find((el) => el._id === noteId);
 
   const editorRef = useRef(null);
