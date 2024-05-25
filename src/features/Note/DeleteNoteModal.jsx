@@ -39,7 +39,7 @@ function DeleteNoteModal() {
             <h1 className=" text-2xl mb-4">
               Are you sure to delete this note.
             </h1>
-            <button className="btn btn-error self-end w-32">
+            <button className="btn btn-error !text-xl self-end w-32">
               {isDeleting ? <Loader /> : "Delete"}
             </button>
           </form>

@@ -20,6 +20,7 @@ export default {
           neutral: "black",
           "base-100": "#e9e9e9",
           "base-200": "#d2d2d2",
+          error: "#d52334",
         },
       },
       "dark",

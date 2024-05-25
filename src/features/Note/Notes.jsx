@@ -39,7 +39,7 @@ function Notes() {
     const updatedData = { ...data, noteId };
     mutate(updatedData);
     const activityData = {
-      name: data.title,
+      name: currentNote?.title,
       emoji: currentNote.emoji,
       updatedAt: Date.now(),
       action: "Update",
@@ -62,11 +62,11 @@ function Notes() {
             </h2>
             <NoteEdit />
           </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex-1 flex flex-col gap-2">
-            <MotionPrimary
-              delay={0.3}
-              className="flex-1 bg-white  "
-            >
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex-1 flex flex-col gap-2"
+          >
+            <MotionPrimary delay={0.3} className="flex-1 bg-white  ">
               <Editor
                 onInit={(evt, editor) => (editorRef.current = editor)}
                 apiKey={apiKey}

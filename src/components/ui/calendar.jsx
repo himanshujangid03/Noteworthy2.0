@@ -4,11 +4,28 @@ import { DayPicker } from "react-day-picker";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
+function Calendar({
+  className,
+  classNames,
+  dueDate,
+  showOutsideDays = true,
+  ...props
+}) {
   return (
     <DayPicker
+      selected={dueDate}
+      modifiers={{
+        highlighted: dueDate,
+      }}
+      modifiersStyles={{
+        highlighted: {
+          backgroundColor: "#e0f2fe",
+          color: "#0284c7",
+          fontWeight: 600,
+        },
+      }}
       showOutsideDays={showOutsideDays}
-      className={cn("p-3", className)}
+      className={cn("p-3 bg-white !rounded-xl", className)}
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-4",

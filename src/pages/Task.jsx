@@ -1,12 +1,12 @@
 import TaskCalendar from "@/ui/TaskCalendar";
-import ParentTask from "../features/Todo task/ParentTask";
 import PageHeading from "../ui/PageHeading";
+import TaskItem from "@/features/Todo task/TaskItem";
 
 function Task() {
   return (
     <div>
       <PageHeading heading={"Task"} />
-      <ParentTask />
+      <TaskItem />
       <TaskCalendar />
     </div>
   );

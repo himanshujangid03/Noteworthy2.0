@@ -1,14 +1,11 @@
-export async function getTask(parentTaskId) {
-  const response = await fetch(
-    `http://localhost:4000/task/get/${parentTaskId}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    }
-  );
+export async function getTask() {
+  const response = await fetch(`http://localhost:4000/task/get/`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
 
   const resData = await response.json();
 

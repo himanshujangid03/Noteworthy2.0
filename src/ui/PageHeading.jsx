@@ -2,7 +2,7 @@ import { motion as m } from "framer-motion";
 
 function PageHeading({ heading }) {
   return (
-    <div className=" flex sr flex-col overflow-hidden mb-6">
+    <div className=" flex sr flex-col overflow-hidden mb-4">
       <m.h1
         initial={{ y: "100px" }}
         animate={{ y: 0 }}
