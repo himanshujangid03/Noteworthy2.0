@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 function GoogleAuth() {
   return (
-    <div className="m-4">
+    <div className="m-4 ">
       <Link
         to={"http://localhost:4000/auth/google"}
-        className="flex w-[20rem] rounded-full hover:bg-gray-50 shadow-xl shadow-gray-200 items-center gap-2 btn bg-white"
+        className="flex w-[20rem] rounded-full hover:bg-gray-50 shadow-xl ring-1 ring-primary shadow-[primary]/10 items-center gap-2 btn bg-white"
       >
         <FcGoogle className="w-6 h-6" />
         Sign In With Google

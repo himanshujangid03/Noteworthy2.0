@@ -16,24 +16,24 @@ function LoginForm() {
   return (
     <>
       <div className=" m-4">
-        <Link to={"/"} className=" btn-link flex ">
+        <Link to={"/"} className=" btn-link flex w-full">
           <IoIosArrowRoundBack className=" self-center h-4 w-4" />
           back to home page
         </Link>
-        <div className="flex flex-col items-center m-auto card w-max mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-10 rounded-3xl">
+        <div className="flex flex-col items-center m-auto card w-max mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-10 rounded-xl">
           <h1 className=" text-4xl mb-4 font-semibold">
             Log in to your account
           </h1>
           <GoogleAuth />
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className=" flex flex-col w-[25rem] m-auto gap-4 align-middle"
+            className=" flex flex-col m-auto gap-4 align-middle"
           >
             <div>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-[25rem]"
+                className="input input-bordered w-full text-xl h-14 rounded-xl"
                 {...register("email")}
               />
             </div>
@@ -41,12 +41,12 @@ function LoginForm() {
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="input input-bordered w-[25rem]"
+                className="input input-bordered w-full text-2xl h-14 rounded-xl"
                 {...register("password")}
               />
             </div>
             <button
-              className={`btn btn-primary w-[25rem] mt-2 ${
+              className={`btn btn-primary h-14 !rounded-xl !text-xl  mt-2 ${
                 isSubmitting && "btn-disabled cursor-not-allowed"
               }`}
               disabled={isSubmitting}

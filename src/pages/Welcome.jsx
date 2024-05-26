@@ -9,7 +9,7 @@ const ulVariants = {
   visible: {
     transition: {
       delayChildren: 0.2,
-      staggerChildren: 0.08,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -39,8 +39,11 @@ function Welcome() {
               layout
               variants={liVariants}
               transition={{
-                duration: 1.2,
+                duration: 0.5,
                 ease: [0, 0.71, 0.2, 1.05],
+                type: "spring",
+                damping: 100,
+                stiffness: 300,
               }}
               key={i}
               className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden uppercase tracking-tight font-bold "
@@ -56,8 +59,11 @@ function Welcome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
-              delay: 0.3,
+              delay: 0.8,
               ease: [0, 0.71, 0.2, 1.05],
+              type: "spring",
+              damping: 100,
+              stiffness: 300,
             }}
             className=" text-xl lg:text-3xl text-center"
           >
@@ -75,6 +81,9 @@ function Welcome() {
               duration: 0.5,
               delay: 0.8,
               ease: [0, 0.71, 0.2, 1.05],
+              type: "spring",
+              damping: 100,
+              stiffness: 300,
             }}
             className="btn !text-xl font-medium font-sora h-16 !rounded-full btn-neutral px-6 self-center "
           >
