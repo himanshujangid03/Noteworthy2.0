@@ -1,5 +1,5 @@
 export async function createActivityLog(data) {
-  const response = await fetch("http://localhost:4000/activity/create", {
+  const response = await fetch("http://localhost:8000/activity/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -13,7 +13,7 @@ export async function createActivityLog(data) {
 }
 
 export async function getActivityLog() {
-  const response = await fetch("http://localhost:4000/activity/get", {
+  const response = await fetch("http://localhost:8000/activity/get", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

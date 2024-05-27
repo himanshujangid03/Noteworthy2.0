@@ -1,5 +1,5 @@
 export async function getFolder() {
-  const response = await fetch("http://localhost:4000/folder/get", {
+  const response = await fetch("http://localhost:8000/folder/get", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export async function getFolder() {
 }
 
 export async function createFolder(data) {
-  const response = await fetch("http://localhost:4000/folder/create", {
+  const response = await fetch("http://localhost:8000/folder/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export async function createFolder(data) {
 export async function updateFolder(data) {
   const { folderId } = data;
   const response = await fetch(
-    `http://localhost:4000/folder/update/${folderId}`,
+    `http://localhost:8000/folder/update/${folderId}`,
     {
       method: "PATCH",
       headers: {
@@ -49,7 +49,7 @@ export async function updateFolder(data) {
 export async function deleteFolder(data) {
   const { folderId } = data;
   const response = await fetch(
-    `http://localhost:4000/folder/delete/${folderId}`,
+    `http://localhost:8000/folder/delete/${folderId}`,
     {
       method: "DELETE",
       headers: {

@@ -8,34 +8,30 @@ import ListItem from "../../ui/ListItem";
 import MotionUl from "../../Animation/MotionUl";
 import { CiBoxList } from "react-icons/ci";
 
-const StyledSidebar = styled.div`
-  grid-row: 1/-1;
-`;
-
 function Sidebar() {
   return (
-    <StyledSidebar className="h-full grid z-10 grid-flow-col bg-gray-100 border-r-2 border-gray-300">
+    <div className="h-fit bottom-0 w-max place-self-center m-3 lg:m-0 lg:h-full lg:w-full absolute lg:static  lg:grid z-10 grid-flow-col bg-gray-100 border-r-2 border-gray-300 rounded-2xl ring-2 ring-gray-300 shadow-xl lg:shadow-none lg:ring-0 lg:rounded-none">
       <div>
         <Logo />
-        <MotionUl className="menu mt-10 gap-2">
+        <MotionUl className="menu menu-horizontal lg:menu-vertical lg:mt-10 lg:gap-2">
           <ListItem to={"/"} datatip="Dashboard">
-            <CiGrid41 className=" h-7 w-7 " />
+            <CiGrid41 className=" lg:size-7 size-5 " />
           </ListItem>
           <ListItem to={"/folder"} datatip="File Manager">
-            <CiFolderOn className=" h-7 w-7 " />
+            <CiFolderOn className=" lg:size-7 size-5 " />
           </ListItem>
           <ListItem to={"/activity"} datatip="Activity">
-            <CiWavePulse1 className=" h-7 w-7 " />
+            <CiWavePulse1 className=" lg:size-7 size-5 " />
           </ListItem>
           <ListItem to={"/user"} datatip="Account settings">
-            <CiUser className=" h-7 w-7 " />
+            <CiUser className=" lg:size-7 size-5 " />
           </ListItem>
           <ListItem to={"/tasks"} datatip="Task">
-            <CiBoxList className=" h-7 w-7" />
+            <CiBoxList className=" lg:size-7 size-5" />
           </ListItem>
         </MotionUl>
       </div>
-    </StyledSidebar>
+    </div>
   );
 }
 

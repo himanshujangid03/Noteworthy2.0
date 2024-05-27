@@ -16,18 +16,18 @@ function LoginForm() {
   return (
     <>
       <div className=" m-4">
-        <Link to={"/"} className=" btn-link flex w-full">
+        <Link to={"/"} className=" btn-link flex">
           <IoIosArrowRoundBack className=" self-center h-4 w-4" />
           back to home page
         </Link>
-        <div className="flex flex-col items-center m-auto card w-max mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-10 rounded-xl">
+        <div className="flex flex-col items-center m-auto card max-w-[30rem] mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-8 rounded-xl">
           <h1 className=" text-4xl mb-4 font-semibold">
             Log in to your account
           </h1>
           <GoogleAuth />
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className=" flex flex-col m-auto gap-4 align-middle"
+            className=" flex w-full flex-col m-auto gap-4 align-middle"
           >
             <div>
               <input

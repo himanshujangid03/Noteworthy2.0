@@ -7,6 +7,7 @@ export default {
     fontFamily: {
       inter: ["Inter", "sans-serif"],
       sora: ["Sora", "sans-serif"],
+      cabinet: ["Cabinet Grotesk", "sans-serif"],
     },
     extend: {},
   },

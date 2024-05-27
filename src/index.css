@@ -35,3 +35,37 @@
 .btn-disabled {
   @apply !bg-gray-600 !text-white !cursor-not-allowed;
 }
+
+.special-btn {
+  align-self: center;
+  border: 1px solid black;
+  position: relative;
+  background: transparent;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.special-btn:hover {
+  color: white;
+}
+
+.special-btn::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: black;
+  left: 0%;
+  top: 120%;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  transition: all 0.5s;
+  z-index: -1;
+  mix-blend-mode: difference;
+}
+
+.special-btn:hover::after {
+  top: 0;
+}

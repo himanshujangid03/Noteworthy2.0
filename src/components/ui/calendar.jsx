@@ -8,6 +8,7 @@ function Calendar({
   className,
   classNames,
   dueDate,
+  currentDate,
   showOutsideDays = true,
   ...props
 }) {
@@ -16,12 +17,17 @@ function Calendar({
       selected={dueDate}
       modifiers={{
         highlighted: dueDate,
+        currentHighlighted: currentDate,
       }}
       modifiersStyles={{
         highlighted: {
           backgroundColor: "#e0f2fe",
           color: "#0284c7",
           fontWeight: 600,
+        },
+        currentHighlighted: {
+          background: "#000",
+          color: "#fff",
         },
       }}
       showOutsideDays={showOutsideDays}

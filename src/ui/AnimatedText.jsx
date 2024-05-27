@@ -15,7 +15,7 @@ const childVariants = {
     y: 300,
   },
   visible: {
-    y: -40,
+    y: 0,
   },
 };
 

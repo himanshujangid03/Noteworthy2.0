@@ -1,5 +1,5 @@
 export async function login(data) {
-  const response = await fetch("http://localhost:4000/user/login", {
+  const response = await fetch("http://localhost:8000/user/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -13,7 +13,7 @@ export async function login(data) {
 }
 
 export async function signUp(data) {
-  const response = await fetch("http://localhost:4000/user/signup", {
+  const response = await fetch("http://localhost:8000/user/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export async function signUp(data) {
 }
 
 export async function isLoggedIn() {
-  const response = await fetch("http://localhost:4000/user/profile", {
+  const response = await fetch("http://localhost:8000/user/profile", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export async function isLoggedIn() {
 }
 
 export async function logout() {
-  const response = await fetch("http://localhost:4000/user/logout", {
+  const response = await fetch("http://localhost:8000/user/logout", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export async function logout() {
 }
 
 export async function googleLogout() {
-  const response = await fetch("http://localhost:4000/user/google/logout", {
+  const response = await fetch("http://localhost:8000/user/google/logout", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

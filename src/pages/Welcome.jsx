@@ -36,7 +36,7 @@ function Welcome() {
         >
           {heading.map((el, i) => (
             <m.div
-              layout
+              layout="position"
               variants={liVariants}
               transition={{
                 duration: 0.5,
@@ -46,7 +46,7 @@ function Welcome() {
                 stiffness: 300,
               }}
               key={i}
-              className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden uppercase tracking-tight font-bold "
+              className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden uppercase tracking-tight font-extrabold "
             >
               {el}
             </m.div>
@@ -59,9 +59,8 @@ function Welcome() {
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
-              delay: 0.8,
+              delay: 0.5,
               ease: [0, 0.71, 0.2, 1.05],
-              type: "spring",
               damping: 100,
               stiffness: 300,
             }}
@@ -73,7 +72,7 @@ function Welcome() {
             Noteworthy Notes has you covered.
           </m.p>
           <m.button
-            initial={{ opacity: 0, y: 80 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             onMouseEnter={() => setAnimate(true)}
             onMouseLeave={() => setAnimate(false)}
@@ -81,15 +80,18 @@ function Welcome() {
               duration: 0.5,
               delay: 0.8,
               ease: [0, 0.71, 0.2, 1.05],
-              type: "spring",
-              damping: 100,
-              stiffness: 300,
             }}
-            className="btn !text-xl font-medium font-sora h-16 !rounded-full btn-neutral px-6 self-center "
+            className="special-btn rounded-full"
           >
-            <Link to={"/login"} className="flex gap-4 items-center">
+            <Link
+              to={"/login"}
+              className="flex gap-4 items-center cursor-pointer py-4 px-8 text-xl font-medium"
+            >
               Get Started
-              <m.span animate={{ x: startAnimate ? 3 : 0 }}>
+              <m.span
+                animate={{ x: startAnimate ? 3 : 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 <FaArrowRight className="size-5" />
               </m.span>
             </Link>

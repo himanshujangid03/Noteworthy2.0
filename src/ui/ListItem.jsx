@@ -21,14 +21,17 @@ function ListItem({ to, children, datatip }) {
       whileTap={{ scale: 0.9 }}
       transition={{
         duration: 0.2,
+        type: "spring",
+        damping: 100,
+        stiffness: 400,
       }}
-      className=" m-1 text-gray-600 tooltip tooltip-right tooltip-neutral font-sans font-semibold"
+      className=" m-1 text-gray-600 tooltip tooltip-top lg:tooltip-right tooltip-neutral font-sans font-semibold"
       data-tip={datatip}
     >
       <NavLink
         to={to}
         className={
-          " hover:bg-primary bg-base-200/50 ring-1 ring-gray-300 hover:text-gray-50 active:!bg-primary  rounded-2xl "
+          " hover:bg-primary bg-base-200/50 ring-1 ring-gray-300 hover:text-gray-50 active:!bg-primary  lg:rounded-2xl rounded-xl "
         }
       >
         {children}

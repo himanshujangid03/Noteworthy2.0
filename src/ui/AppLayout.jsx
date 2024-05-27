@@ -8,7 +8,6 @@ import Welcome from "../pages/Welcome";
 const StyledAppLayout = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
   height: 100dvh;
   width: 100dvw;
   margin: 0;
@@ -20,12 +19,14 @@ function AppLayout() {
   if (!data) return <Welcome />;
   return (
     <>
-      <StyledAppLayout className=" bg-base-100 ">
-        <Header />
+      <StyledAppLayout className=" bg-base-100 overflow-hidden ">
         <Sidebar />
-        <main className=" overflow-x-hidden p-4">
-          <Outlet />
-        </main>
+        <div className="">
+          <Header />
+          <main className=" overflow-x-hidden overflow-y-scroll p-4 h-full">
+            <Outlet />
+          </main>
+        </div>
       </StyledAppLayout>
     </>
   );

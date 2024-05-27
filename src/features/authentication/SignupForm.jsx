@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Loader from "../../ui/Loader";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useSignup } from "../../hooks/Auth hooks/useSignup";
+import GoogleAuth from "./google auth/GoogleAuth";
 
 function SignUpForm() {
   const { register, handleSubmit } = useForm();
@@ -12,22 +13,23 @@ function SignUpForm() {
     mutateSignup(data);
   };
   return (
-    <div className=" m-4">
+    <div className=" m-2">
       <Link className=" btn-link flex ">
-        <IoIosArrowRoundBack className=" self-center h-4 w-4" />
+        <IoIosArrowRoundBack className=" self-center size-4" />
         back to home page
       </Link>
-      <div className="flex flex-col items-center m-auto card w-max mt-20 bg-gray-50 p-10 rounded-3xl">
+      <div className="flex flex-col max-w-[30rem] items-center m-auto card w-max mt-20 bg-gray-50 p-10 rounded-3xl">
         <h1 className=" text-4xl mb-4 font-semibold">Create new account</h1>
+        <GoogleAuth />
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className=" flex flex-col w-[25rem] m-auto gap-4 align-middle"
+          className=" flex flex-col w-full m-auto gap-4 align-middle"
         >
           <div>
             <input
               type="name"
               placeholder="Enter your name"
-              className="input input-bordered w-[25rem]"
+              className="input input-bordered w-full"
               {...register("name")}
             />
           </div>
@@ -35,7 +37,7 @@ function SignUpForm() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="input input-bordered w-[25rem]"
+              className="input input-bordered w-full"
               {...register("email")}
             />
           </div>
@@ -43,12 +45,12 @@ function SignUpForm() {
             <input
               type="password"
               placeholder="Enter your password"
-              className="input text-4xl input-bordered w-[25rem]"
+              className="input text-4xl input-bordered w-full"
               {...register("password")}
             />
           </div>
           <button
-            className={`btn btn-primary w-[25rem] mt-2 ${
+            className={`btn btn-primary w-full mt-2 ${
               isSubmitting && "btn-disabled cursor-not-allowed"
             }`}
             disabled={isSubmitting}

@@ -4,7 +4,6 @@ import FailedToFetch from "../ui/FailedToFetch";
 import CreateNewFolder from "../ui/CreateNewFolder";
 import { useGetFolder } from "../hooks/Folder hooks/useGetFolder";
 import MotionDiv from "../Animation/MotionDiv";
-import PageHeading from "../ui/PageHeading";
 
 function Folder() {
   const { data, isLoading, isLoadingError } = useGetFolder();
@@ -12,7 +11,6 @@ function Folder() {
   return (
     <>
       <div className="h-full">
-        {!isLoadingError && <PageHeading heading={"My Folder"} />}
         <MotionDiv className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
           {isLoading && <FolderSkeleton />}
           {data?.map((item, i) => (

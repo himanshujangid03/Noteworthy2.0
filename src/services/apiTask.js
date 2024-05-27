@@ -1,5 +1,5 @@
 export async function getTask() {
-  const response = await fetch(`http://localhost:4000/task/get/`, {
+  const response = await fetch(`http://localhost:8000/task/get/`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export async function getTask() {
 }
 
 export async function createTask(data) {
-  const response = await fetch("http://localhost:4000/task/create", {
+  const response = await fetch("http://localhost:8000/task/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export async function createTask(data) {
 export async function updateParentTask(data) {
   const { taskId } = data;
   const response = await fetch(
-    `http://localhost:4000/parent-task/update/${taskId}`,
+    `http://localhost:8000/parent-task/update/${taskId}`,
     {
       method: "PATCH",
       headers: {
@@ -49,7 +49,7 @@ export async function updateParentTask(data) {
 export async function deleteParentTask(data) {
   const { taskId } = data;
   const response = await fetch(
-    `http://localhost:4000/parent-task/delete/${taskId}`,
+    `http://localhost:8000/parent-task/delete/${taskId}`,
     {
       method: "DELETE",
       headers: {
