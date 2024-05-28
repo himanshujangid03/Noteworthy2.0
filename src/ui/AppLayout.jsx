@@ -1,17 +1,8 @@
 import { Outlet } from "react-router";
 import Header from "../features/dashboard/Header";
-import styled from "styled-components";
 import Sidebar from "../features/dashboard/Sidebar";
 import { useIsLoggedIn } from "../hooks/Auth hooks/useIsLoggedIn";
 import Welcome from "../pages/Welcome";
-
-const StyledAppLayout = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  height: 100dvh;
-  width: 100dvw;
-  margin: 0;
-`;
 
 function AppLayout() {
   const { data } = useIsLoggedIn();
@@ -19,7 +10,7 @@ function AppLayout() {
   if (!data) return <Welcome />;
   return (
     <>
-      <StyledAppLayout className=" bg-base-100 overflow-hidden ">
+      <div className=" bg-base-100 overflow-hidden grid grid-flow-col grid-cols-[auto,1fr] h-full w-full m-0 ">
         <Sidebar />
         <div className="">
           <Header />
@@ -27,7 +18,7 @@ function AppLayout() {
             <Outlet />
           </main>
         </div>
-      </StyledAppLayout>
+      </div>
     </>
   );
 }
