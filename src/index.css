@@ -6,16 +6,16 @@
 
 @layer base {
   html {
+    font-size: 95%;
     font-family: "Urbanist", sans-serif;
-
     ::-webkit-scrollbar {
-      width: 6px;
+      scrollbar-width: none;
     }
 
-    ::-webkit-scrollbar-thumb {
-      background-color: #aaaaaa; /* Color of the scrollbar handle */
-      border-radius: 6px; /* Rounded corners for the scrollbar handle */
-    }
+    /* ::-webkit-scrollbar-thumb {
+      background-color: #aaaaaa;
+      border-radius: 6px;
+    } */
   }
 }
 

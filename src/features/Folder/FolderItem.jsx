@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import LordIconArrow from "../../ui/LordIconArrow";
+import { FiArrowUpRight } from "react-icons/fi";
+
 import StaggerMotion from "../../Animation/StaggerMotion";
 
 function FolderItem({ item, i }) {
@@ -10,7 +11,7 @@ function FolderItem({ item, i }) {
     <>
       <StaggerMotion
         i={i}
-        className="card bg-gradient-to-br from-gray-100 to-slate-200 border-2 border-slate-300 rounded-3xl rounded-br-[2.5rem] shadow-gray-300 shadow-2xl h-48 m-4 p-4 gap-4 flex "
+        className="card bg-gradient-to-br from-gray-100 to-slate-200 border-2 border-slate-300 rounded-3xl rounded-br-[2.5rem] shadow-gray-300 shadow-2xl h-48 m-4 p-4 gap-4 flex justify-between"
       >
         <div className="tooltip tooltip-top" data-tip={item.name}>
           <h3 className=" text-4xl font-medium text-start truncate self-start ">
@@ -20,9 +21,9 @@ function FolderItem({ item, i }) {
         <p className="font-sans">Created at {formatDate}</p>
         <Link
           to={`/folder/${item._id}`}
-          className="bg-black self-end h-12 w-12 overflow-hidden btn-neutral rotate-[-40deg] absolute bottom-4 !rounded-full"
+          className="bg-black self-end h-14 w-14 overflow-hidden btn-neutral !rounded-full grid place-content-center"
         >
-          <LordIconArrow />
+          <FiArrowUpRight className="size-8 text-white" />
         </Link>
       </StaggerMotion>
     </>

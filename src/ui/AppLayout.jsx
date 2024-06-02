@@ -10,11 +10,11 @@ function AppLayout() {
   if (!data) return <Welcome />;
   return (
     <>
-      <div className=" bg-base-100 overflow-hidden grid grid-flow-col grid-cols-[auto,1fr] h-full w-full m-0 ">
+      <div className="overflow-x-hidden bg-base-100 grid grid-flow-col grid-cols-[auto,1fr] h-dvh w-full m-0 ">
         <Sidebar />
-        <div className="">
+        <div className="overflow-x-hidden h-full grid grid-rows-[auto,1fr]">
           <Header />
-          <main className=" overflow-x-hidden overflow-y-scroll p-4 h-full">
+          <main className="">
             <Outlet />
           </main>
         </div>

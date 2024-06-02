@@ -50,8 +50,8 @@ function Notes() {
 
   return (
     <>
-      <div className="h-full overflow-hidden  grid grid-flow-col grid-cols-[1fr,2fr] gap-4">
-        <div className="flex flex-col  gap-2 ">
+      <div className="h-full p-4 overflow-y-scroll  grid grid-flow-col grid-cols-[1fr,2fr] gap-4">
+        <div className="h-full flex flex-col  gap-2 ">
           <FolderDropdown />
           <NoteList notes={notes} />
         </div>

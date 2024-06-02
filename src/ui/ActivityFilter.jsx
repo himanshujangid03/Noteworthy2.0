@@ -10,7 +10,7 @@ function ActivityFilter() {
   );
 
   return (
-    <div className="flex flex-col gap-6  self-stretch">
+    <div className="flex flex-col gap-6  self-stretch p-4">
       <div className="h-full ">
         <div className=" w-full bg-black text-xl text-gray-300 grid grid-flow-col grid-cols-3 p-4 rounded-t-2xl ">
           <p className="w-full pl-4">Name</p>
@@ -21,7 +21,7 @@ function ActivityFilter() {
           {filterData?.map((item, i) => (
             <div
               key={i}
-              className="w-full  grid grid-flow-col grid-cols-3 p-2 text-xl border-b-2 border-gray-200"
+              className="w-full grid grid-flow-col grid-cols-3 p-2 text-xl border-b-2 border-gray-300"
             >
               <p className="w-full pl-4 self-center font-medium">
                 <span className="text-2xl  mr-2">

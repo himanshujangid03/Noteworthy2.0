@@ -11,7 +11,7 @@ function Folder() {
   return (
     <>
       <div className="h-full">
-        <MotionDiv className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
+        <MotionDiv className=" grid lg:grid-cols-4 md:grid-cols-3  grid-cols-1">
           {isLoading && <FolderSkeleton />}
           {data?.map((item, i) => (
             <FolderItem key={item._id} item={item} i={i} />

@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="h-full grid grid-flow-col grid-cols-[1fr,auto] p-4">
       <div className="flex flex-col px-6 gap-6">
-        <div className="w-full h-fit p-6  bg-gradient-to-br from-indigo-900 to-indigo-950 rounded-3xl flex flex-col gap-8">
+        <div className="w-full h-fit p-6  bg-gradient-to-br from-indigo-900 to-indigo-950 rounded-3xl flex flex-col gap-24">
           <h2 className="text-5xl text-blue-100 font-cabinet font-semibold leading-tight ">
             Boost Your Productivity with Effective <br /> Task Management
           </h2>

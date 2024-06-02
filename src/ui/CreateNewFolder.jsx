@@ -1,6 +1,4 @@
-import { IoAdd } from "react-icons/io5";
 import { HiOutlineFolderPlus } from "react-icons/hi2";
-
 import CreateFolderModal from "../features/Folder/CreateFolderModal";
 
 function CreateNewFolder() {

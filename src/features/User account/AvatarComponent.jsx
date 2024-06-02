@@ -9,7 +9,7 @@ function AvatarComponent() {
   const { data, mode } = useIsLoggedIn();
   return (
     <>
-      <MotionDiv className="p-4 pt-6 flex flex-col gap-4 rounded-2xl">
+      <MotionDiv className="p-4 pt-6 flex  flex-col gap-4 rounded-2xl">
         <PageHeading heading={"User Profile"} />
         <div className="flex gap-8">
           <Avatar position="profile" />

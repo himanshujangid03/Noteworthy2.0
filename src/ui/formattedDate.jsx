@@ -5,7 +5,7 @@ export function FormattedDate({ date, className }) {
 
   return (
     <>
-      <p className={className}>{formatDate}</p>
+      <span className={className}>{formatDate}</span>
     </>
   );
 }

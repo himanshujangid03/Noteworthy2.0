@@ -11,7 +11,7 @@ function NoteList({ notes }) {
     <>
       <MotionPrimary
         delay={0.2}
-        className="flex-1 bg-white flex flex-col p-4 rounded-xl shadow-lg shadow-gray-400/40"
+        className="flex-1 bg-white flex flex-col p-4 rounded-xl h-full shadow-lg shadow-gray-400/40"
       >
         <h1 className=" text-2xl text-center p-3 ">All notes</h1>
         <NoteItem noteId={noteId} notes={notes} />

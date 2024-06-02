@@ -4,7 +4,7 @@ import UserInfo from "./UserInfo";
 
 function UserComponent() {
   return (
-    <div className=" px-20">
+    <div className=" px-20 overflow-y-scroll">
       <AvatarComponent />
       <div className="divider"></div>
       <UserInfo />
