@@ -4,20 +4,22 @@ import { useGetTask } from "@/hooks/Task hooks/useGetTask";
 import { Link } from "react-router-dom";
 import { TbClockShare } from "react-icons/tb";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { motion as m } from "framer-motion";
 
 function TaskCalendar() {
   const [date, setDate] = useState(new Date());
   const { taskData } = useGetTask();
   const dueDate = taskData?.map((task) => new Date(task?.dueDate));
   const currentDate = new Date();
-  const [animate, setAnimate] = useState(false);
 
-  const upcomingTask = taskData?.at(0);
+  const upcomingTask = taskData
+    ?.filter((el) => new Date(el.dueDate) > currentDate)
+    ?.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+    ?.slice(0, 2);
+
+  console.log(upcomingTask);
 
   //* Format date
-  const formatDate = new Date(upcomingTask?.dueDate);
-  const days = formatDate.getUTCDate();
+  const currentDay = currentDate.getUTCDate();
 
   return (
     <>
@@ -40,28 +42,34 @@ function TaskCalendar() {
           </Link>
         </div>
         <Link to={"/tasks"}>
-          <div
-            className="p-3 cursor-pointer hover:bg-gray-50 transition-all bg-white gap-3 rounded-xl grid grid-flow-col grid-cols-[auto,1fr,auto] place-items-center shadow-sm"
-            onMouseEnter={() => setAnimate(true)}
-            onMouseLeave={() => setAnimate(false)}
-          >
-            <p className="bg-blue-800 w-min p-4 text-blue-50 rounded-2xl">
-              <TbClockShare className="size-6 " />
-            </p>
-            <div className="w-full">
-              <p className="font-medium">due in {days} days</p>
+          <div>
+            {upcomingTask?.map((task) => (
               <div
-                className="tooltip w-32 flex tooltip-top overflow-hidden"
-                data-tip={upcomingTask?.title}
+                key={task._id}
+                className="p-3 cursor-pointer hover:bg-gray-50 transition-all bg-white gap-3 rounded-xl grid grid-flow-col grid-cols-[auto,1fr,auto] place-items-center shadow-sm mb-2"
               >
-                <h3 className="text-xl font-semibold truncate w-full text-start self-baseline">
-                  {upcomingTask?.title}
-                </h3>
+                <p className="bg-blue-800 w-min p-4 text-blue-50 rounded-2xl">
+                  <TbClockShare className="size-6 " />
+                </p>
+                <div className="w-full">
+                  <p className="font-medium">
+                    due in {new Date(task?.dueDate).getUTCDate() - currentDay}{" "}
+                    days
+                  </p>
+                  <div
+                    className="tooltip w-32 flex tooltip-top overflow-hidden"
+                    data-tip={task?.title}
+                  >
+                    <h3 className="text-xl font-semibold truncate w-full text-start self-baseline">
+                      {task?.title}
+                    </h3>
+                  </div>
+                </div>
+                <span>
+                  <MdKeyboardArrowRight className="size-8" />
+                </span>
               </div>
-            </div>
-            <m.span animate={{ x: animate ? 3 : 0 }}>
-              <MdKeyboardArrowRight className="size-8" />
-            </m.span>
+            ))}
           </div>
         </Link>
       </div>

@@ -8,9 +8,6 @@ const variants = {
   hidden: {
     y: 20,
     opacity: 0,
-    transition: {
-      duration: 0.5,
-    },
   },
   visible: {
     y: 0,
@@ -25,12 +22,12 @@ const variants = {
 function TaskColumn({ title, column }) {
   const { taskData } = useGetTask();
   const filterCards = taskData?.filter((card) => card.status === column);
-  console.log(taskData);
+  console.log(filterCards);
 
   return (
     <>
       <div className=" shrink-0">
-        <div className="mb-3 text-3xl px-6 flex flex-row justify-between items-center bg-white py-4 rounded-xl">
+        <div className="mb-3 text-3xl px-6 flex flex-row justify-between items-center bg-white/70 py-4 rounded-xl">
           <h3 className="font-medium">{title}</h3>
           <span className="">{filterCards?.length}</span>
         </div>
@@ -45,7 +42,7 @@ function TaskColumn({ title, column }) {
                 exit="exit"
                 transition={{ delay: i * 0.2, duration: 0.4 }}
                 key={card._id}
-                className={`bg-white w-full relative p-6 rounded-[2rem] shadow-md my-4  flex flex-col justify-between before:absolute before:-left-1 before:top-[25%] before:rounded-xl before:w-3 before:h-20 before:${card.priority === "md" && "bg-orange-500"} before:${card.priority === "low" && "bg-green-500"} before:${card.priority === "high" && "bg-red-500"}`}
+                className={`bg-white w-full relative p-6 rounded-[2rem] shadow-md my-4  flex flex-col justify-between before:absolute before:-left-1 before:top-[25%] before:rounded-xl before:w-3      before:h-20  ${card.priority === "high" && "before:bg-red-500"} ${card.priority === "md" && "before:bg-orange-500"} ${card.priority === "low" && "before:bg-green-500"} `}
               >
                 <div className=" self-end">
                   <TaskDropdown taskId={card._id} />

@@ -10,9 +10,11 @@ import { CiEdit } from "react-icons/ci";
 import { PiTrashSimpleLight } from "react-icons/pi";
 import { GoCheck } from "react-icons/go";
 import { PiDotsThreeBold } from "react-icons/pi";
+import { useDeleteTask } from "@/hooks/Task hooks/useDeleteTask";
 
 function TaskDropdown({ taskId }) {
   const { mutate } = useUpdateTask();
+  const { mutate: deleteMutateFn } = useDeleteTask();
 
   const onComplete = () => {
     const status = "completed";
@@ -27,7 +29,7 @@ function TaskDropdown({ taskId }) {
   };
 
   const onDelete = () => {
-    mutate(taskId);
+    deleteMutateFn(taskId);
   };
 
   return (
@@ -40,18 +42,18 @@ function TaskDropdown({ taskId }) {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-fit !rounded-xl">
           <DropdownMenuGroup className=" flex p-1 !rounded-xl ">
-            <DropdownMenuItem className="rounded-lg focus:bg-green-50 transition-colors">
+            <DropdownMenuItem className="rounded-lg focus:bg-green-100 transition-colors">
               <button className="flex w-fit" onClick={onComplete}>
                 <GoCheck className="size-7 text-green-800" />
               </button>
             </DropdownMenuItem>
-            <DropdownMenuItem className="rounded-lg focus:bg-blue-50">
+            <DropdownMenuItem className="rounded-lg focus:bg-blue-100">
               <button className="flex" onClick={onProgress}>
                 <CiEdit className="size-7 text-blue-800" />
               </button>
             </DropdownMenuItem>
-            <DropdownMenuItem className="rounded-lg focus:bg-red-50">
-              <button className="flex" onClick={onProgress}>
+            <DropdownMenuItem className="rounded-lg focus:bg-red-100">
+              <button className="flex" onClick={onDelete}>
                 <PiTrashSimpleLight className="size-7 text-red-800" />
               </button>
             </DropdownMenuItem>

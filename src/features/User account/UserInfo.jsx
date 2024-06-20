@@ -1,12 +1,25 @@
 import { useForm } from "react-hook-form";
 import { useIsLoggedIn } from "../../hooks/Auth hooks/useIsLoggedIn";
 import MotionDiv from "../../Animation/MotionDiv";
+import { useUpdateName } from "@/hooks/User hooks/useUpdateName";
 
 function UserInfo() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const { data, mode } = useIsLoggedIn();
+  const { mutate, isLoading } = useUpdateName();
+  const nameInput = watch("name");
+  console.log(nameInput);
 
-  function onSubmit() {}
+  function onSubmit(data) {
+    const proceed = window.confirm(
+      `Are you sure you want to update the name to ${nameInput}`
+    );
+    if (proceed) {
+      mutate(data);
+    }
+    console.log(proceed);
+    return;
+  }
   return (
     <>
       <MotionDiv className=" py-2 pl-4 rounded-2xl">
@@ -37,8 +50,9 @@ function UserInfo() {
               className={`btn btn-outline btn-neutral text-gray-900 hover:text-gray-300 self-end ${
                 mode === "google" && " invisible "
               }`}
+              disabled={data?.name === nameInput ? true : false}
             >
-              Update name
+              {isLoading ? "Updating..." : "Update name"}
             </button>
           </form>
           <div className=" flex flex-col gap-2">

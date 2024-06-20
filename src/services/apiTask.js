@@ -14,7 +14,7 @@ export async function getTask() {
 }
 
 export async function createTask(data) {
-  const response = await fetch("http://localhost:8000/task/create", {
+  const response = await fetch("http://localhost:8000/task/create/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

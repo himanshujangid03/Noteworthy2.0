@@ -38,7 +38,7 @@
 
 .special-btn {
   align-self: center;
-  border: 1px solid black;
+  border: 1px solid rgb(70, 0, 0);
   position: relative;
   background: transparent;
   z-index: 1;

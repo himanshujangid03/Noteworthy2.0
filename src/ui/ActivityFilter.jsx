@@ -17,7 +17,7 @@ function ActivityFilter() {
           <p className="w-full pl-4">Action</p>
           <p className="w-full pl-4">Modified At</p>
         </div>
-        <div className=" h-full pt-2 ">
+        <div className=" h-full pt-2 bg-white/40 rounded-b-2xl">
           {filterData?.map((item, i) => (
             <div
               key={i}

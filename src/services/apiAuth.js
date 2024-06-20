@@ -69,3 +69,18 @@ export async function googleLogout() {
 
   return response;
 }
+
+export async function updateName(data) {
+  const response = await fetch("http://localhost:8000/user/update-user", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) return new Error("Something went wrong!");
+
+  return response;
+}

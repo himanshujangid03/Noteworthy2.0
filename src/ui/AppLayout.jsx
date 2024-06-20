@@ -7,14 +7,14 @@ import Welcome from "../pages/Welcome";
 function AppLayout() {
   const { data } = useIsLoggedIn();
 
-  if (!data) return <Welcome />;
+  //if (!data) return <Welcome />;
   return (
     <>
-      <div className="overflow-x-hidden bg-base-100 grid grid-flow-col grid-cols-[auto,1fr] h-dvh w-full m-0 ">
+      <div className="overflow-x-hidden bg-base-100 grid grid-flow-col grid-cols-[auto,1fr] h-dvh w-full m-0">
         <Sidebar />
-        <div className="overflow-x-hidden h-full grid grid-rows-[auto,1fr]">
+        <div className="overflow-x-hidden h-full grid grid-rows-[auto,1fr] w-full">
           <Header />
-          <main className="">
+          <main className="w-full">
             <Outlet />
           </main>
         </div>

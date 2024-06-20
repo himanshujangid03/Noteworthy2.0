@@ -12,18 +12,25 @@ function Calendar({
   showOutsideDays = true,
   ...props
 }) {
+  const outDate = dueDate?.filter((date) => date < currentDate);
+
   return (
     <DayPicker
       selected={dueDate}
       modifiers={{
         highlighted: dueDate,
         currentHighlighted: currentDate,
+        outDatedDate: outDate,
       }}
       modifiersStyles={{
         highlighted: {
           backgroundColor: "#e0f2fe",
           color: "#0284c7",
           fontWeight: 600,
+        },
+        outDatedDate: {
+          backgroundColor: "rgba(255, 0, 0, 0.123)",
+          color: "rgb(70, 0, 0)",
         },
         currentHighlighted: {
           background: "#000",
@@ -48,8 +55,8 @@ function Calendar({
         head_row: "flex",
         head_cell:
           "text-gray-500 rounded-md w-9 font-medium text-[1rem] dark:text-gray-400",
-        row: "flex w-full mt-2",
-        cell: "h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-gray-100/50 [&:has([aria-selected])]:bg-gray-100 first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20 dark:[&:has([aria-selected].day-outside)]:bg-gray-800/50 dark:[&:has([aria-selected])]:bg-gray-800",
+        row: "flex w-full mt-1",
+        cell: "h-9 w-9 text-center mr-1 text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-gray-100/50 [&:has([aria-selected])]:bg-gray-100 first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20 dark:[&:has([aria-selected].day-outside)]:bg-gray-800/50 dark:[&:has([aria-selected])]:bg-gray-800",
         day: cn(
           buttonVariants({ variant: "ghost" }),
           "h-9 w-9 p-0 font-normal aria-selected:opacity-100"

@@ -21,6 +21,9 @@ const liVariants = {
   visible: {
     y: -40,
   },
+  exit: {
+    y: -300,
+  },
 };
 
 function Welcome() {
