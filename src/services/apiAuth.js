@@ -84,3 +84,17 @@ export async function updateName(data) {
 
   return response;
 }
+
+export async function deleteUser() {
+  const response = await fetch("http://localhost:8000/user/delete-user", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+
+  if (response.ok === false)
+    throw new Error("Something went wrong. Try again later.");
+  return response;
+}

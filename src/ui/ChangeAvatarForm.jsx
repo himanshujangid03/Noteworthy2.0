@@ -34,7 +34,7 @@ function ChangeAvatarForm() {
             >
               <div className=" flex flex-col h-full justify-between">
                 <IoCloudUploadOutline className=" self-center h-14 w-14 m-2 text-gray-500" />
-                <p className="self-center text-xl font-semibold text-sky-950">
+                <p className="self-center text-center text-xl font-semibold text-sky-950">
                   Drop you image here or,
                   <span className=" text-sky-500 ml-2">browse</span>
                 </p>
@@ -52,7 +52,7 @@ function ChangeAvatarForm() {
               })}
             />
             <button
-              className={`btn btn-primary self-center mt-4 ${
+              className={`btn btn-primary self-center my-4 ${
                 isUploading && " btn-disabled"
               }`}
             >

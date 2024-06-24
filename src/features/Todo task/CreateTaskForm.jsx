@@ -5,7 +5,7 @@ import { useCreateActivityLog } from "../../hooks/Activity hooks/useCreateActivi
 import { useCreateTask } from "@/hooks/Task hooks/useCreateTask";
 
 function CreateTaskForm() {
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
   const { isUpdating, mutate } = useCreateTask();
   const { mutate: mutateActivityFn } = useCreateActivityLog();
@@ -17,6 +17,7 @@ function CreateTaskForm() {
       updatedAt: Date.now(),
       action: "Create",
     };
+    reset();
     mutateActivityFn(activityData);
   }
 
@@ -74,7 +75,7 @@ function CreateTaskForm() {
           </label>
           <select
             id="priority"
-            className="select select-bordered w-full max-w-xs text-xl bg-slate-300 outline-none border-none rounded-2xl"
+            className="select select-bordered w-fit text-xl bg-slate-300 outline-none border-none rounded-2xl"
             {...register("priority", { required: "This field is required." })}
           >
             <option value="low" selected>

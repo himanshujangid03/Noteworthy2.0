@@ -18,7 +18,7 @@ function UserProfile() {
           <div className=" flex mr-1">
             <Avatar position={"header"} />
           </div>
-          <div className="shadow-xl shadow-gray-200 self-center ml-2 text-lg bg-accent p-2 rounded-xl font-medium text-black dropdown dropdown-hover">
+          <div className="shadow-xl shadow-gray-200 self-center ml-2 text-lg bg-base-200/50 p-2 rounded-xl font-medium text-black dropdown dropdown-hover">
             <div
               tabIndex={0}
               role="button"
@@ -29,7 +29,7 @@ function UserProfile() {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 text-black shadow bg-accent rounded-box w-86 text-md"
+              className="dropdown-content z-[1] menu p-2 text-black shadow bg-accent rounded-box w-max text-md"
             >
               <li className="">
                 <div className=" flex !text-black flex-col !bg-slate-200 mb-1 ">

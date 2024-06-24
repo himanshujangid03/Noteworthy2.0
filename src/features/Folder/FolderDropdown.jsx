@@ -16,13 +16,13 @@ function FolderDropdown() {
     <>
       <MotionPrimary
         delay={0.1}
-        className="rounded-xl dropdown grid grid-flow-col place-items-center grid-cols-[1fr,auto] dropdown-bottom bg-white h-20 p-4 shadow-lg shadow-gray-400/40"
+        className="rounded-xl flex justify-between items-center dropdown dropdown-bottom bg-white h-20 p-4 shadow-lg shadow-gray-400/40"
       >
         <div
           className="tooltip tooltip-top z-30"
           data-tip={currentFolder?.at(0)?.name}
         >
-          <h3 className=" text-3xl font-medium w-64  truncate text-start ">
+          <h3 className=" text-3xl font-medium  truncate text-start ">
             {currentFolder?.at(0)?.name}
           </h3>
         </div>

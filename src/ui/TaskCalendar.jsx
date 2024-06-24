@@ -16,8 +16,6 @@ function TaskCalendar() {
     ?.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
     ?.slice(0, 2);
 
-  console.log(upcomingTask);
-
   //* Format date
   const currentDay = currentDate.getUTCDate();
 

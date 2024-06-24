@@ -10,7 +10,7 @@ function PageHeading({ heading }) {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className=" text-6xl font-extrabold text-gray-400/90 self-center"
+        className=" lg:text-6xl text-4xl text-center font-extrabold text-gray-400/90 self-center"
       >
         {heading}
       </m.h1>

@@ -24,7 +24,7 @@ function StaggerMotion({ children, i, className }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      transition={{ duration: 0.3, delay: i * 0.2 }}
+      transition={{ duration: 0.3, delay: i * 0.08 }}
       className={className}
     >
       {children}

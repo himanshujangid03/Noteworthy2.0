@@ -5,18 +5,18 @@ import { CiFileOn } from "react-icons/ci";
 const variant = {
   hidden: {
     opacity: 0,
-    y:30
+    y: 30,
   },
   visible: {
     opacity: 1,
-    y: 0
+    y: 0,
   },
 };
 
 function NoteItem({ noteId, notes }) {
   return (
     <>
-      <div className="overflow-y-scroll flex-1">
+      <div className="h-min overflow-y-scroll flex-1">
         {notes?.map((note, i) => (
           <motion.div
             key={note._id}

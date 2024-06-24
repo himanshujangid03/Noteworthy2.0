@@ -1,18 +1,16 @@
-import { updateName } from "@/services/apiAuth";
+import { deleteUser } from "@/services/apiAuth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-export function useUpdateName() {
+export function useDeleteUser() {
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation({
-    mutationFn: updateName,
+    mutationFn: deleteUser,
     onSuccess: () => {
-      toast.success("Name updated successfully.");
       queryClient.invalidateQueries({
         queryKey: ["isloggedIn"],
       });
     },
+    onError: () => toast.error(new Error()),
   });
-
-  return { mutate, isLoading };
 }

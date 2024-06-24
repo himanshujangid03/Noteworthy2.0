@@ -1,6 +1,6 @@
 import { useGetTask } from "@/hooks/Task hooks/useGetTask";
 import { FormattedDate } from "./formattedDate";
-import { CiCalendar } from "react-icons/ci";
+import { GoClock } from "react-icons/go";
 import TaskDropdown from "./TaskDropdown";
 import { AnimatePresence, motion as m } from "framer-motion";
 
@@ -22,14 +22,15 @@ const variants = {
 function TaskColumn({ title, column }) {
   const { taskData } = useGetTask();
   const filterCards = taskData?.filter((card) => card.status === column);
-  console.log(filterCards);
 
   return (
     <>
-      <div className=" shrink-0">
-        <div className="mb-3 text-3xl px-6 flex flex-row justify-between items-center bg-white/70 py-4 rounded-xl">
+      <div className="bg-base-200/50 p-3 rounded-2xl shadow-lg ring-1 ring-base-200">
+        <div className=" mb-3 text-3xl px-6 flex flex-row gap-5 items-center text-gray-500 py-4 rounded-xl">
           <h3 className="font-medium">{title}</h3>
-          <span className="">{filterCards?.length}</span>
+          <span className="bg-base-300 w-8 text-2xl font-medium text-center rounded-lg text-gray-800">
+            {filterCards?.length ? filterCards.length : 0}
+          </span>
         </div>
         <div className=" w-full overflow-y-scroll ">
           <AnimatePresence>
@@ -42,18 +43,28 @@ function TaskColumn({ title, column }) {
                 exit="exit"
                 transition={{ delay: i * 0.2, duration: 0.4 }}
                 key={card._id}
-                className={`bg-white w-full relative p-6 rounded-[2rem] shadow-md my-4  flex flex-col justify-between before:absolute before:-left-1 before:top-[25%] before:rounded-xl before:w-3      before:h-20  ${card.priority === "high" && "before:bg-red-500"} ${card.priority === "md" && "before:bg-orange-500"} ${card.priority === "low" && "before:bg-green-500"} `}
+                className={`bg-gray-50 w-full relative p-6  rounded-3xl shadow-md my-4  flex flex-col justify-between `}
               >
                 <div className=" self-end">
                   <TaskDropdown taskId={card._id} />
                 </div>
 
                 <div className=" flex flex-col gap-4">
-                  <h3 className="text-2xl text-wrap">{card.title}</h3>
-                  <span className="badge py-4 px-3 flex items-center gap-1">
-                    <CiCalendar className="size-4" />
+                  <h3 className="text-3xl font-medium text-wrap">
+                    {card.title}
+                  </h3>
+                  <span className=" flex text-lg items-center gap-1">
+                    <GoClock className="size-5 mr-1" />
+                    <FormattedDate date={Date.now()} /> -
                     <FormattedDate date={card.dueDate} />
                   </span>
+                  <div className=" text-xl capitalize flex items-center gap-2">
+                    {" "}
+                    <span
+                      className={`size-4 rounded-full ${card.priority === "high" && "bg-red-500"} ${card.priority === "md" && "bg-orange-500"} ${card.priority === "low" && "bg-green-500"} `}
+                    ></span>
+                    {card.priority === "md" ? "medium" : card.priority}
+                  </div>
                 </div>
               </m.div>
             ))}
