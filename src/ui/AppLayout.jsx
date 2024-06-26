@@ -10,7 +10,7 @@ function AppLayout() {
   //if (!data) return <Welcome />;
   return (
     <>
-      <div className="overflow-hidden bg-base-100 grid grid-flow-col grid-cols-[auto,1fr] h-dvh ">
+      <div className="overflow-x-hidden bg-base-100 grid grid-flow-col grid-cols-[auto,1fr] h-dvh ">
         <Sidebar />
         <div className="overflow-x-hidden grid grid-rows-[auto,1fr]">
           <Header />

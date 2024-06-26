@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useAllNotes } from "../hooks/Notes hooks/useAllNotes";
 import { Link } from "react-router-dom";
 import { motion as m } from "framer-motion";
+import SearchIllustration from "@/assets/Illustrations/SearchIllustration";
 
 function SearchDocumentModal() {
   const [query, setQuery] = useState();
@@ -23,7 +24,7 @@ function SearchDocumentModal() {
   return (
     <>
       <dialog id="search_docs" className="modal">
-        <div className="modal-box h-3/4 p-0">
+        <div className="modal-box h-3/4 p-0 flex flex-col">
           <div className="bg-base-100 px-4 py-2 grid grid-flow-col grid-cols-[auto,1fr] border-b-2 border-gray-300 sticky top-0">
             <CiSearch className=" h-6 w-6 self-center text-gray-600 mr-4 " />
             <input
@@ -33,6 +34,11 @@ function SearchDocumentModal() {
               onChange={(e) => setQuery(e.target.value)}
             />
           </div>
+          {(!note || !folder) && (
+            <div className=" self-center mt-24 ">
+              <SearchIllustration />
+            </div>
+          )}
           <m.div className="overflow-hidden p-4">
             {note && (
               <m.div className=" mt-2">

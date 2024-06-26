@@ -25,7 +25,6 @@ const router = createBrowserRouter([
       {
         path: "folder",
         element: <Folder />,
-        children: [],
       },
       {
         path: "/folder/:folderId",

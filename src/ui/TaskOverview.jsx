@@ -1,4 +1,14 @@
+import { useGetTask } from "@/hooks/Task hooks/useGetTask";
+
 function TaskOverview() {
+  const { taskData } = useGetTask();
+  const todo = taskData?.filter((el) => el.status === "todo");
+  const progress = taskData?.filter((el) => el.status === "pending");
+  const completed = taskData?.filter((el) => el.status === "completed");
+  const overdue = taskData?.filter(
+    (el) => new Date(el.dueDate) < new Date(Date.now())
+  );
+
   return (
     <div className="">
       <h1 className="text-2xl font-medium mb-1">Task Analysis</h1>
@@ -6,7 +16,7 @@ function TaskOverview() {
         <div className=" bg-white m-2 p-5 flex flex-col justify-between ring-1 gap-3 ring-gray-300  rounded-3xl">
           <p className=" text-2xl lg:text-3xl md:text-xl font-medium">Todo</p>
           <span className=" lg:text-6xl md:text-3xl text-2xl font-bold font-cabinet self-end">
-            10
+            {taskData ? todo?.length : 0}
           </span>
         </div>
         <div className=" bg-white m-2 p-5 flex flex-col justify-between gap-3 ring-1 ring-gray-300  rounded-3xl">
@@ -14,7 +24,7 @@ function TaskOverview() {
             In Progress
           </p>
           <span className=" lg:text-6xl md:text-3xl text-2xl font-bold font-cabinet self-end">
-            3
+            {taskData ? progress?.length : 0}
           </span>
         </div>
         <div className=" bg-white m-2 p-5 flex flex-col justify-between gap-3 ring-1 ring-gray-300  rounded-3xl">
@@ -22,7 +32,7 @@ function TaskOverview() {
             Completed
           </p>
           <span className=" lg:text-6xl md:text-3xl text-2xl font-bold font-cabinet self-end">
-            5
+            {taskData ? completed?.length : 0}
           </span>
         </div>
         <div className=" bg-white m-2 p-5 flex flex-col justify-between gap-3 ring-1 ring-gray-300  rounded-3xl">
@@ -30,7 +40,7 @@ function TaskOverview() {
             Overdue
           </p>
           <span className=" lg:text-6xl md:text-3xl text-2xl font-bold font-cabinet self-end">
-            5
+            {overdue?.length}
           </span>
         </div>
       </div>

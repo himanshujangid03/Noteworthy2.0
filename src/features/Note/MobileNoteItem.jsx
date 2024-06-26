@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CiFileOn } from "react-icons/ci";
+import EditNoteModal from "./EditNoteModal";
+import MobileEditNoteModal from "./MobileEditNoteModal";
 
 const variant = {
   hidden: {
@@ -13,10 +15,10 @@ const variant = {
   },
 };
 
-function NoteItem({ noteId, notes }) {
+function MobileNoteItem({ noteId, notes }) {
   return (
     <>
-      <div className="h-min overflow-y-scroll hidden lg:block flex-1">
+      <div className="h-min overflow-y-scroll lg:hidden flex-1">
         {notes?.map((note, i) => (
           <motion.div
             key={note._id}
@@ -32,7 +34,13 @@ function NoteItem({ noteId, notes }) {
               note._id === noteId ? "bg-accent" : ""
             }`}
           >
-            <Link to={`${note._id}`} className="p-4 w-full">
+            <Link
+              to={`${note._id}`}
+              className="p-4 w-full"
+              onClick={() =>
+                document.getElementById("edit_note_mb").showModal()
+              }
+            >
               <div className="flex w-full gap-3">
                 {note.emoji ? (
                   <span className=" self-center text-4xl">{note.emoji}</span>
@@ -52,8 +60,9 @@ function NoteItem({ noteId, notes }) {
           </motion.div>
         ))}
       </div>
+      <MobileEditNoteModal />
     </>
   );
 }
 
-export default NoteItem;
+export default MobileNoteItem;

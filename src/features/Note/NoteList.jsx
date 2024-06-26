@@ -3,6 +3,7 @@ import { IoIosAdd } from "react-icons/io";
 import CreateNoteModal from "./CreateNoteModal";
 import MotionPrimary from "../../Animation/MotionPrimary";
 import NoteItem from "../../ui/NoteItem";
+import MobileNoteItem from "./MobileNoteItem";
 
 function NoteList({ notes }) {
   const { noteId } = useParams();
@@ -15,6 +16,7 @@ function NoteList({ notes }) {
       >
         <h1 className=" text-2xl text-center p-3 ">All notes</h1>
         <NoteItem noteId={noteId} notes={notes} />
+        <MobileNoteItem noteId={noteId} notes={notes} />
         <div className="divider"></div>
         <label
           htmlFor="create_note_modal"

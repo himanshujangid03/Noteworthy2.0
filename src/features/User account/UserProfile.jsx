@@ -4,7 +4,7 @@ import { FiEye } from "react-icons/fi";
 import NewDate from "../../ui/NewDate";
 import { useIsLoggedIn } from "../../hooks/Auth hooks/useIsLoggedIn";
 import { IoIosArrowDown } from "react-icons/io";
-import LogoutModal from "../../ui/LogOutModal";
+import LogoutModal from "../../ui/LogoutModal";
 import Avatar from "../../ui/Avatar";
 import MotionDiv from "../../Animation/MotionDiv";
 
@@ -39,13 +39,13 @@ function UserProfile() {
               </li>
               <li>
                 <Link to={"/user"}>
-                  <FiEye className=" h-4 w-4" />
+                  <FiEye className=" size-4" />
                   Profile <span className="badge">New</span>
                 </Link>
               </li>
               <li>
                 <label htmlFor="my_modal_6">
-                  <HiOutlineLogout className=" h-5 w-5" />
+                  <HiOutlineLogout className="size-5" />
                   Log out
                 </label>
               </li>

@@ -1,27 +1,33 @@
 import GoogleAuth from "./google auth/GoogleAuth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../ui/Loader";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useLogin } from "../../hooks/Auth hooks/useLogin";
+import { useIsLoggedIn } from "@/hooks/Auth hooks/useIsLoggedIn";
 
 function LoginForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const { isSubmitting, mutateLogin } = useLogin();
+  const { data } = useIsLoggedIn();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     mutateLogin(data);
+    reset();
   };
+
+  if (data) return navigate("/");
 
   return (
     <>
       <div className=" m-4">
         <Link to={"/"} className=" btn-link flex">
-          <IoIosArrowRoundBack className=" self-center h-4 w-4" />
+          <IoIosArrowRoundBack className=" self-center size-4" />
           back to home page
         </Link>
-        <div className="flex flex-col items-center m-auto card max-w-[30rem] mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-8 rounded-xl">
-          <h1 className=" text-4xl mb-4 font-semibold">
+        <div className="flex flex-col items-center m-auto card max-w-[30rem] mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-6 lg:p-8 rounded-xl">
+          <h1 className=" text-2xl lg:text-4xl mb-4 font-semibold">
             Log in to your account
           </h1>
           <GoogleAuth />
@@ -33,7 +39,7 @@ function LoginForm() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full text-xl h-14 rounded-xl"
+                className="input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl"
                 {...register("email")}
               />
             </div>
@@ -41,12 +47,12 @@ function LoginForm() {
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="input input-bordered w-full text-2xl h-14 rounded-xl"
+                className="input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl"
                 {...register("password")}
               />
             </div>
             <button
-              className={`btn btn-primary h-14 !rounded-xl !text-xl  mt-2 ${
+              className={`btn btn-primary h-12 lg:h-14 !rounded-xl !text-lg lg:!text-xl  mt-2 ${
                 isSubmitting && "btn-disabled cursor-not-allowed"
               }`}
               disabled={isSubmitting}
@@ -57,7 +63,7 @@ function LoginForm() {
 
           <p className=" mt-4">
             Dont have an account.
-            <Link to={"/signup"} className="link link-info">
+            <Link to={"/signup"} className="link link-info ml-1">
               Sign Up
             </Link>
           </p>

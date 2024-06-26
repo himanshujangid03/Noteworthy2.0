@@ -37,14 +37,14 @@ function DeleteFolderModal({ item }) {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="grid grid-flow-col">
-              <div className="w-min flex m-4 self-center rounded-full bg-red-200">
-                <CiCircleAlert className=" h-10 w-10 text-error self-center" />
+              <div className="w-min flex m-4 ml-0 self-center rounded-full bg-red-200">
+                <CiCircleAlert className="size-10 text-error self-center" />
               </div>
               <div>
-                <h1 className=" text-2xl text-error text-start mt-4 font-semibold">
+                <h1 className=" text-xl text-error text-start mt-4 font-semibold">
                   Delete Folder
                 </h1>
-                <p className=" text-xl text-gray-800 text-start m-0">
+                <p className=" text-lg text-gray-800 text-start m-0">
                   You are going to delete the{" "}
                   <span className=" font-semibold">{item?.name}</span>. Are you
                   sure?

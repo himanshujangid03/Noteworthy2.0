@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import StaggerMotion from "../../Animation/StaggerMotion";
+import { FormattedDate } from "@/ui/formattedDate";
 
 function FolderItem({ item, i }) {
-  const date = new Date(item.createdAt);
-  const formatDate = date.toLocaleDateString();
-
   return (
     <>
       <StaggerMotion
@@ -18,7 +16,9 @@ function FolderItem({ item, i }) {
             📂 {item.name}
           </h3>
         </div>
-        <p className="font-sans">Created at {formatDate}</p>
+        <p className="font-sans">
+          Created at <FormattedDate date={item.createdAt} />
+        </p>
         <Link
           to={`/folder/${item._id}`}
           className="bg-black self-end h-14 w-14 overflow-hidden btn-neutral !rounded-full grid place-content-center"

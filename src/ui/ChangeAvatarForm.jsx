@@ -24,7 +24,7 @@ function ChangeAvatarForm() {
             Update profile picture
           </h1>
           <form
-            className=" h-56 w-full flex flex-col"
+            className=" h-max w-full flex flex-col "
             onSubmit={handleSubmit(onSubmit)}
           >
             <label

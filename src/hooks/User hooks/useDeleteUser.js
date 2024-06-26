@@ -13,4 +13,6 @@ export function useDeleteUser() {
     },
     onError: () => toast.error(new Error()),
   });
+
+  return { mutate, isLoading };
 }

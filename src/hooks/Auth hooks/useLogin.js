@@ -15,7 +15,10 @@ export function useLogin() {
       reset();
       navigate("/");
     },
-    onError: () => toast.error("Login failed."),
+    onError: (err) => {
+      toast.error(`${err}`);
+      console.log(err);
+    },
   });
 
   return { isSubmitting, mutateLogin };
