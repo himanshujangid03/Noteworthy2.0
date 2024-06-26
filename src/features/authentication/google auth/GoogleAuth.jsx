@@ -5,7 +5,7 @@ function GoogleAuth() {
   return (
     <div className="m-4 w-full">
       <Link
-        to={"http://localhost:8000/auth/google"}
+        to={"https://noteworthy-server-latest.onrender.com/auth/google"}
         className="flex w-full h-10 lg:h-14 hover:bg-gray-50 shadow-xl ring-1 ring-primary shadow-[primary]/10 items-center gap-2 btn bg-white"
       >
         <FcGoogle className="w-6 h-6" />

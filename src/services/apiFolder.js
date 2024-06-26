@@ -1,11 +1,14 @@
 export async function getFolder() {
-  const response = await fetch("http://localhost:8000/folder/get", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/folder/get",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
 
   const resData = await response.json();
 
@@ -14,15 +17,18 @@ export async function getFolder() {
 }
 
 export async function createFolder(data) {
-  const response = await fetch("http://localhost:8000/folder/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/folder/create",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-    body: JSON.stringify(data),
-    credentials: "include",
-  });
+      body: JSON.stringify(data),
+      credentials: "include",
+    }
+  );
 
   if (response.ok === false) throw new Error("Data not loaded");
   return response;
@@ -31,7 +37,7 @@ export async function createFolder(data) {
 export async function updateFolder(data) {
   const { folderId } = data;
   const response = await fetch(
-    `http://localhost:8000/folder/update/${folderId}`,
+    `https://noteworthy-server-latest.onrender.com/folder/update/${folderId}`,
     {
       method: "PATCH",
       headers: {
@@ -49,7 +55,7 @@ export async function updateFolder(data) {
 export async function deleteFolder(data) {
   const { folderId } = data;
   const response = await fetch(
-    `http://localhost:8000/folder/delete/${folderId}`,
+    `https://noteworthy-server-latest.onrender.com/folder/delete/${folderId}`,
     {
       method: "DELETE",
       headers: {
