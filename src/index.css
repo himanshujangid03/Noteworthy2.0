@@ -6,7 +6,7 @@
 
 @layer base {
   html {
-    font-size: 95%;
+    font-size: 85%;
     font-family: "Urbanist", sans-serif;
     ::-webkit-scrollbar {
       scrollbar-width: none;

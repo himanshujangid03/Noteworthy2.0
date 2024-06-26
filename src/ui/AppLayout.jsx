@@ -7,7 +7,7 @@ import Welcome from "../pages/Welcome";
 function AppLayout() {
   const { data } = useIsLoggedIn();
 
-  //if (!data) return <Welcome />;
+  if (!data) return <Welcome />;
   return (
     <>
       <div className="overflow-x-hidden bg-base-100 grid grid-flow-col grid-cols-[auto,1fr] h-dvh ">
