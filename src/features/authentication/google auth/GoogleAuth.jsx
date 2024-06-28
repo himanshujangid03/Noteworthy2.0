@@ -6,13 +6,13 @@ function GoogleAuth() {
     <div className="m-4 w-full">
       <Link
         to={"https://noteworthy-server-latest.onrender.com/auth/google"}
-        className="flex w-full h-10 lg:h-14 hover:bg-gray-50 shadow-xl ring-1 ring-primary shadow-[primary]/10 items-center gap-2 btn bg-white"
+        className="grid grid-cols-[auto,1fr] w-full h-10 lg:h-14 hover:bg-blue-500 shadow-xl shadow-[primary]/10 items-center p-1  btn bg-blue-600 text-white"
       >
-        <FcGoogle className="w-6 h-6" />
+        <FcGoogle className="size-6 bg-white h-full w-10 lg:w-12 px-2 rounded-lg" />
         Sign In With Google
       </Link>
       <div className=" text-center mt-4 text-xl font-normal text-gray-500">
-        -OR-``
+        -OR-
       </div>
     </div>
   );

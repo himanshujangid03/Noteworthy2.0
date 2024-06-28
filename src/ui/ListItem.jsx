@@ -25,7 +25,7 @@ function ListItem({ to, children, datatip }) {
         damping: 100,
         stiffness: 400,
       }}
-      className="text-gray-600 tooltip tooltip-top lg:tooltip-right tooltip-neutral font-sans font-semibold "
+      className="text-gray-600 tooltip tooltip-top lg:tooltip-right z-10 tooltip-neutral font-sans font-semibold "
       data-tip={datatip}
     >
       <NavLink

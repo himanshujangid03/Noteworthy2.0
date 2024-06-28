@@ -22,10 +22,6 @@ const variants = {
 function TaskColumn({ title, column }) {
   const { taskData } = useGetTask();
   const filterCards = taskData?.filter((card) => card.status === column);
-  const overdue = filterCards?.filter(
-    (el) => new Date(el.dueDate) < new Date(Date.now())
-  );
-  console.log(overdue);
 
   return (
     <>
@@ -47,7 +43,7 @@ function TaskColumn({ title, column }) {
                 exit="exit"
                 transition={{ delay: i * 0.2, duration: 0.4 }}
                 key={card._id}
-                className={`bg-gray-50 ${overdue ? "bg-red-100" : "bg-gray-50"} w-full relative p-6  rounded-3xl shadow-md my-4  flex flex-col justify-between `}
+                className={`bg-gray-50 w-full relative p-6 rounded-3xl shadow-md my-4 flex flex-col justify-between `}
               >
                 <div className=" self-end">
                   <TaskDropdown taskId={card._id} />
@@ -61,14 +57,18 @@ function TaskColumn({ title, column }) {
                     <FormattedDate date={Date.now()} /> -
                     <FormattedDate date={card.dueDate} />
                   </span>
-                  <div>
+                  <div className="flex items-center justify-between">
                     <div className=" text-xl capitalize flex items-center gap-2">
                       <span
                         className={`size-4 rounded-full ${card.priority === "high" && "bg-red-500"} ${card.priority === "md" && "bg-orange-500"} ${card.priority === "low" && "bg-green-500"} `}
                       ></span>
                       {card.priority === "md" ? "medium" : card.priority}
                     </div>
-                    <p>{overdue && "Overdue"}</p>
+                    {card.overdue && (
+                      <p className=" text-xl p-2 bg-red-500 rounded-xl px-3 text-red-50 font-light">
+                        Overdue
+                      </p>
+                    )}
                   </div>
                 </div>
               </m.div>

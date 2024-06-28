@@ -10,7 +10,7 @@ export function useGoogleLogout() {
     mutationFn: googleLogout,
     onSuccess: () => {
       toast.success("Successfully logged out from google account");
-      navigate("/login");
+      navigate("/");
       queryClient.invalidateQueries({
         queryKey: ["isloggedIn"],
       });

@@ -13,6 +13,7 @@ export function useLogout() {
       queryClient.invalidateQueries({
         queryKey: ["isloggedIn"],
       });
+      navigate("/");
     },
     onError: (err) => toast.error(err),
   });

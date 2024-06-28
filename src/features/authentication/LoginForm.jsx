@@ -7,7 +7,8 @@ import { useLogin } from "../../hooks/Auth hooks/useLogin";
 import { useIsLoggedIn } from "@/hooks/Auth hooks/useIsLoggedIn";
 
 function LoginForm() {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState } = useForm();
+  const { errors } = formState;
   const { isSubmitting, mutateLogin } = useLogin();
   const { data } = useIsLoggedIn();
   const navigate = useNavigate();
@@ -26,30 +27,42 @@ function LoginForm() {
           <IoIosArrowRoundBack className=" self-center size-4" />
           back to home page
         </Link>
-        <div className="flex flex-col items-center m-auto card max-w-[30rem] mt-20 shadow-xl shadow-gray-300 bg-gray-50 p-6 lg:p-8 rounded-xl">
+        <div className="flex flex-col items-center m-auto card max-w-[30rem] mt-20 lg:shadow-xl shadow-gray-300 bg-transparent lg:bg-gray-50 p-6 lg:p-8 rounded-xl">
           <h1 className=" text-2xl lg:text-4xl mb-4 font-semibold">
-            Log in to your account
+            Sign in to your account
           </h1>
           <GoogleAuth />
           <form
             onSubmit={handleSubmit(onSubmit)}
             className=" flex w-full flex-col m-auto gap-4 align-middle"
           >
-            <div>
+            <div className="flex flex-col gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl"
-                {...register("email")}
+                className={`input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl ${errors?.email?.message && "input-error"}`}
+                {...register("email", { required: "This field is required" })}
               />
+              {errors?.email?.message && (
+                <span className="text-error text-lg pl-2">
+                  {errors?.email?.message}
+                </span>
+              )}
             </div>
-            <div>
+            <div className="flex flex-col gap-2">
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl"
-                {...register("password")}
+                className={`input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl ${errors?.password?.message && "input-error"}`}
+                {...register("password", {
+                  required: "This field is required",
+                })}
               />
+              {errors?.password?.message && (
+                <span className="text-error text-lg pl-2">
+                  {errors?.password?.message}
+                </span>
+              )}
             </div>
             <button
               className={`btn btn-primary h-12 lg:h-14 !rounded-xl !text-lg lg:!text-xl  mt-2 ${
