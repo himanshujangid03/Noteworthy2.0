@@ -14,19 +14,19 @@ function Sidebar() {
         <Logo />
         <MotionUl className="menu menu-horizontal gap-2 grid grid-flow-col lg:menu-vertical lg:mt-10 lg:gap-4">
           <ListItem to={"/"} datatip="Dashboard">
-            <CiGrid41 className=" lg:size-7 size-7 " />
+            <CiGrid41 className=" size-7  " />
           </ListItem>
           <ListItem to={"/folder"} datatip="File Manager">
-            <CiFolderOn className=" lg:size-7 size-6 " />
+            <CiFolderOn className=" size-7" />
           </ListItem>
           <ListItem to={"/activity"} datatip="Activity">
-            <CiWavePulse1 className=" lg:size-7 size-6 " />
+            <CiWavePulse1 className=" size-7" />
           </ListItem>
           <ListItem to={"/user"} datatip="Account settings">
-            <CiUser className=" lg:size-7 size-6 " />
+            <CiUser className=" size-7 " />
           </ListItem>
           <ListItem to={"/tasks"} datatip="Task">
-            <CiBoxList className=" lg:size-7 size-6" />
+            <CiBoxList className=" size-7" />
           </ListItem>
         </MotionUl>
       </div>

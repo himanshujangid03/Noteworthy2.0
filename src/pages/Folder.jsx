@@ -10,7 +10,7 @@ function Folder() {
 
   return (
     <>
-      <div className="h-full pb-20">
+      <div className=" pb-20">
         <MotionDiv className=" grid lg:grid-cols-4 md:grid-cols-3  grid-cols-1">
           {isLoading && <FolderSkeleton />}
           {data?.map((item, i) => (

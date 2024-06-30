@@ -19,8 +19,6 @@ function StaggerMotion({ children, i, className }) {
     <m.div
       layout
       variants={variants}
-      drag
-      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
       initial="hidden"
       animate="visible"
       exit="exit"

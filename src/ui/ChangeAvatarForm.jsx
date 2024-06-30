@@ -5,7 +5,7 @@ import { useIsLoggedIn } from "../hooks/Auth hooks/useIsLoggedIn";
 import Loader from "./Loader";
 
 function ChangeAvatarForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const { email, mode } = useIsLoggedIn();
   const { isUploading, mutate } = useUpdateAvatar();
   const onSubmit = (data) => {
@@ -14,6 +14,8 @@ function ChangeAvatarForm() {
     const updatedData = { ...data, email, image: image };
     mutate(updatedData);
   };
+  const fileInput = watch("image");
+  const fileName = fileInput && fileInput[0]?.name;
 
   return (
     <>
@@ -38,7 +40,9 @@ function ChangeAvatarForm() {
                   Drop you image here or,
                   <span className=" text-sky-500 ml-2">browse</span>
                 </p>
-                <p className="self-center m-2"></p>
+                <p className="self-center text-xl m-2">
+                  {fileName && fileName}
+                </p>
               </div>
             </label>
             <input

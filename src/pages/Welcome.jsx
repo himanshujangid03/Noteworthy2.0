@@ -2,6 +2,7 @@ import { motion as m } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import NoteworthyHeading from "@/ui/NoteworthyHeading";
 
 const heading = ["n", "o", "t", "e", "w", "o", "r", "t", "h", "y"];
 
@@ -31,30 +32,7 @@ function Welcome() {
   return (
     <>
       <div className="overflow-hidden h-dvh place-content-center ">
-        <m.div
-          variants={ulVariants}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-row h-min overflow-hidden justify-center mb-6"
-        >
-          {heading.map((el, i) => (
-            <m.div
-              layout="position"
-              variants={liVariants}
-              transition={{
-                duration: 0.5,
-                ease: [0, 0.71, 0.2, 1.05],
-                type: "spring",
-                damping: 100,
-                stiffness: 300,
-              }}
-              key={i}
-              className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden uppercase tracking-tight font-extrabold "
-            >
-              {el}
-            </m.div>
-          ))}
-        </m.div>
+        <NoteworthyHeading />
 
         <div className=" p-4 flex flex-col items-start gap-6 lg:w-[60rem] text-wrap m-auto">
           <m.p

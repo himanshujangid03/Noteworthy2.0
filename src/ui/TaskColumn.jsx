@@ -65,7 +65,7 @@ function TaskColumn({ title, column }) {
                       {card.priority === "md" ? "medium" : card.priority}
                     </div>
                     {card.overdue && (
-                      <p className=" text-xl p-2 bg-red-500 rounded-xl px-3 text-red-50 font-light">
+                      <p className=" text-lg p-1 bg-red-500 rounded-lg px-3 text-red-50 font-light">
                         Overdue
                       </p>
                     )}

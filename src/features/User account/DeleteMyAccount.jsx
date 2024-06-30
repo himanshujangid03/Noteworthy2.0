@@ -17,7 +17,7 @@ function DeleteMyAccount() {
         </p>
 
         <button
-          className="btn btn-error btn-outline btn-wide btn-md !rounded-xl self-center lg:self-end lg:mr-4"
+          className="btn btn-error btn-outline btn-wide btn-md !rounded-xl self-end lg:mr-4"
           onClick={() => document.getElementById("delete_account").showModal()}
         >
           <PiTrashSimple className="size-5" />

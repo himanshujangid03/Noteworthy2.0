@@ -3,7 +3,7 @@ import TaskOverview from "@/ui/TaskOverview";
 
 function Home() {
   return (
-    <div className="h-full lg:grid grid-flow-col grid-cols-[1fr,auto] lg:p-4">
+    <div className=" lg:grid grid-flow-col grid-cols-[1fr,auto,auto] lg:p-4">
       <div className="flex  flex-col px-6 gap-6">
         <div className="w-full box-border  h-fit p-6  bg-gradient-to-br from-indigo-900 to-indigo-950 rounded-3xl flex flex-col gap-24">
           <h2 className="lg:text-5xl text-3xl text-blue-100 font-semibold leading-tight ">

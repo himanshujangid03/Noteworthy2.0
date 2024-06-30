@@ -18,7 +18,8 @@ function TaskDropdown({ taskId }) {
 
   const onComplete = () => {
     const status = "completed";
-    const data = { status, taskId };
+    const overdue = false;
+    const data = { status, overdue, taskId };
     mutate(data);
   };
 

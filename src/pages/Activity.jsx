@@ -3,7 +3,7 @@ import ActivityFilter from "../ui/ActivityFilter";
 
 function Activity() {
   return (
-    <div className=" h-full max-w-full p-4">
+    <div className=" max-w-full p-1 lg:pb-1 pb-10">
       <PageHeading heading="Activity" />
       <ActivityFilter />
     </div>

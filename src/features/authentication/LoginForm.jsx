@@ -41,7 +41,13 @@ function LoginForm() {
                 type="email"
                 placeholder="Enter your email"
                 className={`input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl ${errors?.email?.message && "input-error"}`}
-                {...register("email", { required: "This field is required" })}
+                {...register("email", {
+                  required: "This field is required",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                    message: "Invalid email address",
+                  },
+                })}
               />
               {errors?.email?.message && (
                 <span className="text-error text-lg pl-2">

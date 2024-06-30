@@ -10,7 +10,7 @@ function Task() {
 
   return (
     <>
-      <div className="flex flex-col gap-5 h-full  p-4 pb-10">
+      <div className="flex flex-col gap-5 p-4 lg:pb-4 pb-20">
         <div className="">
           <label
             className="btn btn-neutral !text-xl float-end !rounded-xl"

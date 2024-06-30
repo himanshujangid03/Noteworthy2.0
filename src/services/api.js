@@ -1,14 +1,10 @@
 /* eslint-disable no-undef */
 
 //* auth api
-exports.loginApi = "https://noteworthy-server-latest.onrender.com/user/login";
-exports.signUpApi = "https://noteworthy-server-latest.onrender.com/user/signup";
-exports.isLoggedInApi =
-  "https://noteworthy-server-latest.onrender.com/user/profile";
-exports.logOutApi = "https://noteworthy-server-latest.onrender.com/user/logout";
-exports.googleLogOutApi =
-  "https://noteworthy-server-latest.onrender.com/user/google/logout";
-exports.updateNameApi =
-  "https://noteworthy-server-latest.onrender.com/user/update-user";
-exports.deleteUserApi =
-  "https://noteworthy-server-latest.onrender.com/user/delete-user";
+exports.loginApi = "http://localhost:8000/user/login";
+exports.signUpApi = "http://localhost:8000/user/signup";
+exports.isLoggedInApi = "http://localhost:8000/user/profile";
+exports.logOutApi = "http://localhost:8000/user/logout";
+exports.googleLogOutApi = "http://localhost:8000/user/google/logout";
+exports.updateNameApi = "http://localhost:8000/user/update-user";
+exports.deleteUserApi = "http://localhost:8000/user/delete-user";
