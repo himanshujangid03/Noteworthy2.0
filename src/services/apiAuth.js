@@ -1,25 +1,31 @@
 export async function login(data) {
-  const response = await fetch("http://localhost:8000/user/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-    credentials: "include",
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/user/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      credentials: "include",
+    }
+  );
 
   if (response.ok === false) throw new Error("Invalid email or password");
   return response;
 }
 
 export async function signUp(data) {
-  const response = await fetch("http://localhost:8000/user/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/user/signup",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
 
   if (response.ok === false) throw new Error("failed");
 
@@ -27,13 +33,16 @@ export async function signUp(data) {
 }
 
 export async function isLoggedIn() {
-  const response = await fetch("http://localhost:8000/user/profile", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/user/profile",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
   const resData = await response.json();
 
   if (response.ok === false)
@@ -43,13 +52,16 @@ export async function isLoggedIn() {
 }
 
 export async function logout() {
-  const response = await fetch("http://localhost:8000/user/logout", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/user/logout",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
 
   if (!response.ok) return new Error("Log out failed. Something went wrong!");
 
@@ -57,13 +69,16 @@ export async function logout() {
 }
 
 export async function googleLogout() {
-  const response = await fetch("http://localhost:8000/user/google/logout", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/user/google/logout",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
 
   if (!response.ok) return new Error("Log out failed. Something went wrong!");
 
@@ -71,14 +86,17 @@ export async function googleLogout() {
 }
 
 export async function updateName(data) {
-  const response = await fetch("http://localhost:8000/user/update-user", {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/user/update-user",
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    }
+  );
 
   if (!response.ok) return new Error("Something went wrong!");
 
@@ -86,13 +104,16 @@ export async function updateName(data) {
 }
 
 export async function deleteUser() {
-  const response = await fetch("http://localhost:8000/user/delete-user", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-  });
+  const response = await fetch(
+    "https://noteworthy-server-latest.onrender.com/user/delete-user",
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    }
+  );
 
   if (response.ok === false)
     throw new Error("Something went wrong. Try again later.");
