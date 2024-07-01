@@ -34,7 +34,7 @@ export async function signUp(data) {
 
 export async function isLoggedIn() {
   const response = await fetch(
-    `${"https://noteworthy-server-latest.onrender.com/user/profile" || "https://noteworthy-server-latest.onrender.com/auth/check"}`,
+    `${"https://noteworthy-server-latest.onrender.com/auth/check"}`,
     {
       method: "GET",
       headers: {
