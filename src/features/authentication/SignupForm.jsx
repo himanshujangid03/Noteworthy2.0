@@ -32,11 +32,11 @@ function SignUpForm() {
           onSubmit={handleSubmit(onSubmit)}
           className=" flex flex-col w-full m-auto gap-4 align-middle"
         >
-          <div className=" flex flex-col gap-3">
+          <div className=" flex flex-col ">
             <input
               type="name"
               placeholder="Enter your name"
-              className={`input input-bordered w-full h-12 lg:h-14 ${errors?.name?.message && "input-error"}`}
+              className={`input text-xl input-bordered w-full h-12 lg:h-14 ${errors?.name?.message && "input-error"}`}
               {...register("name", { required: "This field is required" })}
             />
             <span className=" text-error text-lg font-medium">
@@ -47,7 +47,7 @@ function SignUpForm() {
             <input
               type="email"
               placeholder="Enter your email"
-              className={`input input-bordered w-full h-12 lg:h-14 ${errors?.email?.message && "input-error"}`}
+              className={`input text-xl input-bordered w-full h-12 lg:h-14 ${errors?.email?.message && "input-error"}`}
               {...register("email", {
                 required: "This field is required",
                 pattern: {
@@ -64,7 +64,7 @@ function SignUpForm() {
             <input
               type="password"
               placeholder="Enter your password"
-              className={`input  input-bordered w-full h-12 lg:h-14 ${errors?.password?.message && "input-error"}`}
+              className={`input text-xl  input-bordered w-full h-12 lg:h-14 ${errors?.password?.message && "input-error"}`}
               {...register("password", { required: "This field is required" })}
             />
             <span className=" text-error text-lg font-medium">

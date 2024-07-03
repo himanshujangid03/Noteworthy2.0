@@ -7,7 +7,7 @@ function PageHeading({ heading }) {
         initial={{ y: "100px" }}
         animate={{ y: 0 }}
         transition={{
-          duration: 0.8,
+          duration: 0.5,
           ease: "easeInOut",
         }}
         className=" lg:text-6xl text-4xl text-center font-extrabold text-gray-400/90 self-center"

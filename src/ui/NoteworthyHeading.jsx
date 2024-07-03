@@ -44,7 +44,7 @@ function NoteworthyHeading() {
               stiffness: 300,
             }}
             key={i}
-            className="lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden uppercase tracking-tight font-extrabold "
+            className={` ${i < 4 && " text-blue-700"} lg:text-[11rem] lg:h-[12.15rem] top-10 relative overflow-hidden uppercase tracking-tight font-extrabold `}
           >
             {el}
           </m.div>
@@ -68,7 +68,7 @@ function NoteworthyHeading() {
               stiffness: 300,
             }}
             key={i}
-            className="text-6xl top-12 relative overflow-hidden uppercase tracking-tight font-extrabold"
+            className={`${i < 4 && "text-blue-500"} text-6xl top-12 relative overflow-hidden uppercase tracking-tight font-extrabold`}
           >
             {el}
           </m.div>

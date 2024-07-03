@@ -22,7 +22,7 @@ function FolderDropdown() {
           className="tooltip tooltip-top z-30"
           data-tip={currentFolder?.at(0)?.name}
         >
-          <h3 className=" text-3xl font-medium  truncate text-start ">
+          <h3 className=" text-2xl lg:text-3xl font-medium text-wrap  truncate text-start ">
             {currentFolder?.at(0)?.name}
           </h3>
         </div>

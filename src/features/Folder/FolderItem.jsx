@@ -9,7 +9,7 @@ function FolderItem({ item, i }) {
     <>
       <StaggerMotion
         i={i}
-        className="card bg-gradient-to-br from-gray-100 to-slate-200 border-2 border-slate-300 rounded-3xl rounded-br-[2.5rem] shadow-gray-300 shadow-2xl h-48 m-4 p-4 gap-4 flex justify-between"
+        className="card bg-gradient-to-br from-gray-100 to-slate-200 ring-1 ring-slate-300 rounded-3xl rounded-br-[2.5rem] shadow-gray-300 shadow-2xl h-48 m-4 p-4 gap-4 flex justify-between"
       >
         <div className="tooltip tooltip-top" data-tip={item.name}>
           <h3 className=" text-4xl font-medium text-start truncate self-start ">

@@ -5,11 +5,11 @@ import DeleteAccountModal from "./DeleteAccountModal";
 function DeleteMyAccount() {
   return (
     <>
-      <MotionDiv className=" py-6 flex flex-col ">
+      <MotionDiv className=" py-6 flex flex-col gap-6">
         <h2 className="text-3xl lg:text-4xl text-error font-medium">
           Delete my account
         </h2>
-        <div className="divider"></div>
+
         <p className=" text-lg lg:text-xl text-gray-500 w-full lg:w-[50rem] text-wrap mb-4">
           Please be advised that account deletion is irreversible and will
           result in permanent loss of all associated data and access privileges.

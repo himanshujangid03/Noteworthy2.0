@@ -17,7 +17,6 @@ function ListItem({ to, children, datatip }) {
     <motion.li
       layout="size"
       variants={liVariants}
-      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
       transition={{
         duration: 0.2,
