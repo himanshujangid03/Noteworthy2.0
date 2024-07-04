@@ -1,37 +1,18 @@
 import { motion as m } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import NoteworthyHeading from "@/ui/NoteworthyHeading";
 
-const heading = ["n", "o", "t", "e", "w", "o", "r", "t", "h", "y"];
-
-const ulVariants = {
-  visible: {
-    transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const liVariants = {
-  hidden: {
-    y: 300,
-  },
-  visible: {
-    y: -40,
-  },
-  exit: {
-    y: -300,
-  },
-};
-
 function Welcome() {
+  const location = useLocation();
   const [startAnimate, setAnimate] = useState(false);
   return (
     <>
-      <div className="overflow-hidden h-dvh place-content-center ">
+      <div
+        className="overflow-hidden h-dvh place-content-center "
+        key={location.pathname}
+      >
         <NoteworthyHeading />
 
         <div className=" p-4 flex flex-col items-start gap-6 lg:w-[60rem] text-wrap m-auto">
@@ -84,13 +65,3 @@ function Welcome() {
 }
 
 export default Welcome;
-
-/*<m.div
-  animate={{ display: "none" }}
-  transition={{ delay: 4.3, duration: 200 }}
-  className="absolute h-dvh w-full"
->
-  <video autoPlay muted className="w-full h-full object-cover ">
-    <source src={video} type="video/mp4" />
-  </video>
-</m.div>;*/

@@ -3,6 +3,21 @@ import { Calendar } from "@/components/ui/calendar";
 import { useGetTask } from "@/hooks/Task hooks/useGetTask";
 import { Link } from "react-router-dom";
 import UpcomingTask from "./UpcomingTask";
+import { motion as m } from "framer-motion";
+
+const variants = {
+  initial: {
+    opacity: 0,
+    y: 10,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+  transition: {
+    duration: 0.4,
+  },
+};
 
 function TaskCalendar() {
   const [date, setDate] = useState(new Date());
@@ -13,14 +28,21 @@ function TaskCalendar() {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border w-min shadow-sm"
-          dueDate={dueDate}
-          currentDate={currentDate}
-        />
+        <m.div
+          initial="initial"
+          animate="animate"
+          variants={variants}
+          transition={variants.transition}
+        >
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            className="rounded-md border w-min shadow-sm"
+            dueDate={dueDate}
+            currentDate={currentDate}
+          />
+        </m.div>
         <div className="flex justify-between">
           <p className=" text-xl font-medium">Upcoming</p>
           <Link
