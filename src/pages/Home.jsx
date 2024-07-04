@@ -31,7 +31,7 @@ function Home() {
           <h2 className="lg:text-5xl text-3xl text-blue-100 font-semibold leading-tight ">
             Boost Your Productivity with Effective <br /> Task Management
           </h2>
-          <Link to={"/tasks"} className="btn !rounded-full w-max">
+          <Link to={"/tasks"} className="btn btn-ghost text-gray-100 w-max">
             Get Started
           </Link>
         </m.div>

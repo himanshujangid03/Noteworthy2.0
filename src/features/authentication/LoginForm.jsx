@@ -40,6 +40,7 @@ function LoginForm() {
               <input
                 type="email"
                 placeholder="Enter your email"
+                defaultValue="test@gmail.com"
                 className={`input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl ${errors?.email?.message && "input-error"}`}
                 {...register("email", {
                   required: "This field is required",
@@ -59,6 +60,7 @@ function LoginForm() {
               <input
                 type="password"
                 placeholder="Enter your password"
+                defaultValue="jangid12345"
                 className={`input input-bordered w-full text-xl h-12 lg:h-14 rounded-xl ${errors?.password?.message && "input-error"}`}
                 {...register("password", {
                   required: "This field is required",
