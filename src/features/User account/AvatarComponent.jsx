@@ -6,7 +6,7 @@ import PageHeading from "../../ui/PageHeading";
 
 function AvatarComponent() {
   const { data, mode } = useIsLoggedIn();
-  console.log(mode);
+
   return (
     <>
       <MotionDiv className="p-4 pt-6 flex  flex-col gap-4 rounded-2xl">

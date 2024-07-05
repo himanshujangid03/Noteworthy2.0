@@ -16,7 +16,7 @@ function SignUpForm() {
     navigate("/");
     reset();
   };
-  console.log(errors);
+
   return (
     <div className=" m-2">
       <Link className=" btn-link flex ">

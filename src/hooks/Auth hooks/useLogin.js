@@ -17,7 +17,6 @@ export function useLogin() {
     },
     onError: (err) => {
       toast.error(`${err}`);
-      console.log(err);
     },
   });
 
