@@ -1,4 +1,4 @@
-# ![Vite Logo](https://vitejs.dev/logo.svg) React + Vite
+# <img src="https://vitejs.dev/logo.svg" alt="Vite Logo" width="50" height="50"> React + Vite
 
 Noteworthy is a full-stack MERN (MongoDB, Express.js, React, Node.js) application designed to make note-taking a breeze. With powerful CRUD (Create, Read, Update, Delete) operations, it empowers users to manage their notes seamlessly.
 
