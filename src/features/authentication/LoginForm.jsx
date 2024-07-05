@@ -5,6 +5,8 @@ import Loader from "../../ui/Loader";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useLogin } from "../../hooks/Auth hooks/useLogin";
 import { useIsLoggedIn } from "@/hooks/Auth hooks/useIsLoggedIn";
+import toast from "react-hot-toast";
+import ToastWait from "@/ui/ToastWait";
 
 function LoginForm() {
   const { register, handleSubmit, reset, formState } = useForm();
@@ -14,6 +16,7 @@ function LoginForm() {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+    toast.custom((t) => <ToastWait t={t} />);
     mutateLogin(data);
     reset();
   };
